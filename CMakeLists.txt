@@ -61,12 +61,12 @@ FILE(GLOB LibHeaders
 # non-sgl-library source / header files specific to this project
 FILE(GLOB ProjectSources
 	src/*.cpp
-	src/gui/*.cpp
+	src/pieces/*.cpp
 )
 
 FILE(GLOB ProjectHeaders
 	src/*.h
-	src/gui/*.h
+	src/pieces/*.h
 )
 
 # resource files (images, input files, etc.) for this project
@@ -221,6 +221,7 @@ target_include_directories(StarterProject
 	PRIVATE
 	lib/
 	src/
+	src/pieces/
 )
 
 target_link_libraries(StarterProject
