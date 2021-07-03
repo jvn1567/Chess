@@ -9,7 +9,8 @@ private:
     bool hasMoved;
 public:
     Pawn(bool isWhite);
-    unordered_map<int, int> getMoves() const override;
+    unordered_map<int, int> getMoves(vector<vector<ChessPiece*>>* board,
+            int row, int col) const override;
     string getName() const override;
     void setMoved();
 };

@@ -7,11 +7,16 @@ using namespace std;
 
 class ChessPiece {
 private:
-    bool isWhite;
+    bool white;
 public:
-    ChessPiece(bool isWhite);
-    virtual unordered_map<int, int> getMoves() const;
+    ChessPiece(bool white);
+    virtual unordered_map<int, int> getMoves(vector<vector<ChessPiece*>>* board,
+            int row, int col) const;
     virtual string getName() const;
+    bool isWhite() const;
+    bool isOutOfBounds(int row, int col) const;
+    void getLine(vector<vector<ChessPiece*>>* board, int pRow, int pCol,
+            unordered_map<int, int>& moves, int rowShift, int colShift) const;
 };
 
 #endif
