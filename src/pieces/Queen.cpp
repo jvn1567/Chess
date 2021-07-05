@@ -2,9 +2,9 @@
 
 Queen::Queen(bool isWhite) : ChessPiece(isWhite) {}
 
-unordered_map<int, int> Queen::getMoves(vector<vector<ChessPiece*>>* board,
+unordered_set<Tile*> Queen::getMoves(vector<vector<ChessPiece*>>* board,
         int row, int col) const {
-    unordered_map<int, int> moves;
+    unordered_set<Tile*> moves;
     getLine(board, row, col, moves, 1, 0); //N
     getLine(board, row, col, moves, 0, 1); //E
     getLine(board, row, col, moves, -1, 0); //S

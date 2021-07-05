@@ -37,8 +37,8 @@ void ChessBoard::setBackRow(int row, bool isWhite) {
     (*board)[row][7] = new Rook(isWhite);
 }
 
-unordered_map<int, int> ChessBoard::getMoves(int row, int col) const {
-    unordered_map<int, int> moves = (*board)[row][col]->getMoves(board, row, col);
+unordered_set<Tile*> ChessBoard::getMoves(int row, int col) const {
+    unordered_set<Tile*> moves = (*board)[row][col]->getMoves(board, row, col);
     return moves;
 }
 

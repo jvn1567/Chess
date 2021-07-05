@@ -1,4 +1,5 @@
 #include "ChessBoard.h"
+#include "Pawn.h"
 #include <iomanip>
 #include <string>
 #include "gwindow.h"
@@ -17,7 +18,7 @@ ChessBoard* board;
 bool pieceIsSelected;
 int selectedRow;
 int selectedCol;
-unordered_map<int, int> movableTiles;
+unordered_set<Tile*> movableTiles;
 
 void fillTile(string color, int row, int col) {
     window->setColor(color);
@@ -36,28 +37,26 @@ void drawTileHighlight(int row, int col) {
     if (pieceIsSelected) {
         //highlight selected unit
         if (row == selectedRow && col == selectedCol) {
-            cout << pieceIsSelected << endl;
             fillTile("blue", row, col);
         }
         //highlight moveable tiles
-        try {
-            int col2 = movableTiles.at(row);
-            bool movable = col == col2;
-            bool isOccupied = false;
-            bool containsEnemy = false;
-            ChessPiece* piece = board->getPiece(row, col);
-            if (piece != nullptr) {
-                isOccupied = true;
-                containsEnemy = !(piece->isWhite());
+        bool movable = false;
+        for (Tile* available : movableTiles) {
+            if (available->getCol() == col && available->getRow() == row) {
+                movable = true;
             }
-            if (movable && !isOccupied) {
-                fillTile("yellow", row, col);
-            } else if (movable && containsEnemy) {
-                fillTile("red", row, col);
-            }
-        } catch (exception ex) {
-            //do nothing
-            (void)ex;
+        }
+        bool isOccupied = false;
+        bool containsEnemy = false;
+        ChessPiece* piece = board->getPiece(row, col);
+        if (piece != nullptr) {
+            isOccupied = true;
+            containsEnemy = !(piece->isWhite());
+        }
+        if (movable && !isOccupied) {
+            fillTile("yellow", row, col);
+        } else if (movable && containsEnemy) {
+            fillTile("red", row, col);
         }
     }
 }
@@ -94,22 +93,51 @@ void handleSelect(int row, int col) {
         selectedRow = row;
         selectedCol = col;
         pieceIsSelected = true;
+        //free previous memory
+        for (Tile* ptr : movableTiles) {
+            delete ptr;
+        }
         movableTiles = board->getMoves(row, col);
     redraw();
     }
 }
 
 void handleMove(int row, int col) {
-    pieceIsSelected = false;
-    redraw();
+    //checks
+    ChessPiece* piece = board->getPiece(row, col);
+    bool selectedLocation = row == selectedRow && col == selectedCol;
+    bool alliedPiece = piece != nullptr && piece->isWhite();
+    bool validLocation = false;
+    Tile thisTile(row, col);
+    for (Tile* tile : movableTiles) {
+        if (*tile == thisTile) {
+            validLocation = true;
+        }
+    }
+    //filter for behavior
+    if (selectedLocation || !validLocation) {
+        pieceIsSelected = false;
+        redraw();
+    } else if (alliedPiece) {
+        handleSelect(row, col);
+    } else {
+        ChessPiece* old = board->getPiece(selectedRow, selectedCol);
+        if (old->getName() == "Pawn") {
+            ((Pawn*)old)->setMoved();
+        }
+        board->setPiece(old, row, col);
+        board->setPiece(nullptr, selectedRow, selectedCol);
+        pieceIsSelected = false;
+        redraw();
+    }
 }
 
 void handleClick(GEvent mouseEvent) {
     int col = mouseEvent.getX() / TILE_SIZE;
     int row = mouseEvent.getY() / TILE_SIZE;
-    if (pieceIsSelected) {
+    if (pieceIsSelected && col < 8) {
         handleMove(row, col);
-    } else {
+    } else if (col < 8) {
         handleSelect(row, col);
     }
 }
@@ -128,8 +156,6 @@ int main() {
     window->setAutoRepaint(false);
     window->setTitle("Chess");
     window->setClickListener(handleClick);
-    cout << "check1" << endl;
     redraw();
-    cout << "check2" << endl;
     return 0;
 }
