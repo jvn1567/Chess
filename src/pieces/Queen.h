@@ -8,7 +8,7 @@ class Queen : public ChessPiece {
 private:
 public:
     Queen(bool isWhite);
-    unordered_set<Tile*> getMoves(vector<vector<ChessPiece*>>* board,
+    unordered_set<Tile, HashTile> getMoves(vector<vector<ChessPiece*>>* board,
             int row, int col) const override;
     string getName() const override;
 };

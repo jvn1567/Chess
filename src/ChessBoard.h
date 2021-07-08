@@ -12,8 +12,9 @@ private:
     void setBackRow(int row, bool isWhite);
 public:
     ChessBoard();
+    ChessBoard(const ChessBoard& oldBoard);
     void setStartingBoard();
-    unordered_set<Tile*> getMoves(int row, int col) const;
+    unordered_set<Tile, HashTile> getMoves(int row, int col) const;
     ChessPiece* getPiece(int row, int col) const;
     void setPiece(ChessPiece* piece, int row, int col);
 };

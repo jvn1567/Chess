@@ -22,3 +22,10 @@ bool operator ==(const Tile& tile1, const Tile& tile2) {
     bool equalCol = tile1.getCol() == tile2.getCol();
     return equalRow && equalCol;
 }
+
+bool operator <(const Tile& tile1, const Tile& tile2) {
+    bool lowerRow = tile1.getRow() < tile2.getRow();
+    bool equalRow = tile1.getRow() == tile2.getRow();
+    bool lowerCol = tile1.getCol() < tile2.getCol();
+    return lowerRow || (equalRow && lowerCol);
+}

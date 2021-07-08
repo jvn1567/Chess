@@ -2,10 +2,10 @@
 
 Knight::Knight(bool isWhite) : ChessPiece(isWhite) {}
 
-unordered_set<Tile*> Knight::getMoves(vector<vector<ChessPiece*>>* board,
+unordered_set<Tile, HashTile> Knight::getMoves(vector<vector<ChessPiece*>>* board,
         int row, int col) const {
     (void)board;
-    unordered_set<Tile*> moves;
+    unordered_set<Tile, HashTile> moves;
     vector<int> shift = {-2, -1, 1, 2};
     for (int rowShift = 0; rowShift < shift.size(); rowShift++) {
         for (int colShift = 0; colShift < shift.size(); colShift++) {
@@ -21,9 +21,9 @@ string Knight::getName() const {
     return "Knight";
 }
 
-void Knight::addTile(unordered_set<Tile*>& moves, int row, int col) const {
+void Knight::addTile(unordered_set<Tile, HashTile>& moves, int row, int col) const {
     if (!isOutOfBounds(row, col)) {
-        Tile* movableTile = new Tile(row, col);
+        Tile movableTile(row, col);
         moves.insert(movableTile);
     }
 }

@@ -11,12 +11,12 @@ private:
     bool white;
 public:
     ChessPiece(bool white);
-    virtual unordered_set<Tile*> getMoves(vector<vector<ChessPiece*>>* board,
+    virtual unordered_set<Tile, HashTile> getMoves(vector<vector<ChessPiece*>>* board,
             int row, int col) const;
     virtual string getName() const;
     bool isWhite() const;
     void getLine(vector<vector<ChessPiece*>>* board, int row, int col,
-            unordered_set<Tile*>& moves, int rowShift, int colShift) const;
+            unordered_set<Tile, HashTile>& moves, int rowShift, int colShift) const;
 };
 
 #endif

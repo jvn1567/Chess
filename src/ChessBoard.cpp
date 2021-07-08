@@ -17,6 +17,18 @@ ChessBoard::ChessBoard() {
     }
 }
 
+ChessBoard::ChessBoard(const ChessBoard& oldBoard) {
+    board = new vector<vector<ChessPiece*>>;
+    for (int row = 0; row < 8; row++) {
+        vector<ChessPiece*> newRow;
+        for (int col = 0; col < 8; col++) {
+            ChessPiece* piece = oldBoard.getPiece(row, col);
+            newRow.push_back(piece);
+        }
+        board->push_back(newRow);
+    }
+}
+
 void ChessBoard::setStartingBoard() {
     for (int col = 0; col < 8; col ++) {
         (*board)[1][col] = new Pawn(false);
@@ -37,8 +49,8 @@ void ChessBoard::setBackRow(int row, bool isWhite) {
     (*board)[row][7] = new Rook(isWhite);
 }
 
-unordered_set<Tile*> ChessBoard::getMoves(int row, int col) const {
-    unordered_set<Tile*> moves = (*board)[row][col]->getMoves(board, row, col);
+unordered_set<Tile, HashTile> ChessBoard::getMoves(int row, int col) const {
+    unordered_set<Tile, HashTile> moves = (*board)[row][col]->getMoves(board, row, col);
     return moves;
 }
 
