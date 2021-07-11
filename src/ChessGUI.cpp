@@ -1,5 +1,4 @@
 #include "ChessBoard.h"
-#include "Pawn.h"
 #include <string>
 #include <unordered_set>
 #include "gwindow.h"
@@ -16,15 +15,6 @@ static const int TILE_SIZE = WINDOW_SIZE / 8;
 //global variables
 GWindow* window;
 ChessBoard* board;
-//tile selection status and location for player
-bool pieceIsSelected;
-int selectedRow;
-int selectedCol;
-//turn tracker, king status and location
-bool whiteTurn;
-bool whiteIsChecked;
-bool blackIsChecked;
-unordered_set<Tile, HashTile> movableTiles;
 
 void fillTile(string color, int row, int col) {
     window->setColor(color);
@@ -47,13 +37,14 @@ void drawBackgroundTile(int row, int col) {
 }
 
 void drawTileHighlight(int row, int col) {
-    if (pieceIsSelected) {
+    if (board->pieceIsSelected()) {
         //highlight selected unit
-        if (row == selectedRow && col == selectedCol) {
+        if (row == board-> getSelectedRow() && col == board->getSelectedCol()) {
             drawTile("orange", row, col);
         }
         //highlight moveable tiles
         bool movable = false;
+        unordered_set<Tile, HashTile> movableTiles = board->getMovableTiles();
         for (Tile available : movableTiles) {
             if (available.getCol() == col && available.getRow() == row) {
                 movable = true;
@@ -77,9 +68,9 @@ void drawTileHighlight(int row, int col) {
 void drawPiece(int row, int col) {
     ChessPiece* piece = board->getPiece(row, col);
     if (piece != nullptr) {
-        bool isChecked = (whiteTurn && whiteIsChecked && piece->isWhite()) ||
-                (!whiteTurn && blackIsChecked && !piece->isWhite());
-        if (piece->getName() == "King" && isChecked) {
+        bool playerKingChecked = board->isWhiteTurn() && board->isCheckedWhite();
+        bool pieceIsPlayerKing = piece->getName() == "King" && piece->isWhite();
+        if (playerKingChecked && pieceIsPlayerKing) {
             fillTile("red", row, col);
         }
         string filename = "";
@@ -105,123 +96,15 @@ void redraw() {
     window->repaint();
 }
 
-Tile getKingLocation(bool kingIsWhite) {
-    int kingRow = 0;
-    int kingCol = 0;
-    for (int row = 0; row < 8; row++) {
-        for (int col = 0; col < 8; col++) {
-            ChessPiece* piece = board->getPiece(row, col);
-            if (piece != nullptr && piece->getName() == "King" &&
-                    piece->isWhite() == kingIsWhite) {
-                kingRow = row;
-                kingCol = col;
-            }
-        }
-    }
-    Tile kingTile(kingRow, kingCol);
-    return kingTile;
-}
-
-bool kingIsChecked(bool kingIsWhite, Tile kingLocation) {
-    unordered_set<Tile, HashTile> enemyMoves;
-    for (int row = 0; row < 8; row++) {
-        for (int col = 0; col < 8; col++) {
-            ChessPiece* piece = board->getPiece(row, col);
-            if (piece != nullptr && piece->isWhite() != kingIsWhite) {
-                unordered_set<Tile, HashTile> temp = board->getMoves(row, col);
-                for (Tile tile : temp) {
-                    enemyMoves.insert(tile);
-                }
-            }
-        }
-    }
-    return enemyMoves.count(kingLocation);
-}
-
-void checkKings() {
-    Tile whiteKing = getKingLocation(true);
-    whiteIsChecked = kingIsChecked(true, whiteKing);
-    Tile blackKing = getKingLocation(false);
-    blackIsChecked = kingIsChecked(false, blackKing);
-}
-
-bool simulateMove(int row, int col) {
-    ChessBoard* oldBoard = new ChessBoard(*board);
-    ChessPiece* oldPiece = board->getPiece(selectedRow, selectedCol);
-    bool whiteWasChecked = whiteIsChecked;
-    bool blackWasChecked = blackIsChecked;
-    board->setPiece(oldPiece, row, col);
-    board->setPiece(nullptr, selectedRow, selectedCol);
-    checkKings();
-    bool checked = (whiteTurn && !whiteIsChecked) || (!whiteTurn && !blackIsChecked);
-    board = oldBoard;
-    oldBoard = nullptr;
-    whiteIsChecked = whiteWasChecked;
-    blackIsChecked = blackWasChecked;
-    return checked;
-}
-
-void handleSelect(int row, int col) {
-    ChessPiece* piece = board->getPiece(row, col);
-    if (piece != nullptr && piece->isWhite()) {
-        selectedRow = row;
-        selectedCol = col;
-        pieceIsSelected = true;
-        unordered_set<Tile, HashTile> tempMovableTiles = board->getMoves(row, col);
-        movableTiles.clear();
-        for (Tile tile : tempMovableTiles) {
-            if (simulateMove(tile.getRow(), tile.getCol())) {
-                movableTiles.insert(tile);
-            }
-        }
-        redraw();
-    }
-}
-
-void movePiece(int row, int col) {
-    ChessPiece* old = board->getPiece(selectedRow, selectedCol);
-    if (old->getName() == "Pawn") {
-        ((Pawn*)old)->setMoved();
-    }
-    board->setPiece(old, row, col);
-    board->setPiece(nullptr, selectedRow, selectedCol);
-    pieceIsSelected = false;
-}
-
-void tryMove(int row, int col) {
-    //checks
-    ChessPiece* piece = board->getPiece(row, col);
-    bool selectedLocation = row == selectedRow && col == selectedCol;
-    bool alliedPiece = piece != nullptr && piece->isWhite();
-    bool validLocation = false;
-    Tile thisTile(row, col);
-    if (movableTiles.count(thisTile)) {
-        validLocation = true;
-    }
-    //filter behavior according to checks
-    if (selectedLocation || !validLocation) {
-        pieceIsSelected = false;
-        redraw();
-    } else if (alliedPiece) {
-        handleSelect(row, col);
-    } else {
-        bool moveGood = simulateMove(row, col);
-        if (moveGood) {
-            movePiece(row, col);
-            checkKings();
-            redraw();
-        }
-    }
-}
-
 void handleClick(GEvent mouseEvent) {
     int col = mouseEvent.getX() / TILE_SIZE;
     int row = mouseEvent.getY() / TILE_SIZE;
-    if (pieceIsSelected && col < 8) {
-        tryMove(row, col);
+    if (board->pieceIsSelected() && col < 8) {
+        board->tryMove(row, col);
     } else if (col < 8) {
-        handleSelect(row, col);
+        board->selectPiece(row, col);
     }
+    redraw();
 }
 
 int main() {
@@ -229,12 +112,6 @@ int main() {
     window = new GWindow(WINDOW_SIZE + 200, WINDOW_SIZE); //offset for buttons
     board = new ChessBoard();
     board->setStartingBoard();
-    pieceIsSelected = false;
-    selectedRow = 0;
-    selectedCol = 0;
-    whiteIsChecked = false;
-    blackIsChecked = false;
-    whiteTurn = true;
     //GWindow options
     window->setLineWidth(LINE_WIDTH);
     window->setLocation(300, 100);
