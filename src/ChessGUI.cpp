@@ -12,7 +12,6 @@ static const int WINDOW_SIZE = 800; //may break if not divisible by 8
 static const int LINE_WIDTH = 4;
 static const int TILE_SIZE = WINDOW_SIZE / 8;
 
-//global variables
 GWindow* window;
 ChessBoard* board;
 
@@ -39,17 +38,11 @@ void drawBackgroundTile(int row, int col) {
 void drawTileHighlight(int row, int col) {
     if (board->pieceIsSelected()) {
         //highlight selected unit
-        if (row == board-> getSelectedRow() && col == board->getSelectedCol()) {
+        if (board->isSelectedPiece(row, col)) {
             drawTile("orange", row, col);
         }
         //highlight moveable tiles
-        bool movable = false;
-        unordered_set<Tile, HashTile> movableTiles = board->getMovableTiles();
-        for (Tile available : movableTiles) {
-            if (available.getCol() == col && available.getRow() == row) {
-                movable = true;
-            }
-        }
+        bool movable = board->isMovableTile(row, col);
         bool isOccupied = false;
         bool containsEnemy = false;
         ChessPiece* piece = board->getPiece(row, col);

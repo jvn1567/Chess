@@ -56,11 +56,6 @@ void ChessBoard::setBackRow(int row, bool isWhite) {
     (*board)[row][7] = new Rook(isWhite);
 }
 
-unordered_set<Tile, HashTile> ChessBoard::getMoves(int row, int col) const {
-    unordered_set<Tile, HashTile> moves = (*board)[row][col]->getMoves(board, row, col);
-    return moves;
-}
-
 Tile ChessBoard::getKingLocation(bool kingIsWhite) const {
     int kingRow = 0;
     int kingCol = 0;
@@ -84,7 +79,7 @@ bool ChessBoard::kingIsChecked(bool kingIsWhite, Tile kingLocation) const {
         for (int col = 0; col < 8; col++) {
             ChessPiece* piece = getPiece(row, col);
             if (piece != nullptr && piece->isWhite() != kingIsWhite) {
-                unordered_set<Tile, HashTile> temp = getMoves(row, col);
+                unordered_set<Tile, HashTile> temp = piece->getMoves(board, row, col);
                 for (Tile tile : temp) {
                     enemyMoves.insert(tile);
                 }
@@ -101,20 +96,20 @@ void ChessBoard::checkKings() {
     blackIsChecked = kingIsChecked(false, blackKing);
 }
 
-bool ChessBoard::simulateMove(Tile start, Tile end, bool whiteTurn) {
+bool ChessBoard::simulateMove(int row, int col) {
     vector<vector<ChessPiece*>>* oldBoard = copyBoard();
-    ChessPiece* oldPiece = getPiece(start);
     bool whiteWasChecked = whiteIsChecked;
     bool blackWasChecked = blackIsChecked;
-    setPiece(oldPiece, end);
-    setPiece(nullptr, start);
+    ChessPiece* oldPiece = getPiece(selectedRow, selectedCol);
+    setPiece(oldPiece, row, col);
+    setPiece(nullptr, selectedRow, selectedCol);
     checkKings();
-    bool checked = (whiteTurn && !whiteIsChecked) || (!whiteTurn && !blackIsChecked);
+    bool safe = (whiteTurn && !whiteIsChecked) || (!whiteTurn && !blackIsChecked);
     board = oldBoard;
     oldBoard = nullptr;
     whiteIsChecked = whiteWasChecked;
     blackIsChecked = blackWasChecked;
-    return checked;
+    return safe;
 }
 
 void ChessBoard::selectPiece(int row, int col) {
@@ -123,11 +118,10 @@ void ChessBoard::selectPiece(int row, int col) {
         selectedRow = row;
         selectedCol = col;
         selected = true;
-        unordered_set<Tile, HashTile> tempMovableTiles = getMoves(row, col);
+        unordered_set<Tile, HashTile> tempTiles = piece->getMoves(board, row, col);
         movableTiles.clear();
-        Tile selected(selectedRow, selectedCol);
-        for (Tile tile : tempMovableTiles) {
-            if (simulateMove(selected, tile, whiteTurn)) {
+        for (Tile tile : tempTiles) {
+            if (simulateMove(tile.getRow(), tile.getCol())) {
                 movableTiles.insert(tile);
             }
         }
@@ -149,24 +143,16 @@ void ChessBoard::tryMove(int row, int col) {
     ChessPiece* piece = getPiece(row, col);
     bool selectedLocation = row == selectedRow && col == selectedCol;
     bool alliedPiece = piece != nullptr && piece->isWhite();
-    bool validLocation = false;
     Tile thisTile(row, col);
-    if (movableTiles.count(thisTile)) {
-        validLocation = true;
-    }
+    bool validLocation = movableTiles.count(thisTile);
     //filter behavior according to checks
     if (selectedLocation || (!validLocation && !alliedPiece)) {
         selected = false;
     } else if (alliedPiece) {
         selectPiece(row, col);
     } else {
-        Tile selected(selectedRow, selectedCol);
-        Tile goal(row, col);
-        bool moveGood = simulateMove(selected, goal, whiteTurn);
-        if (moveGood) {
-            movePiece(row, col);
-            checkKings();
-        }
+        movePiece(row, col);
+        checkKings();
     }
 }
 
@@ -178,38 +164,23 @@ bool ChessBoard::isCheckedWhite() const {
     return whiteIsChecked;
 }
 
-bool ChessBoard::isCheckedBlack() const {
-    return blackIsChecked;
-}
-
 bool ChessBoard::isWhiteTurn() const {
     return whiteTurn;
 }
 
-int ChessBoard::getSelectedRow() const {
-    return selectedRow;
+bool ChessBoard::isSelectedPiece(int row, int col) const {
+    return (row == selectedRow) && (col == selectedCol);
 }
 
-int ChessBoard::getSelectedCol() const {
-    return selectedCol;
+bool ChessBoard::isMovableTile(int row, int col) const {
+    Tile temp(row, col);
+    return movableTiles.count(temp);
 }
 
 ChessPiece* ChessBoard::getPiece(int row, int col) const {
     return (*board)[row][col];
 }
 
-ChessPiece* ChessBoard::getPiece(Tile location) const {
-    return (*board)[location.getRow()][location.getCol()];
-}
-
-unordered_set<Tile, HashTile> ChessBoard::getMovableTiles() const {
-    return movableTiles;
-}
-
 void ChessBoard::setPiece(ChessPiece* piece, int row, int col) {
     (*board)[row][col] = piece;
-}
-
-void ChessBoard::setPiece(ChessPiece* piece, Tile location) {
-    (*board)[location.getRow()][location.getCol()] = piece;
 }
