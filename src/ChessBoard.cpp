@@ -114,7 +114,7 @@ bool ChessBoard::simulateMove(int row, int col) {
 
 void ChessBoard::selectPiece(int row, int col) {
     ChessPiece* piece = getPiece(row, col);
-    if (piece != nullptr && piece->isWhite()) {
+    if (piece != nullptr && (piece->isWhite() == whiteTurn)) {
         selectedRow = row;
         selectedCol = col;
         selected = true;
@@ -136,13 +136,15 @@ void ChessBoard::movePiece(int row, int col) {
     setPiece(old, row, col);
     setPiece(nullptr, selectedRow, selectedCol);
     selected = false;
+    whiteTurn = !whiteTurn;
+    checkKings();
 }
 
 void ChessBoard::tryMove(int row, int col) {
     //checks
     ChessPiece* piece = getPiece(row, col);
     bool selectedLocation = row == selectedRow && col == selectedCol;
-    bool alliedPiece = piece != nullptr && piece->isWhite();
+    bool alliedPiece = piece != nullptr && piece->isWhite() == whiteTurn;
     Tile thisTile(row, col);
     bool validLocation = movableTiles.count(thisTile);
     //filter behavior according to checks
@@ -152,7 +154,6 @@ void ChessBoard::tryMove(int row, int col) {
         selectPiece(row, col);
     } else {
         movePiece(row, col);
-        checkKings();
     }
 }
 
@@ -175,6 +176,10 @@ bool ChessBoard::isSelectedPiece(int row, int col) const {
 bool ChessBoard::isMovableTile(int row, int col) const {
     Tile temp(row, col);
     return movableTiles.count(temp);
+}
+
+unordered_set<Tile, HashTile> ChessBoard::getMovableTiles() const {
+    return movableTiles;
 }
 
 ChessPiece* ChessBoard::getPiece(int row, int col) const {

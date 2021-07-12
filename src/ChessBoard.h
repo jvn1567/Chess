@@ -21,18 +21,19 @@ private:
     bool kingIsChecked(bool kingIsWhite, Tile kingLocation) const;
     void checkKings();
     bool simulateMove(int row, int col);
-    void movePiece(int row, int col);
     vector<vector<ChessPiece*>>* copyBoard() const;
 public:
     ChessBoard();
     void setStartingBoard();
     void tryMove(int row, int col);
     void selectPiece(int row, int col);
+    void movePiece(int row, int col);
     bool pieceIsSelected() const;
     bool isCheckedWhite() const;
     bool isWhiteTurn() const;
     bool isSelectedPiece(int row, int col) const;
     bool isMovableTile(int row, int col) const;
+    unordered_set<Tile, HashTile> getMovableTiles() const;
     ChessPiece* getPiece(int row, int col) const;
     void setPiece(ChessPiece* piece, int row, int col);
 };

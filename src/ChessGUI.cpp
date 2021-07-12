@@ -1,4 +1,4 @@
-#include "ChessBoard.h"
+#include "ChessAI.h"
 #include <string>
 #include <unordered_set>
 #include "gwindow.h"
@@ -14,6 +14,7 @@ static const int TILE_SIZE = WINDOW_SIZE / 8;
 
 GWindow* window;
 ChessBoard* board;
+ChessAI* ai;
 
 void fillTile(string color, int row, int col) {
     window->setColor(color);
@@ -100,11 +101,19 @@ void handleClick(GEvent mouseEvent) {
     redraw();
 }
 
+void aiMove() {
+    if (!board->isWhiteTurn()) {
+        ai->makeMove();
+        redraw();
+    }
+}
+
 int main() {
     //general initialization
     window = new GWindow(WINDOW_SIZE + 200, WINDOW_SIZE); //offset for buttons
     board = new ChessBoard();
     board->setStartingBoard();
+    ai = new ChessAI(board);
     //GWindow options
     window->setLineWidth(LINE_WIDTH);
     window->setLocation(300, 100);
@@ -113,6 +122,7 @@ int main() {
     window->setAutoRepaint(false);
     window->setTitle("Chess");
     window->setClickListener(handleClick);
+    window->setTimerListener(500, aiMove);
     redraw();
     return 0;
 }
