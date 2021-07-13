@@ -18,7 +18,6 @@ private:
     unordered_set<Tile, HashTile> movableTiles;
     void setBackRow(int row, bool isWhite);
     Tile getKingLocation(bool kingIsWhite) const;
-    bool kingIsChecked(bool kingIsWhite, Tile kingLocation) const;
     void checkKings();
     bool simulateMove(int row, int col);
     vector<vector<ChessPiece*>>* copyBoard() const;
@@ -28,6 +27,7 @@ public:
     void tryMove(int row, int col);
     void selectPiece(int row, int col);
     void movePiece(int row, int col);
+    bool isCapturable(bool isWhite, Tile location) const;
     bool pieceIsSelected() const;
     bool isCheckedWhite() const;
     bool isWhiteTurn() const;

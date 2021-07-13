@@ -73,12 +73,12 @@ Tile ChessBoard::getKingLocation(bool kingIsWhite) const {
     return kingTile;
 }
 
-bool ChessBoard::kingIsChecked(bool kingIsWhite, Tile kingLocation) const {
+bool ChessBoard::isCapturable(bool isWhite, Tile location) const {
     unordered_set<Tile, HashTile> enemyMoves;
     for (int row = 0; row < 8; row++) {
         for (int col = 0; col < 8; col++) {
             ChessPiece* piece = getPiece(row, col);
-            if (piece != nullptr && piece->isWhite() != kingIsWhite) {
+            if (piece != nullptr && piece->isWhite() != isWhite) {
                 unordered_set<Tile, HashTile> temp = piece->getMoves(board, row, col);
                 for (Tile tile : temp) {
                     enemyMoves.insert(tile);
@@ -86,14 +86,14 @@ bool ChessBoard::kingIsChecked(bool kingIsWhite, Tile kingLocation) const {
             }
         }
     }
-    return enemyMoves.count(kingLocation);
+    return enemyMoves.count(location);
 }
 
 void ChessBoard::checkKings() {
-    Tile whiteKing = getKingLocation(true);
-    whiteIsChecked = kingIsChecked(true, whiteKing);
-    Tile blackKing = getKingLocation(false);
-    blackIsChecked = kingIsChecked(false, blackKing);
+    Tile whiteKingTile = getKingLocation(true);
+    whiteIsChecked = isCapturable(true, whiteKingTile);
+    Tile blackKingTile = getKingLocation(false);
+    blackIsChecked = isCapturable(false, blackKingTile);
 }
 
 bool ChessBoard::simulateMove(int row, int col) {
@@ -132,6 +132,9 @@ void ChessBoard::movePiece(int row, int col) {
     ChessPiece* old = getPiece(selectedRow, selectedCol);
     if (old->getName() == "Pawn") {
         ((Pawn*)old)->setMoved();
+        if (row == 0 || row == 7) {
+            old = new Queen(old->isWhite());
+        }
     }
     setPiece(old, row, col);
     setPiece(nullptr, selectedRow, selectedCol);
