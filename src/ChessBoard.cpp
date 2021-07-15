@@ -21,6 +21,7 @@ ChessBoard::ChessBoard() {
     selectedRow = 0;
     selectedCol = 0;
     whiteTurn = true;
+    winner = "";
 }
 
 vector<vector<ChessPiece*>>* ChessBoard::copyBoard() const {
@@ -168,6 +169,35 @@ bool ChessBoard::isCheckedWhite() const {
     return whiteIsChecked;
 }
 
+bool ChessBoard::isCheckedBlack() const {
+    return blackIsChecked;
+}
+
+bool ChessBoard::whiteCanMove() const {
+    int validMoves = 0;
+    unordered_set<Tile, HashTile> selectablePieces;
+    for (int row = 0; row < 8; row++) {
+        for (int col = 0; col < 8; col++) {
+            ChessPiece* piece = getPiece(row, col);
+            if (piece != nullptr && piece->isWhite()) {
+                selectablePieces.insert(Tile(row, col));
+            }
+        }
+    }
+    for (Tile tile : selectablePieces) {
+        ChessPiece* piece = getPiece(tile.getRow(), tile.getCol());
+        unordered_set<Tile, HashTile> tempTiles;
+        tempTiles = piece->getMoves(board, tile.getRow(), tile.getCol());
+        for (Tile subTile : tempTiles) {
+            ChessPiece* other = getPiece(subTile.getRow(), subTile.getCol());
+            if (other == nullptr || !other->isWhite()) {
+                validMoves++;
+            }
+        }
+    }
+    return validMoves != 0;
+}
+
 bool ChessBoard::isWhiteTurn() const {
     return whiteTurn;
 }
@@ -191,4 +221,12 @@ ChessPiece* ChessBoard::getPiece(int row, int col) const {
 
 void ChessBoard::setPiece(ChessPiece* piece, int row, int col) {
     (*board)[row][col] = piece;
+}
+
+void ChessBoard::setWinner(string winner) {
+    this->winner = winner;
+}
+
+string ChessBoard::getWinner() const {
+    return winner;
 }

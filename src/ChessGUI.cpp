@@ -5,6 +5,7 @@
 #include "gbutton.h"
 #include "gevent.h"
 #include "glabel.h"
+#include "gfont.h"
 using namespace sgl;
 using namespace std;
 
@@ -15,6 +16,8 @@ static const int TILE_SIZE = WINDOW_SIZE / 8;
 GWindow* window;
 ChessBoard* board;
 ChessAI* ai;
+GLabel* lblWinner;
+GButton* btnRestart;
 
 void fillTile(string color, int row, int col) {
     window->setColor(color);
@@ -63,8 +66,10 @@ void drawPiece(int row, int col) {
     ChessPiece* piece = board->getPiece(row, col);
     if (piece != nullptr) {
         bool playerKingChecked = board->isWhiteTurn() && board->isCheckedWhite();
-        bool pieceIsPlayerKing = piece->getName() == "King" && piece->isWhite();
-        if (playerKingChecked && pieceIsPlayerKing) {
+        bool isPlayerKing = piece->getName() == "King" && piece->isWhite();
+        bool aiKingChecked = !board->isWhiteTurn() && board->isCheckedBlack();
+        bool isAiKing = piece->getName() == "King" && !piece->isWhite();
+        if ((playerKingChecked && isPlayerKing) || (aiKingChecked && isAiKing)){
             fillTile("red", row, col);
         }
         string filename = "";
@@ -101,28 +106,53 @@ void handleClick(GEvent mouseEvent) {
     redraw();
 }
 
-void aiMove() {
-    if (!board->isWhiteTurn()) {
-        ai->makeMove();
-        redraw();
+void checkGame() {
+    if (board->getWinner() == "") {
+        if (!board->isWhiteTurn()) {
+            ai->makeMove();
+        } else if (board->isCheckedWhite() && !board->whiteCanMove()) {
+            board->setWinner("Black");
+        } else if (!board->isCheckedWhite() && !board->whiteCanMove()) {
+            board->setWinner("No one");
+        }
+    } else {
+        lblWinner->setText(board->getWinner() + " wins!");
     }
+    redraw();
 }
 
-int main() {
-    //general initialization
-    window = new GWindow(WINDOW_SIZE + 200, WINDOW_SIZE); //offset for buttons
+void startNewGame() {
     board = new ChessBoard();
     board->setStartingBoard();
     ai = new ChessAI(board);
-    //GWindow options
+    lblWinner->setText("");
+}
+
+void generateMenu() {
+    lblWinner = new GLabel("Black wins!");
+    lblWinner->setColor("white");
+    GFont::changeFontSize(lblWinner, 16);
+    btnRestart = new GButton("New Game");
+    btnRestart->setClickListener(startNewGame);
+    GFont::changeFontSize(btnRestart, 16);
+    window->addToRegion(lblWinner, "EAST");
+    window->addToRegion(btnRestart, "EAST");
+}
+
+int main() {
+    //gWindow options
+    window = new GWindow(WINDOW_SIZE + 200, WINDOW_SIZE); //offset for buttons
     window->setLineWidth(LINE_WIDTH);
     window->setLocation(300, 100);
     window->setBackground("black");
     window->setExitOnClose(true);
     window->setAutoRepaint(false);
     window->setTitle("Chess");
+    //other initialization
+    generateMenu();
+    startNewGame();
     window->setClickListener(handleClick);
-    window->setTimerListener(500, aiMove);
+    window->setTimerListener(500, checkGame);
     redraw();
     return 0;
 }

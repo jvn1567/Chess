@@ -83,9 +83,10 @@ void ChessAI::makeMove() {
         int index = rand() % start.size();
         board->selectPiece(start[index].getRow(), start[index].getCol());
         board->movePiece(end[index].getRow(), end[index].getCol());
+    } else if (board->isCheckedBlack()) {
+        board->setWinner("White");
     } else {
-        //HANDLE CHECKMATE PLACEHOLDER
-        cout << "CHECKMATE" << endl;
+        board->setWinner("No one");
     }
     start.clear();
     end.clear();

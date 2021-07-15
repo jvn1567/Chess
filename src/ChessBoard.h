@@ -15,6 +15,7 @@ private:
     int selectedRow;
     int selectedCol;
     bool whiteTurn;
+    string winner;
     unordered_set<Tile, HashTile> movableTiles;
     void setBackRow(int row, bool isWhite);
     Tile getKingLocation(bool kingIsWhite) const;
@@ -30,12 +31,16 @@ public:
     bool isCapturable(bool isWhite, Tile location) const;
     bool pieceIsSelected() const;
     bool isCheckedWhite() const;
+    bool isCheckedBlack() const;
+    bool whiteCanMove() const;
     bool isWhiteTurn() const;
     bool isSelectedPiece(int row, int col) const;
     bool isMovableTile(int row, int col) const;
     unordered_set<Tile, HashTile> getMovableTiles() const;
     ChessPiece* getPiece(int row, int col) const;
     void setPiece(ChessPiece* piece, int row, int col);
+    void setWinner(string winner);
+    string getWinner() const;
 };
 
 #endif
