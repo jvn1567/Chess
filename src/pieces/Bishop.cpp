@@ -15,3 +15,7 @@ unordered_set<Tile, HashTile> Bishop::getMoves(vector<vector<ChessPiece*>>* boar
 string Bishop::getName() const {
     return "Bishop";
 }
+
+int Bishop::getValue() const {
+    return isWhite() ? 3 : -3;
+}

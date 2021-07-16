@@ -24,10 +24,21 @@ private:
     vector<vector<ChessPiece*>>* copyBoard() const;
 public:
     ChessBoard();
+    void emptyBoard();
     void setStartingBoard();
+    unordered_set<Tile, HashTile> getMovableTiles() const;
+    ChessPiece* getPiece(int row, int col) const;
+    void setPiece(ChessPiece* piece, int row, int col);
+    int evaluateBoard() const;
+
+
+    //maybe offload
     void tryMove(int row, int col);
-    void selectPiece(int row, int col);
+    void selectPiece(int row, int col); //change to return set
     void movePiece(int row, int col);
+
+
+    //offload to board manager
     bool isCapturable(bool isWhite, Tile location) const;
     bool pieceIsSelected() const;
     bool isCheckedWhite() const;
@@ -36,9 +47,6 @@ public:
     bool isWhiteTurn() const;
     bool isSelectedPiece(int row, int col) const;
     bool isMovableTile(int row, int col) const;
-    unordered_set<Tile, HashTile> getMovableTiles() const;
-    ChessPiece* getPiece(int row, int col) const;
-    void setPiece(ChessPiece* piece, int row, int col);
     void setWinner(string winner);
     string getWinner() const;
 };

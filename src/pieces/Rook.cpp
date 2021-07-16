@@ -15,3 +15,7 @@ unordered_set<Tile, HashTile> Rook::getMoves(vector<vector<ChessPiece*>>* board,
 string Rook::getName() const {
     return "Rook";
 }
+
+int Rook::getValue() const {
+    return isWhite() ? 5 : -5;
+}

@@ -10,7 +10,6 @@ private:
     vector<Tile> start;
     vector<Tile> end;
     vector<int> weight;
-    int weighPiece(string name) const;
     void weighMoves(int row, int col);
     void filterMoves();
 public:

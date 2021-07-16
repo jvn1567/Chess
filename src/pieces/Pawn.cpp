@@ -4,16 +4,14 @@ Pawn::Pawn(bool isWhite) : ChessPiece(isWhite) {
     hasMoved = false;
 }
 
+//pawns promote, so off-board not checked
 unordered_set<Tile, HashTile> Pawn::getMoves(vector<vector<ChessPiece*>>* board,
         int row, int col) const {
     unordered_set<Tile, HashTile> moves;
+    //handle north/south direction
     int shift = 1;
     if (isWhite()) {
         shift = -shift;
-    }
-    //returns if pawn is at the enemy end of the board   //HANDLE PROMOTE LATER
-    if (isOutOfBounds(row + shift, 0)) {
-        return moves;
     }
     //foward moves
     if ((*board)[row + shift][col] == nullptr) {
@@ -26,13 +24,15 @@ unordered_set<Tile, HashTile> Pawn::getMoves(vector<vector<ChessPiece*>>* board,
     }
     //diagonal captures
     if (!isOutOfBounds(row + shift, col - 1)) {
-        if ((*board)[row + shift][col - 1] != nullptr) {
+        ChessPiece* other = (*board)[row + shift][col - 1];
+        if (other != nullptr && isEnemy(other)) {
             Tile movableTile(row + shift, col - 1);
             moves.insert(movableTile);
         }
     }
     if (!isOutOfBounds(row + shift, col + 1)) {
-        if ((*board)[row + shift][col + 1] != nullptr) {
+        ChessPiece* other = (*board)[row + shift][col + 1];
+        if (other != nullptr && isEnemy(other)) {
             Tile movableTile(row + shift, col + 1);
             moves.insert(movableTile);
         }
@@ -42,6 +42,10 @@ unordered_set<Tile, HashTile> Pawn::getMoves(vector<vector<ChessPiece*>>* board,
 
 string Pawn::getName() const {
     return "Pawn";
+}
+
+int Pawn::getValue() const {
+    return isWhite() ? 1 : -1;
 }
 
 void Pawn::setMoved() {

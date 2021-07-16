@@ -10,7 +10,7 @@ unordered_set<Tile, HashTile> Knight::getMoves(vector<vector<ChessPiece*>>* boar
     for (int rowShift = 0; rowShift < shift.size(); rowShift++) {
         for (int colShift = 0; colShift < shift.size(); colShift++) {
             if (abs(shift[rowShift]) != abs(shift[colShift])) {
-                addTile(moves, row + shift[rowShift], col + shift[colShift]);
+                addTile(moves, row + shift[rowShift], col + shift[colShift], board);
             }
         }
     }
@@ -21,9 +21,17 @@ string Knight::getName() const {
     return "Knight";
 }
 
-void Knight::addTile(unordered_set<Tile, HashTile>& moves, int row, int col) const {
+int Knight::getValue() const {
+    return isWhite() ? 3 : -3;
+}
+
+void Knight::addTile(unordered_set<Tile, HashTile>& moves, int row, int col,
+        vector<vector<ChessPiece*>>* board) const {
     if (!isOutOfBounds(row, col)) {
-        Tile movableTile(row, col);
-        moves.insert(movableTile);
+        ChessPiece* other = (*board)[row][col];
+        if (other == nullptr || isEnemy(other)) {
+            Tile movableTile(row, col);
+            moves.insert(movableTile);
+        }
     }
 }

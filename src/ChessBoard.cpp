@@ -7,6 +7,11 @@
 #include "Pawn.h"
 
 ChessBoard::ChessBoard() {
+    emptyBoard();
+    setStartingBoard();
+}
+
+void ChessBoard::emptyBoard() {
     board = new vector<vector<ChessPiece*>>;
     for (int row = 0; row < 8; row++) {
         vector<ChessPiece*> newRow;
@@ -24,6 +29,36 @@ ChessBoard::ChessBoard() {
     winner = "";
 }
 
+void ChessBoard::setStartingBoard() {
+    for (int col = 0; col < 8; col ++) {
+        (*board)[1][col] = new Pawn(false);
+        (*board)[6][col] = new Pawn(true);
+    }
+    setBackRow(0, false);
+    setBackRow(7, true);
+}
+
+ChessPiece* ChessBoard::getPiece(int row, int col) const {
+    return (*board)[row][col];
+}
+
+void ChessBoard::setPiece(ChessPiece* piece, int row, int col) {
+    (*board)[row][col] = piece;
+}
+
+int ChessBoard::evaluateBoard() const {
+    int boardValue;
+    for (int row = 0; row < 8; row++) {
+        for (int col = 0; col < 8; col++) {
+            ChessPiece* piece = getPiece(row, col);
+            if (piece != nullptr) {
+                boardValue += piece->getValue();
+            }
+        }
+    }
+    return boardValue;
+}
+
 vector<vector<ChessPiece*>>* ChessBoard::copyBoard() const {
     vector<vector<ChessPiece*>>* copy = new vector<vector<ChessPiece*>>;
     for (int row = 0; row < 8; row++) {
@@ -35,15 +70,6 @@ vector<vector<ChessPiece*>>* ChessBoard::copyBoard() const {
         copy->push_back(newRow);
     }
     return copy;
-}
-
-void ChessBoard::setStartingBoard() {
-    for (int col = 0; col < 8; col ++) {
-        (*board)[1][col] = new Pawn(false);
-        (*board)[6][col] = new Pawn(true);
-    }
-    setBackRow(0, false);
-    setBackRow(7, true);
 }
 
 void ChessBoard::setBackRow(int row, bool isWhite) {
@@ -113,6 +139,7 @@ bool ChessBoard::simulateMove(int row, int col) {
     return safe;
 }
 
+//change to return set
 void ChessBoard::selectPiece(int row, int col) {
     ChessPiece* piece = getPiece(row, col);
     if (piece != nullptr && (piece->isWhite() == whiteTurn)) {
@@ -213,14 +240,6 @@ bool ChessBoard::isMovableTile(int row, int col) const {
 
 unordered_set<Tile, HashTile> ChessBoard::getMovableTiles() const {
     return movableTiles;
-}
-
-ChessPiece* ChessBoard::getPiece(int row, int col) const {
-    return (*board)[row][col];
-}
-
-void ChessBoard::setPiece(ChessPiece* piece, int row, int col) {
-    (*board)[row][col] = piece;
 }
 
 void ChessBoard::setWinner(string winner) {

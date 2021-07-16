@@ -11,8 +11,11 @@ unordered_set<Tile, HashTile> King::getMoves(vector<vector<ChessPiece*>>* board,
             int nRow = row + i;
             int nCol = col + j;
             if (!isOutOfBounds(nRow, nCol) && !(i == 0 && j == 0)) {
-                Tile movableTile(nRow, nCol);
-                moves.insert(movableTile);
+                ChessPiece* other = (*board)[nRow][nCol];
+                if (other == nullptr || isEnemy(other)) {
+                    Tile movableTile(nRow, nCol);
+                    moves.insert(movableTile);
+                }
             }
         }
     }
@@ -21,4 +24,8 @@ unordered_set<Tile, HashTile> King::getMoves(vector<vector<ChessPiece*>>* board,
 
 string King::getName() const {
     return "King";
+}
+
+int King::getValue() const {
+    return isWhite() ? 100 : -100;
 }

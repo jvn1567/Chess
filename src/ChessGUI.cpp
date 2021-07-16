@@ -122,14 +122,13 @@ void checkGame() {
 }
 
 void startNewGame() {
-    board = new ChessBoard();
+    board->emptyBoard();
     board->setStartingBoard();
-    ai = new ChessAI(board);
     lblWinner->setText("");
 }
 
 void generateMenu() {
-    lblWinner = new GLabel("Black wins!");
+    lblWinner = new GLabel();
     lblWinner->setColor("white");
     GFont::changeFontSize(lblWinner, 16);
     btnRestart = new GButton("New Game");
@@ -150,7 +149,8 @@ int main() {
     window->setTitle("Chess");
     //other initialization
     generateMenu();
-    startNewGame();
+    board = new ChessBoard();
+    ai = new ChessAI(board);
     window->setClickListener(handleClick);
     window->setTimerListener(500, checkGame);
     redraw();

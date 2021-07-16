@@ -19,3 +19,7 @@ unordered_set<Tile, HashTile> Queen::getMoves(vector<vector<ChessPiece*>>* board
 string Queen::getName() const {
     return "Queen";
 }
+
+int Queen::getValue() const {
+    return isWhite() ? 9 : -9;
+}
