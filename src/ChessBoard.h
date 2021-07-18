@@ -9,6 +9,7 @@ using namespace std;
 class ChessBoard {
 private:
     vector<vector<ChessPiece*>>* board;
+    //game handlers
     bool whiteIsChecked;
     bool blackIsChecked;
     bool selected;
@@ -17,6 +18,7 @@ private:
     bool whiteTurn;
     string winner;
     unordered_set<Tile, HashTile> movableTiles;
+
     void setBackRow(int row, bool isWhite);
     Tile getKingLocation(bool kingIsWhite) const;
     void checkKings();
@@ -38,8 +40,11 @@ public:
     void movePiece(int row, int col);
 
 
-    //offload to board manager
+    //to delete
     bool isCapturable(bool isWhite, Tile location) const;
+
+
+    //offload to board manager
     bool pieceIsSelected() const;
     bool isCheckedWhite() const;
     bool isCheckedBlack() const;

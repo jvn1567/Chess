@@ -13,7 +13,7 @@ public:
             int row, int col) const override;
     string getName() const override;
     int getValue() const override;
-    void setMoved();
+    void setMoved(bool hasMoved);
 };
 
 #endif

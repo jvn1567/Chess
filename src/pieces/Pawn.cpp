@@ -1,4 +1,5 @@
 #include "Pawn.h"
+#include "Queen.h"
 
 Pawn::Pawn(bool isWhite) : ChessPiece(isWhite) {
     hasMoved = false;
@@ -8,7 +9,19 @@ Pawn::Pawn(bool isWhite) : ChessPiece(isWhite) {
 unordered_set<Tile, HashTile> Pawn::getMoves(vector<vector<ChessPiece*>>* board,
         int row, int col) const {
     unordered_set<Tile, HashTile> moves;
-    //handle north/south direction
+    //for simulated queen promotes only
+    if (row == 0 || row == 7) {
+        getLine(board, row, col, moves, 1, 0); //N
+        getLine(board, row, col, moves, 0, 1); //E
+        getLine(board, row, col, moves, -1, 0); //S
+        getLine(board, row, col, moves, 0, -1); //W
+        getLine(board, row, col, moves, 1, 1); //NE
+        getLine(board, row, col, moves, -1, 1); //SE
+        getLine(board, row, col, moves, -1, -1); //SW
+        getLine(board, row, col, moves, 1, -1); //NW
+        return moves;
+    }
+     //handle north/south direction
     int shift = 1;
     if (isWhite()) {
         shift = -shift;
@@ -48,6 +61,6 @@ int Pawn::getValue() const {
     return isWhite() ? 1 : -1;
 }
 
-void Pawn::setMoved() {
-    hasMoved = true;
+void Pawn::setMoved(bool hasMoved) {
+    this->hasMoved = hasMoved;
 }

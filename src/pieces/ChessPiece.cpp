@@ -47,3 +47,5 @@ void ChessPiece::getLine(vector<vector<ChessPiece*>>* board, int row, int col,
         }
     }
 }
+
+ChessPiece::~ChessPiece() {}

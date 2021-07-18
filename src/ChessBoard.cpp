@@ -6,6 +6,9 @@
 #include "Knight.h"
 #include "Pawn.h"
 
+
+
+#include <iostream>
 ChessBoard::ChessBoard() {
     emptyBoard();
     setStartingBoard();
@@ -132,6 +135,7 @@ bool ChessBoard::simulateMove(int row, int col) {
     setPiece(nullptr, selectedRow, selectedCol);
     checkKings();
     bool safe = (whiteTurn && !whiteIsChecked) || (!whiteTurn && !blackIsChecked);
+    delete board;
     board = oldBoard;
     oldBoard = nullptr;
     whiteIsChecked = whiteWasChecked;
@@ -159,8 +163,9 @@ void ChessBoard::selectPiece(int row, int col) {
 void ChessBoard::movePiece(int row, int col) {
     ChessPiece* old = getPiece(selectedRow, selectedCol);
     if (old->getName() == "Pawn") {
-        ((Pawn*)old)->setMoved();
+        ((Pawn*)old)->setMoved(true);
         if (row == 0 || row == 7) {
+            delete old;
             old = new Queen(old->isWhite());
         }
     }
@@ -201,7 +206,7 @@ bool ChessBoard::isCheckedBlack() const {
 }
 
 bool ChessBoard::whiteCanMove() const {
-    int validMoves = 0;
+    //grab white pieces
     unordered_set<Tile, HashTile> selectablePieces;
     for (int row = 0; row < 8; row++) {
         for (int col = 0; col < 8; col++) {
@@ -211,16 +216,13 @@ bool ChessBoard::whiteCanMove() const {
             }
         }
     }
+    //count possible moves
+    int validMoves = 0;
     for (Tile tile : selectablePieces) {
         ChessPiece* piece = getPiece(tile.getRow(), tile.getCol());
         unordered_set<Tile, HashTile> tempTiles;
         tempTiles = piece->getMoves(board, tile.getRow(), tile.getCol());
-        for (Tile subTile : tempTiles) {
-            ChessPiece* other = getPiece(subTile.getRow(), subTile.getCol());
-            if (other == nullptr || !other->isWhite()) {
-                validMoves++;
-            }
-        }
+        validMoves += tempTiles.size();
     }
     return validMoves != 0;
 }
