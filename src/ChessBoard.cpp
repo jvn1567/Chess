@@ -231,6 +231,10 @@ bool ChessBoard::isWhiteTurn() const {
     return whiteTurn;
 }
 
+void ChessBoard::changeTurns() {
+    whiteTurn = !whiteTurn;
+}
+
 bool ChessBoard::isSelectedPiece(int row, int col) const {
     return (row == selectedRow) && (col == selectedCol);
 }

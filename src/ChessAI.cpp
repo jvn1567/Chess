@@ -9,57 +9,61 @@ ChessAI::ChessAI(ChessBoard* board) {
 
 #include <iostream>
 
-int ChessAI::selectMove(int row, int col, int depth, ValueTree* weights) {
-    //cout << "SELECT MOVE -- "  << "Row: " << row << "   Col: " << col << "   Depth: " << depth << endl;
+bool ChessAI::selectMove(int row, int col, int depth, ValueTree* weights, bool isWhite) {
     //handle coordinates
     if (row == 8) {
-        return 1;
+        return true;
     }
     if (col == 8) {
-        return selectMove(row + 1, 0, depth, weights);
+        return selectMove(row + 1, 0, depth, weights, isWhite);
     }
-    //max depth
+    //max depth, put weight on leaf
     if (depth == targetDepth) {
-        weights->value = -board->evaluateBoard();
-        return 1;
+        weights->value = board->evaluateBoard();
+        return true;
     }
-    //non-max depth
+    //non-max depth, explore all branches
     ChessPiece* piece = board->getPiece(row, col);
-    if (piece != nullptr && !piece->isWhite()) {
-        board->selectPiece(row, col);
-        unordered_set<Tile, HashTile> moves = board->getMovableTiles();
-        for (Tile tile : moves) {
-            if (depth == 0) {
-                start.push_back(Tile(row, col));
-                end.push_back(tile);
+    if (piece != nullptr) {
+        if (piece->isWhite() == isWhite) {
+            board->selectPiece(row, col);
+            unordered_set<Tile, HashTile> moves = board->getMovableTiles();
+            for (Tile tile : moves) {
+                if (depth == 0) {
+                    start.push_back(Tile(row, col));
+                    end.push_back(tile);
+                }
+                weighBranch(row, col, tile, piece, depth, weights);
             }
-            weighBranch(row, col, tile, piece, depth, weights);
         }
     }
-    return selectMove(row, col + 1, depth, weights);
+    return selectMove(row, col + 1, depth, weights, isWhite);
 }
 
 void ChessAI::weighBranch(int row, int col, Tile tile, ChessPiece* piece,
          int depth, ValueTree* weights) {
-    //cout << "WEIGH BRANCH -- "  << "Row: " << row << "   Col: " << col << "   Depth: " << depth;
     ChessPiece* other = board->getPiece(tile.getRow(), tile.getCol());
     //special pawn handler
     ChessPiece* thisTemp = piece;
     bool makesFirstMove = false;
     bool getsPromoted = false;
-    if (piece->getName() == "Pawn" && row == 6) { //before promote tile
+    bool isPawn = piece->getName() == "Pawn";
+    bool promotableBlack = row == 6 && !piece->isWhite();
+    bool promotableWhite = row == 1 && piece->isWhite();
+    if (isPawn && (promotableBlack || promotableWhite)) {
         getsPromoted = true;
         piece = new Queen(piece->isWhite());
-    } else if (piece->getName() == "Pawn" && row == 1) { //start tile
+    } else if (isPawn && !((Pawn*)piece)->getHasMoved()) { //start tile
         makesFirstMove = true;
         ((Pawn*)piece)->setMoved(true);
     }
     //make move and recurse
     board->setPiece(piece, tile.getRow(), tile.getCol());
     board->setPiece(nullptr, row, col);
+    board->changeTurns();
     ValueTree* next = new ValueTree();
     weights->next.push_back(next);
-    selectMove(0, 0, depth + 1, weights->next[weights->next.size() - 1]);
+    selectMove(0, 0, depth + 1, weights->next[weights->next.size() - 1], !piece->isWhite());
     //undo move and pawn promotes
     if (getsPromoted) {
         delete piece;
@@ -67,86 +71,28 @@ void ChessAI::weighBranch(int row, int col, Tile tile, ChessPiece* piece,
     }
     board->setPiece(other, tile.getRow(), tile.getCol());
     board->setPiece(piece, row, col);
+    board->changeTurns();
     if (makesFirstMove) {
         ((Pawn*)piece)->setMoved(false);
     }
 }
 
-void ChessAI::collapseTree(ValueTree* node, int depth) {
-    (void)depth;
-    for (int i = 0; i < node->next.size(); i++) {
-        int total2 = 0;
-        for (int j = 0; j < node->next[i]->next.size(); j++) {
-            int total3 = 0;
-            for (int k = 0; k < node->next[i]->next[j]->next.size(); k++) {
-                total3 += node->next[i]->next[j]->next[k]->value;
-                delete node->next[i]->next[j]->next[k];
-                node->next[i]->next[j]->next[k] = nullptr;
-            }
-            if (node->next[i]->next[j]->next.size() > 0) {
-                total2 += (total3 / node->next[i]->next[j]->next.size());
-            }
-            node->next[i]->next[j]->next.clear();
-            delete node->next[i]->next[j];
-            node->next[i]->next[j] = nullptr;
-        }
-        if (node->next[i]->next.size() > 0) {
-            cout << total2 << " " << node->next[i]->next.size();
-            cout << total2 / node->next[i]->next.size() << endl;
-            weight.push_back(total2 / node->next[i]->next.size());
-        } else {
-            weight.push_back(0);
-        }
-        node->next[i]->next.clear();
-        delete node->next[i];
-        node->next[i] = nullptr;
+int ChessAI::minimax(ValueTree* weights, bool minimize) {
+    int size = weights->next.size();
+    //leaf
+    if (size == 0) {
+        return weights->value;
     }
-    node->next.clear();
-
-    /*if (depth > 0) {
-        for (int i = 0; i < node->next.size(); i++) {
-            collapseTree(node->next[i], depth - 1);
-        }
-    } else {
-        int total = 0;
-        for (int i = 0; i < node->next.size(); i++) {
-            total += node->next[i]->value;
-        }
-        if (node->next.size() > 0) {
-            node->value = total / node->next.size();
-        } else {
-            node->value = 0;
-        }
-    }*/
-}
-
-//OLD SINGLE LAYER DEPTH AI
-void ChessAI::weighMoves(int row, int col) {
-    ChessPiece* piece = board->getPiece(row, col);
-    if (piece != nullptr && !piece->isWhite()) {
-        board->selectPiece(row, col);
-        unordered_set<Tile, HashTile> moves = board->getMovableTiles();
-        for (Tile tile : moves) {
-            //weigh board value change
-            int startValue = board->evaluateBoard();
-            ChessPiece* other = board->getPiece(tile.getRow(), tile.getCol());
-            board->setPiece(piece, tile.getRow(), tile.getCol());
-            board->setPiece(nullptr, row, col);
-            int endValue = board->evaluateBoard();
-            if (board->isCapturable(false, tile)) {
-                endValue -= piece->getValue();
-            }
-            board->setPiece(other, tile.getRow(), tile.getCol());
-            board->setPiece(piece, row, col);
-            if (board->isCapturable(false, Tile(row, col))) {
-                startValue -= piece->getValue();
-            }
-            //adds move data
-            start.push_back(Tile(row, col));
-            end.push_back(tile);
-            weight.push_back(startValue - endValue); //want value to decrease
+    //branches
+    int limit = minimax(weights->next[0], !minimize);
+    for (int i = 1; i < size; i++) {
+        int current = minimax(weights->next[i], !minimize);
+        if ((minimize && (current < limit)) || (!minimize && (current > limit))) {
+            limit = current;
         }
     }
+    weights->value = limit;
+    return limit;
 }
 
 void ChessAI::filterMoves() {
@@ -167,33 +113,23 @@ void ChessAI::filterMoves() {
     }
     start = maxStart;
     end = maxEnd;
+    cout << "   MAX: " << maxWeight << endl;
     weight.clear();
-    cout << "MAX WEIGHT: " << maxWeight << endl;
 }
 
 void ChessAI::makeMove() {
-    /*for (int row = 0; row < 8; row++) {
-        for (int col = 0; col < 8; col++) {
-            weighMoves(row, col);
-        }
-    }
-    filterMoves();*/
-    
     ValueTree* weights = new ValueTree();
-    selectMove(0, 0, 0, weights);
-    collapseTree(weights, 0);
+    selectMove(0, 0, 0, weights, true);
+    minimax(weights, false);
     for (int i = 0; i < weights->next.size(); i++) {
         weight.push_back(weights->next[i]->value);
     }
     filterMoves();
-    
+    //pick random move if many equal valued moves and handle checkmate
     if (start.size() > 0) {
         int index = rand() % start.size();
         board->selectPiece(start[index].getRow(), start[index].getCol());
         board->movePiece(end[index].getRow(), end[index].getCol());
-
-        cout << start[index].getRow() << ", " << start[index].getCol() << " : " << end[index].getRow() << ", " << end[index].getCol() << endl;
-
     } else if (board->isCheckedBlack()) {
         board->setWinner("White");
     } else {

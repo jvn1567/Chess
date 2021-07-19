@@ -30,10 +30,10 @@ unordered_set<Tile, HashTile> Pawn::getMoves(vector<vector<ChessPiece*>>* board,
     if ((*board)[row + shift][col] == nullptr) {
         Tile movableTile(row + shift, col);
         moves.insert(movableTile);
-    }
-    if (!hasMoved && (*board)[row + shift * 2][col] == nullptr ) {
-        Tile movableTile(row + shift * 2, col);
-        moves.insert(movableTile);
+        if (!hasMoved && (*board)[row + shift * 2][col] == nullptr ) {
+            Tile movableTile(row + shift * 2, col);
+            moves.insert(movableTile);
+        }
     }
     //diagonal captures
     if (!isOutOfBounds(row + shift, col - 1)) {
@@ -63,4 +63,8 @@ int Pawn::getValue() const {
 
 void Pawn::setMoved(bool hasMoved) {
     this->hasMoved = hasMoved;
+}
+
+bool Pawn::getHasMoved() const {
+    return hasMoved;
 }

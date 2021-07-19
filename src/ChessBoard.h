@@ -50,6 +50,7 @@ public:
     bool isCheckedBlack() const;
     bool whiteCanMove() const;
     bool isWhiteTurn() const;
+    void changeTurns();
     bool isSelectedPiece(int row, int col) const;
     bool isMovableTile(int row, int col) const;
     void setWinner(string winner);

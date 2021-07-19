@@ -14,6 +14,7 @@ public:
     string getName() const override;
     int getValue() const override;
     void setMoved(bool hasMoved);
+    bool getHasMoved() const;
 };
 
 #endif

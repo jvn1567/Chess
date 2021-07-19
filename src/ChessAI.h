@@ -19,14 +19,11 @@ private:
     vector<Tile> start;
     vector<Tile> end;
     vector<int> weight;
-
-    void weighMoves(int row, int col);
-    void filterMoves();
-
-    int selectMove(int row, int col, int depth, ValueTree* weights);
+    bool selectMove(int row, int col, int depth, ValueTree* weights, bool isWhite);
     void weighBranch(int row, int col, Tile tile, ChessPiece* piece,
             int depth, ValueTree* weights);
-    void collapseTree(ValueTree* weights, int depth);
+    int minimax(ValueTree* weights, bool minimize);
+    void filterMoves();
 
 public:
     ChessAI(ChessBoard* board);
