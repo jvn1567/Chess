@@ -4,10 +4,10 @@ This program runs a chess game against an AI.
 ![ezgif com-gif-maker (3)](https://user-images.githubusercontent.com/56368354/126096531-011c6e6a-cc76-4689-bed3-32f5c53df23c.gif)
 
 # Player Help Features
-The player clicks on the piece they wish to move, will generate colored guides.
-  -The selected piece will be displayed with an orange tile border.
-  -Movable tiles will be displayed with a yellow tile border.
-  -Movable tiles containing enemy pieces will be displayed with a red tile border.
+The player clicks on the piece they wish to move, will generate colored guides.<br/>
+  -The selected piece will be displayed with an orange tile border.<br/>
+  -Movable tiles will be displayed with a yellow tile border.<br/>
+  -Movable tiles containing enemy pieces will be displayed with a red tile border.<br/>
   -If your king is currently being checked, the tile under it will be completely red.
   
 # AI
