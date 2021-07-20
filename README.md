@@ -16,4 +16,4 @@ The AI will control black pieces, and choose its moves by using a minimax algori
 For example, take a depth of 2 and the move values {{5, 5, 5}, {2, 5, 2}, {3, 7, 3}}. This corresponds to simulating one black turn and one white turn. On the bottom branches, the program will optimize to maximize the board values, which would be assuming that the player makes the best possible move for themselves. These maximums are passed up the tree to obtain {5, 5, 7}. Now the program optimizes for black side, and will select the mimimum. Therefore, the first and second moves in the tree are most optimal and the AI will select from one of the two to make.
 
 # Libraries
-The GUI is built using Simple Graphics Library (SGL) by Marty Stepp, which can be found [here](https://github.com/stepp/sgl)
+The GUI is built using Simple Graphics Library (SGL) by Marty Stepp, which can be found [here](https://github.com/stepp/sgl).
