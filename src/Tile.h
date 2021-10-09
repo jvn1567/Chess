@@ -3,6 +3,7 @@
 
 #include <unordered_set>
 #include <functional>
+#include <iostream>
 using namespace std;
 
 class Tile {
@@ -18,6 +19,7 @@ public:
 bool isOutOfBounds(int row, int col);
 bool operator ==(const Tile& tile1, const Tile& tile2);
 bool operator <(const Tile& tile1, const Tile& tile2);
+ostream& operator <<(ostream& out, const Tile& tile);
 
 struct HashTile {
     size_t operator()(const Tile& tile) const {
