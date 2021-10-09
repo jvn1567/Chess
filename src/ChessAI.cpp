@@ -3,6 +3,9 @@
 #include "Queen.h"
 
 ChessAI::ChessAI(ChessBoard* board) {
+    vector<Tile> start;
+    vector<Tile> end;
+    vector<int> weight;
     this->board = board;
     targetDepth = 3; //change on difficulty?
 }
@@ -66,7 +69,7 @@ void ChessAI::weighBranch(int row, int col, Tile tile, ChessPiece* piece,
     selectMove(0, 0, depth + 1, weights->next[weights->next.size() - 1], !piece->isWhite());
     //undo move and pawn promotes
     if (getsPromoted) {
-        delete piece;
+        //delete piece;
         piece = thisTemp;
     }
     board->setPiece(other, tile.getRow(), tile.getCol());
@@ -96,31 +99,30 @@ int ChessAI::minimax(ValueTree* weights, bool minimize) {
 }
 
 void ChessAI::filterMoves() {
-    int maxWeight = -9999;
-    vector<Tile> maxStart;
-    vector<Tile> maxEnd;
+    int minWeight = 9999;
+    vector<Tile> minStart;
+    vector<Tile> minEnd;
     for (int i = 0; i < weight.size(); i++) {
-        if (weight[i] > maxWeight) {
-            maxStart.clear();
-            maxEnd.clear();
-            maxWeight = weight[i];
-            maxStart.push_back(start[i]);
-            maxEnd.push_back(end[i]);
-        } else if (weight[i] == maxWeight) {
-            maxStart.push_back(start[i]);
-            maxEnd.push_back(end[i]);
+        if (weight[i] < minWeight) {
+            minStart.clear();
+            minEnd.clear();
+            minWeight = weight[i];
+            minStart.push_back(start[i]);
+            minEnd.push_back(end[i]);
+        } else if (weight[i] == minWeight) {
+            minStart.push_back(start[i]);
+            minEnd.push_back(end[i]);
         }
     }
-    start = maxStart;
-    end = maxEnd;
-    cout << "   MAX: " << maxWeight << endl;
+    start = minStart;
+    end = minEnd;
     weight.clear();
 }
 
 void ChessAI::makeMove() {
     ValueTree* weights = new ValueTree();
-    selectMove(0, 0, 0, weights, true);
-    minimax(weights, false);
+    selectMove(0, 0, 0, weights, false);
+    minimax(weights, true);
     for (int i = 0; i < weights->next.size(); i++) {
         weight.push_back(weights->next[i]->value);
     }

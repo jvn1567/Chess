@@ -29,3 +29,8 @@ bool operator <(const Tile& tile1, const Tile& tile2) {
     bool lowerCol = tile1.getCol() < tile2.getCol();
     return lowerRow || (equalRow && lowerCol);
 }
+
+ostream& operator <<(ostream& out, const Tile& tile) {
+    out << "(" << tile.getRow() << ", " << tile.getCol() << ")";
+    return out;
+}
