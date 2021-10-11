@@ -29,7 +29,7 @@ bool ChessAI::selectMove(int row, int col, int depth, ValueTree* weights, bool i
     ChessPiece* piece = board->getPiece(row, col);
     if (piece != nullptr) {
         if (piece->isWhite() == isWhite) {
-            board->selectPieceAI(row, col);
+            board->selectPiece(row, col);
             unordered_set<Tile, HashTile>* moves = board->getMovableTiles();
             for (Tile tile : *moves) {
                 if (depth == 0) {
@@ -158,7 +158,7 @@ void ChessAI::makeMove() {
     //pick random move if many equal valued moves and handle checkmate
     if (start.size() > 0) {
         int index = rand() % start.size();
-        board->selectPieceAI(start[index].getRow(), start[index].getCol());
+        board->selectPiece(start[index].getRow(), start[index].getCol());
         board->movePiece(end[index].getRow(), end[index].getCol());
     } else if (board->isCheckedBlack()) {
         board->setWinner("White");

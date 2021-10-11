@@ -6,9 +6,6 @@
 #include "Knight.h"
 #include "Pawn.h"
 
-
-
-#include <iostream>
 ChessBoard::ChessBoard() {
     emptyBoard();
     setStartingBoard();
@@ -29,7 +26,7 @@ void ChessBoard::emptyBoard() {
     selectedRow = 0;
     selectedCol = 0;
     whiteTurn = true;
-    movableTiles = nullptr;
+    movableTiles = new unordered_set<Tile, HashTile>;
     boardValue = 0;
     winner = "";
 }
@@ -101,19 +98,18 @@ Tile ChessBoard::getKingLocation(bool kingIsWhite) const {
 }
 
 bool ChessBoard::isCapturable(bool isWhite, Tile location) const {
-    unordered_set<Tile, HashTile> enemyMoves;
     for (int row = 0; row < 8; row++) {
         for (int col = 0; col < 8; col++) {
             ChessPiece* piece = getPiece(row, col);
             if (piece != nullptr && piece->isWhite() != isWhite) {
                 unordered_set<Tile, HashTile> temp = piece->getMoves(board, row, col);
-                for (Tile tile : temp) {
-                    enemyMoves.insert(tile);
+                if (temp.count(location) == 1) {
+                    return true;
                 }
             }
         }
     }
-    return enemyMoves.count(location);
+    return false;
 }
 
 void ChessBoard::checkKings() {
@@ -124,17 +120,16 @@ void ChessBoard::checkKings() {
 }
 
 bool ChessBoard::simulateMove(int row, int col) {
-    vector<vector<ChessPiece*>>* oldBoard = copyBoard();
     bool whiteWasChecked = whiteIsChecked;
     bool blackWasChecked = blackIsChecked;
-    ChessPiece* oldPiece = getPiece(selectedRow, selectedCol);
-    setPiece(oldPiece, row, col);
+    ChessPiece* selectedPiece = getPiece(selectedRow, selectedCol);
+    ChessPiece* targetPiece = getPiece(row, col);
+    setPiece(selectedPiece, row, col);
     setPiece(nullptr, selectedRow, selectedCol);
     checkKings();
     bool safe = (whiteTurn && !whiteIsChecked) || (!whiteTurn && !blackIsChecked);
-    delete board;
-    board = oldBoard;
-    oldBoard = nullptr;
+    setPiece(targetPiece, row, col);
+    setPiece(selectedPiece, selectedRow, selectedCol);
     whiteIsChecked = whiteWasChecked;
     blackIsChecked = blackWasChecked;
     return safe;
@@ -142,12 +137,13 @@ bool ChessBoard::simulateMove(int row, int col) {
 
 //change to return set
 void ChessBoard::selectPiece(int row, int col) {  
+    ChessPiece* piece = getPiece(row, col);
     if (piece != nullptr && (piece->isWhite() == whiteTurn)) {
         selectedRow = row;
         selectedCol = col;
         selected = true;
         unordered_set<Tile, HashTile> tempTiles = piece->getMoves(board, row, col);
-        delete movableTiles;
+        //delete movableTiles;
         movableTiles = new unordered_set<Tile, HashTile>;
         for (Tile tile : tempTiles) {
             if (simulateMove(tile.getRow(), tile.getCol())) {
@@ -157,7 +153,7 @@ void ChessBoard::selectPiece(int row, int col) {
     }
 }
 
-//TEMPORARY ai time reducer
+//TEMPORARY ai time reducer (bugged)
 void ChessBoard::selectPieceAI(int row, int col) {
     ChessPiece* piece = getPiece(row, col);
     selectedRow = row;

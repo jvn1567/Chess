@@ -4,15 +4,6 @@ ChessPiece::ChessPiece(bool white) {
     this->white = white;
 }
 
-unordered_set<Tile, HashTile> ChessPiece::getMoves(vector<vector<ChessPiece*>>* board,
-        int row, int col) const {
-    (void)board;
-    (void)row;
-    (void)col;
-    unordered_set<Tile, HashTile> moves;
-    return moves;
-}
-
 string ChessPiece::getName() const {
     return "ChessPiece";
 }

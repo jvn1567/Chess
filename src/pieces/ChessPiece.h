@@ -12,7 +12,7 @@ private:
 public:
     ChessPiece(bool white);
     virtual unordered_set<Tile, HashTile> getMoves(vector<vector<ChessPiece*>>* board,
-            int row, int col) const;
+            int row, int col) const = 0;
     virtual string getName() const;
     virtual int getValue() const;
     bool isWhite() const;
