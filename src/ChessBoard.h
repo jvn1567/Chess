@@ -17,8 +17,8 @@ private:
     int selectedCol;
     bool whiteTurn;
     string winner;
-    unordered_set<Tile, HashTile> movableTiles;
-
+    unordered_set<Tile, HashTile>* movableTiles;
+    int boardValue;
     void setBackRow(int row, bool isWhite);
     Tile getKingLocation(bool kingIsWhite) const;
     void checkKings();
@@ -28,16 +28,19 @@ public:
     ChessBoard();
     void emptyBoard();
     void setStartingBoard();
-    unordered_set<Tile, HashTile> getMovableTiles() const;
+    unordered_set<Tile, HashTile>* getMovableTiles() const;
     ChessPiece* getPiece(int row, int col) const;
     void setPiece(ChessPiece* piece, int row, int col);
-    int evaluateBoard() const;
+    int getBoardValue() const;
+    void changeBoardValue(int value);
 
 
     //maybe offload
     void tryMove(int row, int col);
     void selectPiece(int row, int col); //change to return set
     void movePiece(int row, int col);
+
+    void selectPieceAI(int row, int col);
 
 
     //to delete

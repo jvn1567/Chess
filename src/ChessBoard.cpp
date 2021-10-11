@@ -29,6 +29,8 @@ void ChessBoard::emptyBoard() {
     selectedRow = 0;
     selectedCol = 0;
     whiteTurn = true;
+    movableTiles = nullptr;
+    boardValue = 0;
     winner = "";
 }
 
@@ -49,17 +51,12 @@ void ChessBoard::setPiece(ChessPiece* piece, int row, int col) {
     (*board)[row][col] = piece;
 }
 
-int ChessBoard::evaluateBoard() const {
-    int boardValue;
-    for (int row = 0; row < 8; row++) {
-        for (int col = 0; col < 8; col++) {
-            ChessPiece* piece = getPiece(row, col);
-            if (piece != nullptr) {
-                boardValue += piece->getValue();
-            }
-        }
-    }
+int ChessBoard::getBoardValue() const {
     return boardValue;
+}
+
+void ChessBoard::changeBoardValue(int value) {
+    boardValue += value;
 }
 
 vector<vector<ChessPiece*>>* ChessBoard::copyBoard() const {
@@ -144,32 +141,52 @@ bool ChessBoard::simulateMove(int row, int col) {
 }
 
 //change to return set
-void ChessBoard::selectPiece(int row, int col) {
-    ChessPiece* piece = getPiece(row, col);
+void ChessBoard::selectPiece(int row, int col) {  
     if (piece != nullptr && (piece->isWhite() == whiteTurn)) {
         selectedRow = row;
         selectedCol = col;
         selected = true;
         unordered_set<Tile, HashTile> tempTiles = piece->getMoves(board, row, col);
-        movableTiles.clear();
+        delete movableTiles;
+        movableTiles = new unordered_set<Tile, HashTile>;
         for (Tile tile : tempTiles) {
             if (simulateMove(tile.getRow(), tile.getCol())) {
-                movableTiles.insert(tile);
+                movableTiles->insert(tile);
             }
         }
     }
 }
 
+//TEMPORARY ai time reducer
+void ChessBoard::selectPieceAI(int row, int col) {
+    ChessPiece* piece = getPiece(row, col);
+    selectedRow = row;
+    selectedCol = col;
+    selected = true;
+    unordered_set<Tile, HashTile> tempTiles = piece->getMoves(board, row, col);
+    movableTiles = new unordered_set<Tile, HashTile>;
+    for (Tile tile : tempTiles) {
+        movableTiles->insert(tile);
+    }
+}
+
 void ChessBoard::movePiece(int row, int col) {
-    ChessPiece* old = getPiece(selectedRow, selectedCol);
-    if (old->getName() == "Pawn") {
-        ((Pawn*)old)->setMoved(true);
+    ChessPiece* pieceToMove = getPiece(selectedRow, selectedCol);
+    if (pieceToMove->getName() == "Pawn") {
+        ((Pawn*)pieceToMove)->setMoved(true);
         if (row == 0 || row == 7) {
-            delete old;
-            old = new Queen(old->isWhite());
+            boardValue -= pieceToMove->getValue();
+            delete pieceToMove;
+            pieceToMove = new Queen(pieceToMove->isWhite());
+            boardValue += pieceToMove->getValue();
         }
     }
-    setPiece(old, row, col);
+    ChessPiece* pieceAtLocation = getPiece(row, col);
+    if (pieceAtLocation != nullptr) {
+        boardValue -= pieceAtLocation->getValue();
+        delete pieceAtLocation;
+    }
+    setPiece(pieceToMove, row, col);
     setPiece(nullptr, selectedRow, selectedCol);
     selected = false;
     whiteTurn = !whiteTurn;
@@ -182,7 +199,7 @@ void ChessBoard::tryMove(int row, int col) {
     bool selectedLocation = row == selectedRow && col == selectedCol;
     bool alliedPiece = piece != nullptr && piece->isWhite() == whiteTurn;
     Tile thisTile(row, col);
-    bool validLocation = movableTiles.count(thisTile);
+    bool validLocation = movableTiles->count(thisTile);
     //filter behavior according to checks
     if (selectedLocation || (!validLocation && !alliedPiece)) {
         selected = false;
@@ -240,11 +257,10 @@ bool ChessBoard::isSelectedPiece(int row, int col) const {
 }
 
 bool ChessBoard::isMovableTile(int row, int col) const {
-    Tile temp(row, col);
-    return movableTiles.count(temp);
+    return movableTiles->count(Tile(row, col));
 }
 
-unordered_set<Tile, HashTile> ChessBoard::getMovableTiles() const {
+unordered_set<Tile, HashTile>* ChessBoard::getMovableTiles() const {
     return movableTiles;
 }
 

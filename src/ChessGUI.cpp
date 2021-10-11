@@ -110,7 +110,8 @@ void checkGame() {
     if (board->getWinner() == "") {
         if (!board->isWhiteTurn()) {
             ai->makeMove();
-        } else if (board->isCheckedWhite() && !board->whiteCanMove()) {
+        }
+        if (board->isCheckedWhite() && !board->whiteCanMove()) {
             board->setWinner("Black");
         } else if (!board->isCheckedWhite() && !board->whiteCanMove()) {
             board->setWinner("No one");
