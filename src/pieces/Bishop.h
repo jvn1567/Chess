@@ -8,7 +8,7 @@ class Bishop : public ChessPiece {
 private:
 public:
     Bishop(bool isWhite);
-    unordered_set<Tile, HashTile> getMoves(vector<vector<ChessPiece*>>* board,
+    unordered_set<Tile, HashTile> getMoves(const vector<vector<ChessPiece*>>& board,
             int row, int col) const override;
     string getName() const override;
     int getValue() const override;

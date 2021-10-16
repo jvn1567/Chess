@@ -1,7 +1,7 @@
 #ifndef _ChessAI_h
 #define _ChessAI_h
 
-#include "ChessBoard.h"
+#include "BoardManager.h"
 using namespace std;
 
 struct ValueTree {
@@ -14,7 +14,7 @@ struct ValueTree {
 
 class ChessAI {
 private:
-    ChessBoard* board;
+    BoardManager* board;
     int targetDepth;
     vector<Tile> start;
     vector<Tile> end;
@@ -26,7 +26,7 @@ private:
     void filterMoves();
 
 public:
-    ChessAI(ChessBoard* board);
+    ChessAI(BoardManager* board);
     void makeMove();
 };
 

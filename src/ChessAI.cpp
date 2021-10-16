@@ -2,7 +2,7 @@
 #include "Pawn.h"
 #include "Queen.h"
 
-ChessAI::ChessAI(ChessBoard* board) {
+ChessAI::ChessAI(BoardManager* board) {
     vector<Tile> start;
     vector<Tile> end;
     vector<int> weight;

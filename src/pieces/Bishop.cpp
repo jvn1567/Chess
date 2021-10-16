@@ -2,7 +2,7 @@
 
 Bishop::Bishop(bool isWhite) : ChessPiece(isWhite) {}
 
-unordered_set<Tile, HashTile> Bishop::getMoves(vector<vector<ChessPiece*>>* board,
+unordered_set<Tile, HashTile> Bishop::getMoves(const vector<vector<ChessPiece*>>& board,
         int row, int col) const {
     unordered_set<Tile, HashTile> moves;
     getLine(board, row, col, moves, 1, 1); //NE

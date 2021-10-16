@@ -6,7 +6,7 @@ Pawn::Pawn(bool isWhite) : ChessPiece(isWhite) {
 }
 
 //pawns promote, so off-board not checked
-unordered_set<Tile, HashTile> Pawn::getMoves(vector<vector<ChessPiece*>>* board,
+unordered_set<Tile, HashTile> Pawn::getMoves(const vector<vector<ChessPiece*>>& board,
         int row, int col) const {
     unordered_set<Tile, HashTile> moves;
     //for simulated queen promotes only
@@ -27,24 +27,24 @@ unordered_set<Tile, HashTile> Pawn::getMoves(vector<vector<ChessPiece*>>* board,
         shift = -shift;
     }
     //foward moves
-    if ((*board)[row + shift][col] == nullptr) {
+    if (board[row + shift][col] == nullptr) {
         Tile movableTile(row + shift, col);
         moves.insert(movableTile);
-        if (!hasMoved && (*board)[row + shift * 2][col] == nullptr ) {
+        if (!hasMoved && board[row + shift * 2][col] == nullptr ) {
             Tile movableTile(row + shift * 2, col);
             moves.insert(movableTile);
         }
     }
     //diagonal captures
     if (!isOutOfBounds(row + shift, col - 1)) {
-        ChessPiece* other = (*board)[row + shift][col - 1];
+        ChessPiece* other = board[row + shift][col - 1];
         if (other != nullptr && isEnemy(other)) {
             Tile movableTile(row + shift, col - 1);
             moves.insert(movableTile);
         }
     }
     if (!isOutOfBounds(row + shift, col + 1)) {
-        ChessPiece* other = (*board)[row + shift][col + 1];
+        ChessPiece* other = board[row + shift][col + 1];
         if (other != nullptr && isEnemy(other)) {
             Tile movableTile(row + shift, col + 1);
             moves.insert(movableTile);

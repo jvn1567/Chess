@@ -2,7 +2,7 @@
 
 Queen::Queen(bool isWhite) : ChessPiece(isWhite) {}
 
-unordered_set<Tile, HashTile> Queen::getMoves(vector<vector<ChessPiece*>>* board,
+unordered_set<Tile, HashTile> Queen::getMoves(const vector<vector<ChessPiece*>>& board,
         int row, int col) const {
     unordered_set<Tile, HashTile> moves;
     getLine(board, row, col, moves, 1, 0); //N

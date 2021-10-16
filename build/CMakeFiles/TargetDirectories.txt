@@ -1,0 +1,4 @@
+C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/build/CMakeFiles/StarterProject.dir
+C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/build/CMakeFiles/edit_cache.dir
+C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/build/CMakeFiles/rebuild_cache.dir
+C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/build/CMakeFiles/StarterProject_autogen.dir

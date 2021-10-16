@@ -1,0 +1,685 @@
+{
+	"BUILD_DIR" : "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/build/StarterProject_autogen",
+	"CMAKE_BINARY_DIR" : "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/build",
+	"CMAKE_CURRENT_BINARY_DIR" : "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/build",
+	"CMAKE_CURRENT_SOURCE_DIR" : "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess",
+	"CMAKE_EXECUTABLE" : "C:/Qt/Tools/CMake_64/bin/cmake.exe",
+	"CMAKE_LIST_FILES" : 
+	[
+		"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/CMakeLists.txt",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.19/Modules/CMakeMinGWFindMake.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.19/Modules/CMakeDetermineSystem.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.19/Modules/CMakeSystem.cmake.in",
+		"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/build/CMakeFiles/3.19.2/CMakeSystem.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.19/Modules/CMakeSystemSpecificInitialize.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.19/Modules/CMakeDetermineCXXCompiler.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.19/Modules/CMakeDetermineCompiler.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.19/Modules/Platform/Windows-Determine-CXX.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.19/Modules/CMakeDetermineCompilerId.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.19/Modules/CMakeCompilerIdDetection.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.19/Modules/Compiler/ADSP-DetermineCompiler.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.19/Modules/Compiler/ARMCC-DetermineCompiler.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.19/Modules/Compiler/ARMClang-DetermineCompiler.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.19/Modules/Compiler/AppleClang-DetermineCompiler.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.19/Modules/Compiler/Clang-DetermineCompilerInternal.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.19/Modules/Compiler/Borland-DetermineCompiler.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.19/Modules/Compiler/Clang-DetermineCompiler.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.19/Modules/Compiler/Clang-DetermineCompilerInternal.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.19/Modules/Compiler/Comeau-CXX-DetermineCompiler.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.19/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.19/Modules/Compiler/Cray-DetermineCompiler.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.19/Modules/Compiler/Embarcadero-DetermineCompiler.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.19/Modules/Compiler/Fujitsu-DetermineCompiler.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.19/Modules/Compiler/GHS-DetermineCompiler.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.19/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.19/Modules/Compiler/HP-CXX-DetermineCompiler.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.19/Modules/Compiler/IAR-DetermineCompiler.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.19/Modules/Compiler/Intel-DetermineCompiler.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.19/Modules/Compiler/MSVC-DetermineCompiler.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.19/Modules/Compiler/NVIDIA-DetermineCompiler.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.19/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.19/Modules/Compiler/PGI-DetermineCompiler.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.19/Modules/Compiler/PathScale-DetermineCompiler.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.19/Modules/Compiler/SCO-DetermineCompiler.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.19/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.19/Modules/Compiler/TI-DetermineCompiler.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.19/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.19/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.19/Modules/Compiler/Watcom-DetermineCompiler.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.19/Modules/Compiler/XL-CXX-DetermineCompiler.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.19/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.19/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.19/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.19/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.19/Modules/CMakeFindBinUtils.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.19/Modules/Compiler/GNU-FindBinUtils.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.19/Modules/CMakeCXXCompiler.cmake.in",
+		"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/build/CMakeFiles/3.19.2/CMakeCXXCompiler.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.19/Modules/CMakeSystemSpecificInformation.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.19/Modules/CMakeGenericSystem.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.19/Modules/CMakeInitializeConfigs.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.19/Modules/Platform/Windows.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.19/Modules/Platform/WindowsPaths.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.19/Modules/CMakeCXXInformation.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.19/Modules/CMakeLanguageInformation.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.19/Modules/Compiler/GNU-CXX.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.19/Modules/Compiler/GNU.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.19/Modules/Compiler/CMakeCommonCompilerMacros.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.19/Modules/Platform/Windows-GNU-CXX.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.19/Modules/Platform/Windows-GNU.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.19/Modules/CMakeDetermineRCCompiler.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.19/Modules/CMakeRCCompiler.cmake.in",
+		"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/build/CMakeFiles/3.19.2/CMakeRCCompiler.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.19/Modules/CMakeRCInformation.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.19/Modules/Platform/Windows-windres.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.19/Modules/CMakeTestRCCompiler.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.19/Modules/CMakeCommonLanguageInclude.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.19/Modules/CMakeTestCXXCompiler.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.19/Modules/CMakeTestCompilerCommon.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.19/Modules/CMakeDetermineCompilerABI.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.19/Modules/CMakeParseImplicitIncludeInfo.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.19/Modules/CMakeParseImplicitLinkInfo.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.19/Modules/CMakeTestCompilerCommon.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.19/Modules/CMakeCXXCompilerABI.cpp",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.19/Modules/CMakeDetermineCompileFeatures.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.19/Modules/Internal/FeatureTesting.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.19/Modules/CMakeCXXCompiler.cmake.in",
+		"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/build/CMakeFiles/3.19.2/CMakeCXXCompiler.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.19/Modules/Platform/Windows-GNU-CXX-ABI.cmake",
+		"C:/Qt/5.15.2/mingw81_64/lib/cmake/Qt5/Qt5ConfigVersion.cmake",
+		"C:/Qt/5.15.2/mingw81_64/lib/cmake/Qt5/Qt5Config.cmake",
+		"C:/Qt/5.15.2/mingw81_64/lib/cmake/Qt5/Qt5ModuleLocation.cmake",
+		"C:/Qt/5.15.2/mingw81_64/lib/cmake/Qt5Widgets/Qt5WidgetsConfigVersion.cmake",
+		"C:/Qt/5.15.2/mingw81_64/lib/cmake/Qt5Widgets/Qt5WidgetsConfig.cmake",
+		"C:/Qt/5.15.2/mingw81_64/lib/cmake/Qt5Gui/Qt5GuiConfigVersion.cmake",
+		"C:/Qt/5.15.2/mingw81_64/lib/cmake/Qt5Gui/Qt5GuiConfig.cmake",
+		"C:/Qt/5.15.2/mingw81_64/lib/cmake/Qt5Core/Qt5CoreConfigVersion.cmake",
+		"C:/Qt/5.15.2/mingw81_64/lib/cmake/Qt5Core/Qt5CoreConfig.cmake",
+		"C:/Qt/5.15.2/mingw81_64/lib/cmake/Qt5Core/Qt5CoreConfigExtras.cmake",
+		"C:/Qt/5.15.2/mingw81_64/lib/cmake/Qt5Core/Qt5CoreConfigExtrasMkspecDir.cmake",
+		"C:/Qt/5.15.2/mingw81_64/lib/cmake/Qt5Core/Qt5CoreMacros.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.19/Modules/CMakeParseArguments.cmake",
+		"C:/Qt/5.15.2/mingw81_64/lib/cmake/Qt5Gui/Qt5Gui_QGifPlugin.cmake",
+		"C:/Qt/5.15.2/mingw81_64/lib/cmake/Qt5Gui/Qt5Gui_QICNSPlugin.cmake",
+		"C:/Qt/5.15.2/mingw81_64/lib/cmake/Qt5Gui/Qt5Gui_QICOPlugin.cmake",
+		"C:/Qt/5.15.2/mingw81_64/lib/cmake/Qt5Gui/Qt5Gui_QJpegPlugin.cmake",
+		"C:/Qt/5.15.2/mingw81_64/lib/cmake/Qt5Gui/Qt5Gui_QMinimalIntegrationPlugin.cmake",
+		"C:/Qt/5.15.2/mingw81_64/lib/cmake/Qt5Gui/Qt5Gui_QOffscreenIntegrationPlugin.cmake",
+		"C:/Qt/5.15.2/mingw81_64/lib/cmake/Qt5Gui/Qt5Gui_QSvgIconPlugin.cmake",
+		"C:/Qt/5.15.2/mingw81_64/lib/cmake/Qt5Gui/Qt5Gui_QSvgPlugin.cmake",
+		"C:/Qt/5.15.2/mingw81_64/lib/cmake/Qt5Gui/Qt5Gui_QTgaPlugin.cmake",
+		"C:/Qt/5.15.2/mingw81_64/lib/cmake/Qt5Gui/Qt5Gui_QTiffPlugin.cmake",
+		"C:/Qt/5.15.2/mingw81_64/lib/cmake/Qt5Gui/Qt5Gui_QTuioTouchPlugin.cmake",
+		"C:/Qt/5.15.2/mingw81_64/lib/cmake/Qt5Gui/Qt5Gui_QWbmpPlugin.cmake",
+		"C:/Qt/5.15.2/mingw81_64/lib/cmake/Qt5Gui/Qt5Gui_QWebpPlugin.cmake",
+		"C:/Qt/5.15.2/mingw81_64/lib/cmake/Qt5Gui/Qt5Gui_QWindowsDirect2DIntegrationPlugin.cmake",
+		"C:/Qt/5.15.2/mingw81_64/lib/cmake/Qt5Gui/Qt5Gui_QWindowsIntegrationPlugin.cmake",
+		"C:/Qt/5.15.2/mingw81_64/lib/cmake/Qt5Gui/Qt5Gui_QXdgDesktopPortalThemePlugin.cmake",
+		"C:/Qt/5.15.2/mingw81_64/lib/cmake/Qt5Gui/Qt5GuiConfigExtras.cmake",
+		"C:/Qt/5.15.2/mingw81_64/lib/cmake/Qt5Widgets/Qt5Widgets_QWindowsVistaStylePlugin.cmake",
+		"C:/Qt/5.15.2/mingw81_64/lib/cmake/Qt5Widgets/Qt5WidgetsConfigExtras.cmake",
+		"C:/Qt/5.15.2/mingw81_64/lib/cmake/Qt5Widgets/Qt5WidgetsMacros.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.19/Modules/CMakeParseArguments.cmake",
+		"C:/Qt/5.15.2/mingw81_64/lib/cmake/Qt5Multimedia/Qt5MultimediaConfigVersion.cmake",
+		"C:/Qt/5.15.2/mingw81_64/lib/cmake/Qt5Multimedia/Qt5MultimediaConfig.cmake",
+		"C:/Qt/5.15.2/mingw81_64/lib/cmake/Qt5Network/Qt5NetworkConfigVersion.cmake",
+		"C:/Qt/5.15.2/mingw81_64/lib/cmake/Qt5Network/Qt5NetworkConfig.cmake",
+		"C:/Qt/5.15.2/mingw81_64/lib/cmake/Qt5Network/Qt5Network_QGenericEnginePlugin.cmake",
+		"C:/Qt/5.15.2/mingw81_64/lib/cmake/Qt5Multimedia/Qt5Multimedia_AudioCaptureServicePlugin.cmake",
+		"C:/Qt/5.15.2/mingw81_64/lib/cmake/Qt5Multimedia/Qt5Multimedia_DSServicePlugin.cmake",
+		"C:/Qt/5.15.2/mingw81_64/lib/cmake/Qt5Multimedia/Qt5Multimedia_QM3uPlaylistPlugin.cmake",
+		"C:/Qt/5.15.2/mingw81_64/lib/cmake/Qt5Multimedia/Qt5Multimedia_QWindowsAudioPlugin.cmake",
+		"C:/Qt/5.15.2/mingw81_64/lib/cmake/Qt5Network/Qt5NetworkConfigVersion.cmake",
+		"C:/Qt/5.15.2/mingw81_64/lib/cmake/Qt5Network/Qt5NetworkConfig.cmake",
+		"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/res/BlackBishop.png",
+		"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/res/BlackKing.png",
+		"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/res/BlackKnight.png",
+		"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/res/BlackPawn.png",
+		"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/res/BlackQueen.png",
+		"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/res/BlackRook.png",
+		"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/res/WhiteBishop.png",
+		"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/res/WhiteKing.png",
+		"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/res/WhiteKnight.png",
+		"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/res/WhitePawn.png",
+		"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/res/WhiteQueen.png",
+		"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/res/WhiteRook.png"
+	],
+	"CMAKE_SOURCE_DIR" : "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess",
+	"DEP_FILE" : "",
+	"DEP_FILE_RULE_NAME" : "",
+	"HEADERS" : 
+	[
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/console.h",
+			"Mu",
+			"ZJOKMXDKB7/moc_console.cpp"
+		],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gborder.h",
+			"Mu",
+			"ZJOKMXDKB7/moc_gborder.cpp"
+		],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gbrowserpane.h",
+			"Mu",
+			"ZJOKMXDKB7/moc_gbrowserpane.cpp"
+		],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gbutton.h",
+			"Mu",
+			"ZJOKMXDKB7/moc_gbutton.cpp"
+		],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gcanvas.h",
+			"Mu",
+			"ZJOKMXDKB7/moc_gcanvas.cpp"
+		],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gcheckbox.h",
+			"Mu",
+			"ZJOKMXDKB7/moc_gcheckbox.cpp"
+		],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gchooser.h",
+			"Mu",
+			"ZJOKMXDKB7/moc_gchooser.cpp"
+		],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gclipboard.h",
+			"Mu",
+			"ZJOKMXDKB7/moc_gclipboard.cpp"
+		],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gcolor.h",
+			"Mu",
+			"ZJOKMXDKB7/moc_gcolor.cpp"
+		],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gcolorchooser.h",
+			"Mu",
+			"ZJOKMXDKB7/moc_gcolorchooser.cpp"
+		],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gconsolewindow.h",
+			"Mu",
+			"ZJOKMXDKB7/moc_gconsolewindow.cpp"
+		],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gcontainer.h",
+			"Mu",
+			"ZJOKMXDKB7/moc_gcontainer.cpp"
+		],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gdiffgui.h",
+			"Mu",
+			"ZJOKMXDKB7/moc_gdiffgui.cpp"
+		],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gdiffimage.h",
+			"Mu",
+			"ZJOKMXDKB7/moc_gdiffimage.cpp"
+		],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gdownloader.h",
+			"Mu",
+			"ZJOKMXDKB7/moc_gdownloader.cpp"
+		],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gdrawingsurface.h",
+			"Mu",
+			"ZJOKMXDKB7/moc_gdrawingsurface.cpp"
+		],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gevent.h",
+			"Mu",
+			"ZJOKMXDKB7/moc_gevent.cpp"
+		],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/geventqueue.h",
+			"Mu",
+			"ZJOKMXDKB7/moc_geventqueue.cpp"
+		],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gexceptions.h",
+			"Mu",
+			"ZJOKMXDKB7/moc_gexceptions.cpp"
+		],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gfilechooser.h",
+			"Mu",
+			"ZJOKMXDKB7/moc_gfilechooser.cpp"
+		],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gfont.h",
+			"Mu",
+			"ZJOKMXDKB7/moc_gfont.cpp"
+		],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gfontchooser.h",
+			"Mu",
+			"ZJOKMXDKB7/moc_gfontchooser.cpp"
+		],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/ginit.h",
+			"Mu",
+			"ZJOKMXDKB7/moc_ginit.cpp"
+		],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/ginteractor.h",
+			"Mu",
+			"ZJOKMXDKB7/moc_ginteractor.cpp"
+		],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/glabel.h",
+			"Mu",
+			"ZJOKMXDKB7/moc_glabel.cpp"
+		],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/glayout.h",
+			"Mu",
+			"ZJOKMXDKB7/moc_glayout.cpp"
+		],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gmath.h",
+			"Mu",
+			"ZJOKMXDKB7/moc_gmath.cpp"
+		],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gobjects.h",
+			"Mu",
+			"ZJOKMXDKB7/moc_gobjects.cpp"
+		],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gobservable.h",
+			"Mu",
+			"ZJOKMXDKB7/moc_gobservable.cpp"
+		],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/goptionpane.h",
+			"Mu",
+			"ZJOKMXDKB7/moc_goptionpane.cpp"
+		],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gradiobutton.h",
+			"Mu",
+			"ZJOKMXDKB7/moc_gradiobutton.cpp"
+		],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gscrollbar.h",
+			"Mu",
+			"ZJOKMXDKB7/moc_gscrollbar.cpp"
+		],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gscrollpane.h",
+			"Mu",
+			"ZJOKMXDKB7/moc_gscrollpane.cpp"
+		],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gslider.h",
+			"Mu",
+			"ZJOKMXDKB7/moc_gslider.cpp"
+		],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gsound.h",
+			"Mu",
+			"ZJOKMXDKB7/moc_gsound.cpp"
+		],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gspacer.h",
+			"Mu",
+			"ZJOKMXDKB7/moc_gspacer.cpp"
+		],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gtable.h",
+			"Mu",
+			"ZJOKMXDKB7/moc_gtable.cpp"
+		],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gtextarea.h",
+			"Mu",
+			"ZJOKMXDKB7/moc_gtextarea.cpp"
+		],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gtextfield.h",
+			"Mu",
+			"ZJOKMXDKB7/moc_gtextfield.cpp"
+		],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gthread.h",
+			"Mu",
+			"ZJOKMXDKB7/moc_gthread.cpp"
+		],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gtimer.h",
+			"Mu",
+			"ZJOKMXDKB7/moc_gtimer.cpp"
+		],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gtypes.h",
+			"Mu",
+			"ZJOKMXDKB7/moc_gtypes.cpp"
+		],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gversion.h",
+			"Mu",
+			"ZJOKMXDKB7/moc_gversion.cpp"
+		],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gwindow.h",
+			"Mu",
+			"ZJOKMXDKB7/moc_gwindow.cpp"
+		],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/privatediff.h",
+			"Mu",
+			"ZJOKMXDKB7/moc_privatediff.cpp"
+		],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/privatefilelib.h",
+			"Mu",
+			"ZJOKMXDKB7/moc_privatefilelib.cpp"
+		],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/privateregexpr.h",
+			"Mu",
+			"ZJOKMXDKB7/moc_privateregexpr.cpp"
+		],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/privatestrlib.h",
+			"Mu",
+			"ZJOKMXDKB7/moc_privatestrlib.cpp"
+		],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/qtgui.h",
+			"Mu",
+			"ZJOKMXDKB7/moc_qtgui.cpp"
+		],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/require.h",
+			"Mu",
+			"ZJOKMXDKB7/moc_require.cpp"
+		],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/src/BoardManager.h",
+			"Mu",
+			"UVLADIE3JM/moc_BoardManager.cpp"
+		],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/src/ChessAI.h",
+			"Mu",
+			"UVLADIE3JM/moc_ChessAI.cpp"
+		],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/src/Tile.h",
+			"Mu",
+			"UVLADIE3JM/moc_Tile.cpp"
+		],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/src/pieces/Bishop.h",
+			"Mu",
+			"P3Q6EQAWPI/moc_Bishop.cpp"
+		],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/src/pieces/ChessPiece.h",
+			"Mu",
+			"P3Q6EQAWPI/moc_ChessPiece.cpp"
+		],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/src/pieces/King.h",
+			"Mu",
+			"P3Q6EQAWPI/moc_King.cpp"
+		],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/src/pieces/Knight.h",
+			"Mu",
+			"P3Q6EQAWPI/moc_Knight.cpp"
+		],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/src/pieces/Pawn.h",
+			"Mu",
+			"P3Q6EQAWPI/moc_Pawn.cpp"
+		],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/src/pieces/Queen.h",
+			"Mu",
+			"P3Q6EQAWPI/moc_Queen.cpp"
+		],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/src/pieces/Rook.h",
+			"Mu",
+			"P3Q6EQAWPI/moc_Rook.cpp"
+		]
+	],
+	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
+	"INCLUDE_DIR" : "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/build/StarterProject_autogen/include",
+	"MOC_COMPILATION_FILE" : "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/build/StarterProject_autogen/mocs_compilation.cpp",
+	"MOC_DEFINITIONS" : 
+	[
+		"QT_CORE_LIB",
+		"QT_GUI_LIB",
+		"QT_MULTIMEDIA_LIB",
+		"QT_NETWORK_LIB",
+		"QT_WIDGETS_LIB"
+	],
+	"MOC_DEPEND_FILTERS" : 
+	[
+		[
+			"Q_PLUGIN_METADATA",
+			"[\n][ \t]*Q_PLUGIN_METADATA[ \t]*\\([^\\)]*FILE[ \t]*\"([^\"]+)\""
+		]
+	],
+	"MOC_INCLUDES" : 
+	[
+		"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib",
+		"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/src",
+		"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/src/pieces",
+		"C:/Qt/5.15.2/mingw81_64/include",
+		"C:/Qt/5.15.2/mingw81_64/include/QtWidgets",
+		"C:/Qt/5.15.2/mingw81_64/include/QtGui",
+		"C:/Qt/5.15.2/mingw81_64/include/QtCore",
+		"C:/Qt/5.15.2/mingw81_64/mkspecs/win32-g++",
+		"C:/Qt/5.15.2/mingw81_64/include/QtANGLE",
+		"C:/Qt/5.15.2/mingw81_64/include/QtMultimedia",
+		"C:/Qt/5.15.2/mingw81_64/include/QtNetwork",
+		"C:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++",
+		"C:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32",
+		"C:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward",
+		"C:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include",
+		"C:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed",
+		"C:/Qt/Tools/mingw810_64/x86_64-w64-mingw32/include"
+	],
+	"MOC_MACRO_NAMES" : [ "Q_OBJECT", "Q_GADGET", "Q_NAMESPACE", "Q_NAMESPACE_EXPORT" ],
+	"MOC_OPTIONS" : [],
+	"MOC_PATH_PREFIX" : false,
+	"MOC_PREDEFS_CMD" : 
+	[
+		"C:/Qt/Tools/mingw810_64/bin/x86_64-w64-mingw32-g++.exe",
+		"-dM",
+		"-E",
+		"-c",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.19/Modules/CMakeCXXCompilerABI.cpp"
+	],
+	"MOC_PREDEFS_FILE" : "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/build/StarterProject_autogen/moc_predefs.h",
+	"MOC_RELAXED_MODE" : false,
+	"MOC_SKIP" : [],
+	"MULTI_CONFIG" : false,
+	"PARALLEL" : 4,
+	"PARSE_CACHE_FILE" : "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/build/CMakeFiles/StarterProject_autogen.dir/ParseCache.txt",
+	"QT_MOC_EXECUTABLE" : "C:/Qt/5.15.2/mingw81_64/bin/moc.exe",
+	"QT_UIC_EXECUTABLE" : "",
+	"QT_VERSION_MAJOR" : 5,
+	"QT_VERSION_MINOR" : 15,
+	"SETTINGS_FILE" : "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/build/CMakeFiles/StarterProject_autogen.dir/AutogenUsed.txt",
+	"SOURCES" : 
+	[
+		[ "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/console.cpp", "Mu" ],
+		[ "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gborder.cpp", "Mu" ],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gbrowserpane.cpp",
+			"Mu"
+		],
+		[ "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gbutton.cpp", "Mu" ],
+		[ "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gcanvas.cpp", "Mu" ],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gcheckbox.cpp",
+			"Mu"
+		],
+		[ "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gchooser.cpp", "Mu" ],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gclipboard.cpp",
+			"Mu"
+		],
+		[ "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gcolor.cpp", "Mu" ],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gcolorchooser.cpp",
+			"Mu"
+		],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gconsolewindow.cpp",
+			"Mu"
+		],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gcontainer.cpp",
+			"Mu"
+		],
+		[ "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gdiffgui.cpp", "Mu" ],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gdiffimage.cpp",
+			"Mu"
+		],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gdownloader.cpp",
+			"Mu"
+		],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gdrawingsurface.cpp",
+			"Mu"
+		],
+		[ "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gevent.cpp", "Mu" ],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/geventqueue.cpp",
+			"Mu"
+		],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gexceptions.cpp",
+			"Mu"
+		],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gfilechooser.cpp",
+			"Mu"
+		],
+		[ "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gfont.cpp", "Mu" ],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gfontchooser.cpp",
+			"Mu"
+		],
+		[ "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/ginit.cpp", "Mu" ],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/ginteractor.cpp",
+			"Mu"
+		],
+		[ "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/glabel.cpp", "Mu" ],
+		[ "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/glayout.cpp", "Mu" ],
+		[ "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gmath.cpp", "Mu" ],
+		[ "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gobjects.cpp", "Mu" ],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gobservable.cpp",
+			"Mu"
+		],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/goptionpane.cpp",
+			"Mu"
+		],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gradiobutton.cpp",
+			"Mu"
+		],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gscrollbar.cpp",
+			"Mu"
+		],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gscrollpane.cpp",
+			"Mu"
+		],
+		[ "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gslider.cpp", "Mu" ],
+		[ "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gsound.cpp", "Mu" ],
+		[ "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gspacer.cpp", "Mu" ],
+		[ "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gtable.cpp", "Mu" ],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gtextarea.cpp",
+			"Mu"
+		],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gtextfield.cpp",
+			"Mu"
+		],
+		[ "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gthread.cpp", "Mu" ],
+		[ "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gtimer.cpp", "Mu" ],
+		[ "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gtypes.cpp", "Mu" ],
+		[ "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gversion.cpp", "Mu" ],
+		[ "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gwindow.cpp", "Mu" ],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/librarymain.cpp",
+			"Mu"
+		],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/mainwrapper.cpp",
+			"Mu"
+		],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/privatediff.cpp",
+			"Mu"
+		],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/privatefilelib.cpp",
+			"Mu"
+		],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/privateregexpr.cpp",
+			"Mu"
+		],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/privatestrlib.cpp",
+			"Mu"
+		],
+		[ "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/qtgui.cpp", "Mu" ],
+		[ "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/require.cpp", "Mu" ],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/src/BoardManager.cpp",
+			"Mu"
+		],
+		[ "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/src/ChessAI.cpp", "Mu" ],
+		[ "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/src/ChessGUI.cpp", "Mu" ],
+		[ "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/src/Tile.cpp", "Mu" ],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/src/pieces/Bishop.cpp",
+			"Mu"
+		],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/src/pieces/ChessPiece.cpp",
+			"Mu"
+		],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/src/pieces/King.cpp",
+			"Mu"
+		],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/src/pieces/Knight.cpp",
+			"Mu"
+		],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/src/pieces/Pawn.cpp",
+			"Mu"
+		],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/src/pieces/Queen.cpp",
+			"Mu"
+		],
+		[
+			"C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/src/pieces/Rook.cpp",
+			"Mu"
+		]
+	],
+	"VERBOSITY" : 0
+}

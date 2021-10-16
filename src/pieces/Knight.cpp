@@ -2,7 +2,7 @@
 
 Knight::Knight(bool isWhite) : ChessPiece(isWhite) {}
 
-unordered_set<Tile, HashTile> Knight::getMoves(vector<vector<ChessPiece*>>* board,
+unordered_set<Tile, HashTile> Knight::getMoves(const vector<vector<ChessPiece*>>& board,
         int row, int col) const {
     (void)board;
     unordered_set<Tile, HashTile> moves;
@@ -26,9 +26,9 @@ int Knight::getValue() const {
 }
 
 void Knight::addTile(unordered_set<Tile, HashTile>& moves, int row, int col,
-        vector<vector<ChessPiece*>>* board) const {
+        const vector<vector<ChessPiece*>>& board) const {
     if (!isOutOfBounds(row, col)) {
-        ChessPiece* other = (*board)[row][col];
+        ChessPiece* other = board[row][col];
         if (other == nullptr || isEnemy(other)) {
             Tile movableTile(row, col);
             moves.insert(movableTile);

@@ -1,0 +1,322 @@
+[
+{
+  "directory": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/build",
+  "command": "C:\\Qt\\Tools\\mingw810_64\\bin\\x86_64-w64-mingw32-g++.exe -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB @CMakeFiles/StarterProject.dir/includes_CXX.rsp -g -g -Wall -Wextra -Werror=return-type -Werror=uninitialized -Wunused-parameter -Wmissing-field-initializers -Wno-old-style-cast -Wno-sign-compare -Wno-sign-conversion -DSGL_GRAPHICAL_CONSOLE_NO_TOOLBAR=1 -Dmain=qMain -DqMain=studentMain -std=gnu++11 -o CMakeFiles\\StarterProject.dir\\StarterProject_autogen\\mocs_compilation.cpp.obj -c \"C:\\Users\\thejo\\Documents\\Code\\C++ (Q3)\\Chess\\build\\StarterProject_autogen\\mocs_compilation.cpp\"",
+  "file": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/build/StarterProject_autogen/mocs_compilation.cpp"
+},
+{
+  "directory": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/build",
+  "command": "C:\\Qt\\Tools\\mingw810_64\\bin\\x86_64-w64-mingw32-g++.exe -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB @CMakeFiles/StarterProject.dir/includes_CXX.rsp -g -g -Wall -Wextra -Werror=return-type -Werror=uninitialized -Wunused-parameter -Wmissing-field-initializers -Wno-old-style-cast -Wno-sign-compare -Wno-sign-conversion -DSGL_GRAPHICAL_CONSOLE_NO_TOOLBAR=1 -Dmain=qMain -DqMain=studentMain -std=gnu++11 -o CMakeFiles\\StarterProject.dir\\lib\\console.cpp.obj -c \"C:\\Users\\thejo\\Documents\\Code\\C++ (Q3)\\Chess\\lib\\console.cpp\"",
+  "file": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/console.cpp"
+},
+{
+  "directory": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/build",
+  "command": "C:\\Qt\\Tools\\mingw810_64\\bin\\x86_64-w64-mingw32-g++.exe -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB @CMakeFiles/StarterProject.dir/includes_CXX.rsp -g -g -Wall -Wextra -Werror=return-type -Werror=uninitialized -Wunused-parameter -Wmissing-field-initializers -Wno-old-style-cast -Wno-sign-compare -Wno-sign-conversion -DSGL_GRAPHICAL_CONSOLE_NO_TOOLBAR=1 -Dmain=qMain -DqMain=studentMain -std=gnu++11 -o CMakeFiles\\StarterProject.dir\\lib\\gborder.cpp.obj -c \"C:\\Users\\thejo\\Documents\\Code\\C++ (Q3)\\Chess\\lib\\gborder.cpp\"",
+  "file": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gborder.cpp"
+},
+{
+  "directory": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/build",
+  "command": "C:\\Qt\\Tools\\mingw810_64\\bin\\x86_64-w64-mingw32-g++.exe -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB @CMakeFiles/StarterProject.dir/includes_CXX.rsp -g -g -Wall -Wextra -Werror=return-type -Werror=uninitialized -Wunused-parameter -Wmissing-field-initializers -Wno-old-style-cast -Wno-sign-compare -Wno-sign-conversion -DSGL_GRAPHICAL_CONSOLE_NO_TOOLBAR=1 -Dmain=qMain -DqMain=studentMain -std=gnu++11 -o CMakeFiles\\StarterProject.dir\\lib\\gbrowserpane.cpp.obj -c \"C:\\Users\\thejo\\Documents\\Code\\C++ (Q3)\\Chess\\lib\\gbrowserpane.cpp\"",
+  "file": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gbrowserpane.cpp"
+},
+{
+  "directory": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/build",
+  "command": "C:\\Qt\\Tools\\mingw810_64\\bin\\x86_64-w64-mingw32-g++.exe -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB @CMakeFiles/StarterProject.dir/includes_CXX.rsp -g -g -Wall -Wextra -Werror=return-type -Werror=uninitialized -Wunused-parameter -Wmissing-field-initializers -Wno-old-style-cast -Wno-sign-compare -Wno-sign-conversion -DSGL_GRAPHICAL_CONSOLE_NO_TOOLBAR=1 -Dmain=qMain -DqMain=studentMain -std=gnu++11 -o CMakeFiles\\StarterProject.dir\\lib\\gbutton.cpp.obj -c \"C:\\Users\\thejo\\Documents\\Code\\C++ (Q3)\\Chess\\lib\\gbutton.cpp\"",
+  "file": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gbutton.cpp"
+},
+{
+  "directory": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/build",
+  "command": "C:\\Qt\\Tools\\mingw810_64\\bin\\x86_64-w64-mingw32-g++.exe -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB @CMakeFiles/StarterProject.dir/includes_CXX.rsp -g -g -Wall -Wextra -Werror=return-type -Werror=uninitialized -Wunused-parameter -Wmissing-field-initializers -Wno-old-style-cast -Wno-sign-compare -Wno-sign-conversion -DSGL_GRAPHICAL_CONSOLE_NO_TOOLBAR=1 -Dmain=qMain -DqMain=studentMain -std=gnu++11 -o CMakeFiles\\StarterProject.dir\\lib\\gcanvas.cpp.obj -c \"C:\\Users\\thejo\\Documents\\Code\\C++ (Q3)\\Chess\\lib\\gcanvas.cpp\"",
+  "file": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gcanvas.cpp"
+},
+{
+  "directory": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/build",
+  "command": "C:\\Qt\\Tools\\mingw810_64\\bin\\x86_64-w64-mingw32-g++.exe -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB @CMakeFiles/StarterProject.dir/includes_CXX.rsp -g -g -Wall -Wextra -Werror=return-type -Werror=uninitialized -Wunused-parameter -Wmissing-field-initializers -Wno-old-style-cast -Wno-sign-compare -Wno-sign-conversion -DSGL_GRAPHICAL_CONSOLE_NO_TOOLBAR=1 -Dmain=qMain -DqMain=studentMain -std=gnu++11 -o CMakeFiles\\StarterProject.dir\\lib\\gcheckbox.cpp.obj -c \"C:\\Users\\thejo\\Documents\\Code\\C++ (Q3)\\Chess\\lib\\gcheckbox.cpp\"",
+  "file": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gcheckbox.cpp"
+},
+{
+  "directory": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/build",
+  "command": "C:\\Qt\\Tools\\mingw810_64\\bin\\x86_64-w64-mingw32-g++.exe -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB @CMakeFiles/StarterProject.dir/includes_CXX.rsp -g -g -Wall -Wextra -Werror=return-type -Werror=uninitialized -Wunused-parameter -Wmissing-field-initializers -Wno-old-style-cast -Wno-sign-compare -Wno-sign-conversion -DSGL_GRAPHICAL_CONSOLE_NO_TOOLBAR=1 -Dmain=qMain -DqMain=studentMain -std=gnu++11 -o CMakeFiles\\StarterProject.dir\\lib\\gchooser.cpp.obj -c \"C:\\Users\\thejo\\Documents\\Code\\C++ (Q3)\\Chess\\lib\\gchooser.cpp\"",
+  "file": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gchooser.cpp"
+},
+{
+  "directory": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/build",
+  "command": "C:\\Qt\\Tools\\mingw810_64\\bin\\x86_64-w64-mingw32-g++.exe -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB @CMakeFiles/StarterProject.dir/includes_CXX.rsp -g -g -Wall -Wextra -Werror=return-type -Werror=uninitialized -Wunused-parameter -Wmissing-field-initializers -Wno-old-style-cast -Wno-sign-compare -Wno-sign-conversion -DSGL_GRAPHICAL_CONSOLE_NO_TOOLBAR=1 -Dmain=qMain -DqMain=studentMain -std=gnu++11 -o CMakeFiles\\StarterProject.dir\\lib\\gclipboard.cpp.obj -c \"C:\\Users\\thejo\\Documents\\Code\\C++ (Q3)\\Chess\\lib\\gclipboard.cpp\"",
+  "file": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gclipboard.cpp"
+},
+{
+  "directory": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/build",
+  "command": "C:\\Qt\\Tools\\mingw810_64\\bin\\x86_64-w64-mingw32-g++.exe -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB @CMakeFiles/StarterProject.dir/includes_CXX.rsp -g -g -Wall -Wextra -Werror=return-type -Werror=uninitialized -Wunused-parameter -Wmissing-field-initializers -Wno-old-style-cast -Wno-sign-compare -Wno-sign-conversion -DSGL_GRAPHICAL_CONSOLE_NO_TOOLBAR=1 -Dmain=qMain -DqMain=studentMain -std=gnu++11 -o CMakeFiles\\StarterProject.dir\\lib\\gcolor.cpp.obj -c \"C:\\Users\\thejo\\Documents\\Code\\C++ (Q3)\\Chess\\lib\\gcolor.cpp\"",
+  "file": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gcolor.cpp"
+},
+{
+  "directory": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/build",
+  "command": "C:\\Qt\\Tools\\mingw810_64\\bin\\x86_64-w64-mingw32-g++.exe -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB @CMakeFiles/StarterProject.dir/includes_CXX.rsp -g -g -Wall -Wextra -Werror=return-type -Werror=uninitialized -Wunused-parameter -Wmissing-field-initializers -Wno-old-style-cast -Wno-sign-compare -Wno-sign-conversion -DSGL_GRAPHICAL_CONSOLE_NO_TOOLBAR=1 -Dmain=qMain -DqMain=studentMain -std=gnu++11 -o CMakeFiles\\StarterProject.dir\\lib\\gcolorchooser.cpp.obj -c \"C:\\Users\\thejo\\Documents\\Code\\C++ (Q3)\\Chess\\lib\\gcolorchooser.cpp\"",
+  "file": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gcolorchooser.cpp"
+},
+{
+  "directory": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/build",
+  "command": "C:\\Qt\\Tools\\mingw810_64\\bin\\x86_64-w64-mingw32-g++.exe -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB @CMakeFiles/StarterProject.dir/includes_CXX.rsp -g -g -Wall -Wextra -Werror=return-type -Werror=uninitialized -Wunused-parameter -Wmissing-field-initializers -Wno-old-style-cast -Wno-sign-compare -Wno-sign-conversion -DSGL_GRAPHICAL_CONSOLE_NO_TOOLBAR=1 -Dmain=qMain -DqMain=studentMain -std=gnu++11 -o CMakeFiles\\StarterProject.dir\\lib\\gconsolewindow.cpp.obj -c \"C:\\Users\\thejo\\Documents\\Code\\C++ (Q3)\\Chess\\lib\\gconsolewindow.cpp\"",
+  "file": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gconsolewindow.cpp"
+},
+{
+  "directory": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/build",
+  "command": "C:\\Qt\\Tools\\mingw810_64\\bin\\x86_64-w64-mingw32-g++.exe -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB @CMakeFiles/StarterProject.dir/includes_CXX.rsp -g -g -Wall -Wextra -Werror=return-type -Werror=uninitialized -Wunused-parameter -Wmissing-field-initializers -Wno-old-style-cast -Wno-sign-compare -Wno-sign-conversion -DSGL_GRAPHICAL_CONSOLE_NO_TOOLBAR=1 -Dmain=qMain -DqMain=studentMain -std=gnu++11 -o CMakeFiles\\StarterProject.dir\\lib\\gcontainer.cpp.obj -c \"C:\\Users\\thejo\\Documents\\Code\\C++ (Q3)\\Chess\\lib\\gcontainer.cpp\"",
+  "file": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gcontainer.cpp"
+},
+{
+  "directory": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/build",
+  "command": "C:\\Qt\\Tools\\mingw810_64\\bin\\x86_64-w64-mingw32-g++.exe -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB @CMakeFiles/StarterProject.dir/includes_CXX.rsp -g -g -Wall -Wextra -Werror=return-type -Werror=uninitialized -Wunused-parameter -Wmissing-field-initializers -Wno-old-style-cast -Wno-sign-compare -Wno-sign-conversion -DSGL_GRAPHICAL_CONSOLE_NO_TOOLBAR=1 -Dmain=qMain -DqMain=studentMain -std=gnu++11 -o CMakeFiles\\StarterProject.dir\\lib\\gdiffgui.cpp.obj -c \"C:\\Users\\thejo\\Documents\\Code\\C++ (Q3)\\Chess\\lib\\gdiffgui.cpp\"",
+  "file": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gdiffgui.cpp"
+},
+{
+  "directory": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/build",
+  "command": "C:\\Qt\\Tools\\mingw810_64\\bin\\x86_64-w64-mingw32-g++.exe -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB @CMakeFiles/StarterProject.dir/includes_CXX.rsp -g -g -Wall -Wextra -Werror=return-type -Werror=uninitialized -Wunused-parameter -Wmissing-field-initializers -Wno-old-style-cast -Wno-sign-compare -Wno-sign-conversion -DSGL_GRAPHICAL_CONSOLE_NO_TOOLBAR=1 -Dmain=qMain -DqMain=studentMain -std=gnu++11 -o CMakeFiles\\StarterProject.dir\\lib\\gdiffimage.cpp.obj -c \"C:\\Users\\thejo\\Documents\\Code\\C++ (Q3)\\Chess\\lib\\gdiffimage.cpp\"",
+  "file": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gdiffimage.cpp"
+},
+{
+  "directory": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/build",
+  "command": "C:\\Qt\\Tools\\mingw810_64\\bin\\x86_64-w64-mingw32-g++.exe -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB @CMakeFiles/StarterProject.dir/includes_CXX.rsp -g -g -Wall -Wextra -Werror=return-type -Werror=uninitialized -Wunused-parameter -Wmissing-field-initializers -Wno-old-style-cast -Wno-sign-compare -Wno-sign-conversion -DSGL_GRAPHICAL_CONSOLE_NO_TOOLBAR=1 -Dmain=qMain -DqMain=studentMain -std=gnu++11 -o CMakeFiles\\StarterProject.dir\\lib\\gdownloader.cpp.obj -c \"C:\\Users\\thejo\\Documents\\Code\\C++ (Q3)\\Chess\\lib\\gdownloader.cpp\"",
+  "file": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gdownloader.cpp"
+},
+{
+  "directory": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/build",
+  "command": "C:\\Qt\\Tools\\mingw810_64\\bin\\x86_64-w64-mingw32-g++.exe -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB @CMakeFiles/StarterProject.dir/includes_CXX.rsp -g -g -Wall -Wextra -Werror=return-type -Werror=uninitialized -Wunused-parameter -Wmissing-field-initializers -Wno-old-style-cast -Wno-sign-compare -Wno-sign-conversion -DSGL_GRAPHICAL_CONSOLE_NO_TOOLBAR=1 -Dmain=qMain -DqMain=studentMain -std=gnu++11 -o CMakeFiles\\StarterProject.dir\\lib\\gdrawingsurface.cpp.obj -c \"C:\\Users\\thejo\\Documents\\Code\\C++ (Q3)\\Chess\\lib\\gdrawingsurface.cpp\"",
+  "file": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gdrawingsurface.cpp"
+},
+{
+  "directory": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/build",
+  "command": "C:\\Qt\\Tools\\mingw810_64\\bin\\x86_64-w64-mingw32-g++.exe -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB @CMakeFiles/StarterProject.dir/includes_CXX.rsp -g -g -Wall -Wextra -Werror=return-type -Werror=uninitialized -Wunused-parameter -Wmissing-field-initializers -Wno-old-style-cast -Wno-sign-compare -Wno-sign-conversion -DSGL_GRAPHICAL_CONSOLE_NO_TOOLBAR=1 -Dmain=qMain -DqMain=studentMain -std=gnu++11 -o CMakeFiles\\StarterProject.dir\\lib\\gevent.cpp.obj -c \"C:\\Users\\thejo\\Documents\\Code\\C++ (Q3)\\Chess\\lib\\gevent.cpp\"",
+  "file": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gevent.cpp"
+},
+{
+  "directory": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/build",
+  "command": "C:\\Qt\\Tools\\mingw810_64\\bin\\x86_64-w64-mingw32-g++.exe -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB @CMakeFiles/StarterProject.dir/includes_CXX.rsp -g -g -Wall -Wextra -Werror=return-type -Werror=uninitialized -Wunused-parameter -Wmissing-field-initializers -Wno-old-style-cast -Wno-sign-compare -Wno-sign-conversion -DSGL_GRAPHICAL_CONSOLE_NO_TOOLBAR=1 -Dmain=qMain -DqMain=studentMain -std=gnu++11 -o CMakeFiles\\StarterProject.dir\\lib\\geventqueue.cpp.obj -c \"C:\\Users\\thejo\\Documents\\Code\\C++ (Q3)\\Chess\\lib\\geventqueue.cpp\"",
+  "file": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/geventqueue.cpp"
+},
+{
+  "directory": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/build",
+  "command": "C:\\Qt\\Tools\\mingw810_64\\bin\\x86_64-w64-mingw32-g++.exe -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB @CMakeFiles/StarterProject.dir/includes_CXX.rsp -g -g -Wall -Wextra -Werror=return-type -Werror=uninitialized -Wunused-parameter -Wmissing-field-initializers -Wno-old-style-cast -Wno-sign-compare -Wno-sign-conversion -DSGL_GRAPHICAL_CONSOLE_NO_TOOLBAR=1 -Dmain=qMain -DqMain=studentMain -std=gnu++11 -o CMakeFiles\\StarterProject.dir\\lib\\gexceptions.cpp.obj -c \"C:\\Users\\thejo\\Documents\\Code\\C++ (Q3)\\Chess\\lib\\gexceptions.cpp\"",
+  "file": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gexceptions.cpp"
+},
+{
+  "directory": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/build",
+  "command": "C:\\Qt\\Tools\\mingw810_64\\bin\\x86_64-w64-mingw32-g++.exe -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB @CMakeFiles/StarterProject.dir/includes_CXX.rsp -g -g -Wall -Wextra -Werror=return-type -Werror=uninitialized -Wunused-parameter -Wmissing-field-initializers -Wno-old-style-cast -Wno-sign-compare -Wno-sign-conversion -DSGL_GRAPHICAL_CONSOLE_NO_TOOLBAR=1 -Dmain=qMain -DqMain=studentMain -std=gnu++11 -o CMakeFiles\\StarterProject.dir\\lib\\gfilechooser.cpp.obj -c \"C:\\Users\\thejo\\Documents\\Code\\C++ (Q3)\\Chess\\lib\\gfilechooser.cpp\"",
+  "file": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gfilechooser.cpp"
+},
+{
+  "directory": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/build",
+  "command": "C:\\Qt\\Tools\\mingw810_64\\bin\\x86_64-w64-mingw32-g++.exe -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB @CMakeFiles/StarterProject.dir/includes_CXX.rsp -g -g -Wall -Wextra -Werror=return-type -Werror=uninitialized -Wunused-parameter -Wmissing-field-initializers -Wno-old-style-cast -Wno-sign-compare -Wno-sign-conversion -DSGL_GRAPHICAL_CONSOLE_NO_TOOLBAR=1 -Dmain=qMain -DqMain=studentMain -std=gnu++11 -o CMakeFiles\\StarterProject.dir\\lib\\gfont.cpp.obj -c \"C:\\Users\\thejo\\Documents\\Code\\C++ (Q3)\\Chess\\lib\\gfont.cpp\"",
+  "file": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gfont.cpp"
+},
+{
+  "directory": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/build",
+  "command": "C:\\Qt\\Tools\\mingw810_64\\bin\\x86_64-w64-mingw32-g++.exe -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB @CMakeFiles/StarterProject.dir/includes_CXX.rsp -g -g -Wall -Wextra -Werror=return-type -Werror=uninitialized -Wunused-parameter -Wmissing-field-initializers -Wno-old-style-cast -Wno-sign-compare -Wno-sign-conversion -DSGL_GRAPHICAL_CONSOLE_NO_TOOLBAR=1 -Dmain=qMain -DqMain=studentMain -std=gnu++11 -o CMakeFiles\\StarterProject.dir\\lib\\gfontchooser.cpp.obj -c \"C:\\Users\\thejo\\Documents\\Code\\C++ (Q3)\\Chess\\lib\\gfontchooser.cpp\"",
+  "file": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gfontchooser.cpp"
+},
+{
+  "directory": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/build",
+  "command": "C:\\Qt\\Tools\\mingw810_64\\bin\\x86_64-w64-mingw32-g++.exe -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB @CMakeFiles/StarterProject.dir/includes_CXX.rsp -g -g -Wall -Wextra -Werror=return-type -Werror=uninitialized -Wunused-parameter -Wmissing-field-initializers -Wno-old-style-cast -Wno-sign-compare -Wno-sign-conversion -DSGL_GRAPHICAL_CONSOLE_NO_TOOLBAR=1 -Dmain=qMain -DqMain=studentMain -std=gnu++11 -o CMakeFiles\\StarterProject.dir\\lib\\ginit.cpp.obj -c \"C:\\Users\\thejo\\Documents\\Code\\C++ (Q3)\\Chess\\lib\\ginit.cpp\"",
+  "file": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/ginit.cpp"
+},
+{
+  "directory": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/build",
+  "command": "C:\\Qt\\Tools\\mingw810_64\\bin\\x86_64-w64-mingw32-g++.exe -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB @CMakeFiles/StarterProject.dir/includes_CXX.rsp -g -g -Wall -Wextra -Werror=return-type -Werror=uninitialized -Wunused-parameter -Wmissing-field-initializers -Wno-old-style-cast -Wno-sign-compare -Wno-sign-conversion -DSGL_GRAPHICAL_CONSOLE_NO_TOOLBAR=1 -Dmain=qMain -DqMain=studentMain -std=gnu++11 -o CMakeFiles\\StarterProject.dir\\lib\\ginteractor.cpp.obj -c \"C:\\Users\\thejo\\Documents\\Code\\C++ (Q3)\\Chess\\lib\\ginteractor.cpp\"",
+  "file": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/ginteractor.cpp"
+},
+{
+  "directory": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/build",
+  "command": "C:\\Qt\\Tools\\mingw810_64\\bin\\x86_64-w64-mingw32-g++.exe -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB @CMakeFiles/StarterProject.dir/includes_CXX.rsp -g -g -Wall -Wextra -Werror=return-type -Werror=uninitialized -Wunused-parameter -Wmissing-field-initializers -Wno-old-style-cast -Wno-sign-compare -Wno-sign-conversion -DSGL_GRAPHICAL_CONSOLE_NO_TOOLBAR=1 -Dmain=qMain -DqMain=studentMain -std=gnu++11 -o CMakeFiles\\StarterProject.dir\\lib\\glabel.cpp.obj -c \"C:\\Users\\thejo\\Documents\\Code\\C++ (Q3)\\Chess\\lib\\glabel.cpp\"",
+  "file": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/glabel.cpp"
+},
+{
+  "directory": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/build",
+  "command": "C:\\Qt\\Tools\\mingw810_64\\bin\\x86_64-w64-mingw32-g++.exe -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB @CMakeFiles/StarterProject.dir/includes_CXX.rsp -g -g -Wall -Wextra -Werror=return-type -Werror=uninitialized -Wunused-parameter -Wmissing-field-initializers -Wno-old-style-cast -Wno-sign-compare -Wno-sign-conversion -DSGL_GRAPHICAL_CONSOLE_NO_TOOLBAR=1 -Dmain=qMain -DqMain=studentMain -std=gnu++11 -o CMakeFiles\\StarterProject.dir\\lib\\glayout.cpp.obj -c \"C:\\Users\\thejo\\Documents\\Code\\C++ (Q3)\\Chess\\lib\\glayout.cpp\"",
+  "file": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/glayout.cpp"
+},
+{
+  "directory": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/build",
+  "command": "C:\\Qt\\Tools\\mingw810_64\\bin\\x86_64-w64-mingw32-g++.exe -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB @CMakeFiles/StarterProject.dir/includes_CXX.rsp -g -g -Wall -Wextra -Werror=return-type -Werror=uninitialized -Wunused-parameter -Wmissing-field-initializers -Wno-old-style-cast -Wno-sign-compare -Wno-sign-conversion -DSGL_GRAPHICAL_CONSOLE_NO_TOOLBAR=1 -Dmain=qMain -DqMain=studentMain -std=gnu++11 -o CMakeFiles\\StarterProject.dir\\lib\\gmath.cpp.obj -c \"C:\\Users\\thejo\\Documents\\Code\\C++ (Q3)\\Chess\\lib\\gmath.cpp\"",
+  "file": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gmath.cpp"
+},
+{
+  "directory": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/build",
+  "command": "C:\\Qt\\Tools\\mingw810_64\\bin\\x86_64-w64-mingw32-g++.exe -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB @CMakeFiles/StarterProject.dir/includes_CXX.rsp -g -g -Wall -Wextra -Werror=return-type -Werror=uninitialized -Wunused-parameter -Wmissing-field-initializers -Wno-old-style-cast -Wno-sign-compare -Wno-sign-conversion -DSGL_GRAPHICAL_CONSOLE_NO_TOOLBAR=1 -Dmain=qMain -DqMain=studentMain -std=gnu++11 -o CMakeFiles\\StarterProject.dir\\lib\\gobjects.cpp.obj -c \"C:\\Users\\thejo\\Documents\\Code\\C++ (Q3)\\Chess\\lib\\gobjects.cpp\"",
+  "file": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gobjects.cpp"
+},
+{
+  "directory": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/build",
+  "command": "C:\\Qt\\Tools\\mingw810_64\\bin\\x86_64-w64-mingw32-g++.exe -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB @CMakeFiles/StarterProject.dir/includes_CXX.rsp -g -g -Wall -Wextra -Werror=return-type -Werror=uninitialized -Wunused-parameter -Wmissing-field-initializers -Wno-old-style-cast -Wno-sign-compare -Wno-sign-conversion -DSGL_GRAPHICAL_CONSOLE_NO_TOOLBAR=1 -Dmain=qMain -DqMain=studentMain -std=gnu++11 -o CMakeFiles\\StarterProject.dir\\lib\\gobservable.cpp.obj -c \"C:\\Users\\thejo\\Documents\\Code\\C++ (Q3)\\Chess\\lib\\gobservable.cpp\"",
+  "file": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gobservable.cpp"
+},
+{
+  "directory": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/build",
+  "command": "C:\\Qt\\Tools\\mingw810_64\\bin\\x86_64-w64-mingw32-g++.exe -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB @CMakeFiles/StarterProject.dir/includes_CXX.rsp -g -g -Wall -Wextra -Werror=return-type -Werror=uninitialized -Wunused-parameter -Wmissing-field-initializers -Wno-old-style-cast -Wno-sign-compare -Wno-sign-conversion -DSGL_GRAPHICAL_CONSOLE_NO_TOOLBAR=1 -Dmain=qMain -DqMain=studentMain -std=gnu++11 -o CMakeFiles\\StarterProject.dir\\lib\\goptionpane.cpp.obj -c \"C:\\Users\\thejo\\Documents\\Code\\C++ (Q3)\\Chess\\lib\\goptionpane.cpp\"",
+  "file": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/goptionpane.cpp"
+},
+{
+  "directory": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/build",
+  "command": "C:\\Qt\\Tools\\mingw810_64\\bin\\x86_64-w64-mingw32-g++.exe -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB @CMakeFiles/StarterProject.dir/includes_CXX.rsp -g -g -Wall -Wextra -Werror=return-type -Werror=uninitialized -Wunused-parameter -Wmissing-field-initializers -Wno-old-style-cast -Wno-sign-compare -Wno-sign-conversion -DSGL_GRAPHICAL_CONSOLE_NO_TOOLBAR=1 -Dmain=qMain -DqMain=studentMain -std=gnu++11 -o CMakeFiles\\StarterProject.dir\\lib\\gradiobutton.cpp.obj -c \"C:\\Users\\thejo\\Documents\\Code\\C++ (Q3)\\Chess\\lib\\gradiobutton.cpp\"",
+  "file": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gradiobutton.cpp"
+},
+{
+  "directory": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/build",
+  "command": "C:\\Qt\\Tools\\mingw810_64\\bin\\x86_64-w64-mingw32-g++.exe -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB @CMakeFiles/StarterProject.dir/includes_CXX.rsp -g -g -Wall -Wextra -Werror=return-type -Werror=uninitialized -Wunused-parameter -Wmissing-field-initializers -Wno-old-style-cast -Wno-sign-compare -Wno-sign-conversion -DSGL_GRAPHICAL_CONSOLE_NO_TOOLBAR=1 -Dmain=qMain -DqMain=studentMain -std=gnu++11 -o CMakeFiles\\StarterProject.dir\\lib\\gscrollbar.cpp.obj -c \"C:\\Users\\thejo\\Documents\\Code\\C++ (Q3)\\Chess\\lib\\gscrollbar.cpp\"",
+  "file": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gscrollbar.cpp"
+},
+{
+  "directory": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/build",
+  "command": "C:\\Qt\\Tools\\mingw810_64\\bin\\x86_64-w64-mingw32-g++.exe -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB @CMakeFiles/StarterProject.dir/includes_CXX.rsp -g -g -Wall -Wextra -Werror=return-type -Werror=uninitialized -Wunused-parameter -Wmissing-field-initializers -Wno-old-style-cast -Wno-sign-compare -Wno-sign-conversion -DSGL_GRAPHICAL_CONSOLE_NO_TOOLBAR=1 -Dmain=qMain -DqMain=studentMain -std=gnu++11 -o CMakeFiles\\StarterProject.dir\\lib\\gscrollpane.cpp.obj -c \"C:\\Users\\thejo\\Documents\\Code\\C++ (Q3)\\Chess\\lib\\gscrollpane.cpp\"",
+  "file": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gscrollpane.cpp"
+},
+{
+  "directory": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/build",
+  "command": "C:\\Qt\\Tools\\mingw810_64\\bin\\x86_64-w64-mingw32-g++.exe -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB @CMakeFiles/StarterProject.dir/includes_CXX.rsp -g -g -Wall -Wextra -Werror=return-type -Werror=uninitialized -Wunused-parameter -Wmissing-field-initializers -Wno-old-style-cast -Wno-sign-compare -Wno-sign-conversion -DSGL_GRAPHICAL_CONSOLE_NO_TOOLBAR=1 -Dmain=qMain -DqMain=studentMain -std=gnu++11 -o CMakeFiles\\StarterProject.dir\\lib\\gslider.cpp.obj -c \"C:\\Users\\thejo\\Documents\\Code\\C++ (Q3)\\Chess\\lib\\gslider.cpp\"",
+  "file": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gslider.cpp"
+},
+{
+  "directory": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/build",
+  "command": "C:\\Qt\\Tools\\mingw810_64\\bin\\x86_64-w64-mingw32-g++.exe -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB @CMakeFiles/StarterProject.dir/includes_CXX.rsp -g -g -Wall -Wextra -Werror=return-type -Werror=uninitialized -Wunused-parameter -Wmissing-field-initializers -Wno-old-style-cast -Wno-sign-compare -Wno-sign-conversion -DSGL_GRAPHICAL_CONSOLE_NO_TOOLBAR=1 -Dmain=qMain -DqMain=studentMain -std=gnu++11 -o CMakeFiles\\StarterProject.dir\\lib\\gsound.cpp.obj -c \"C:\\Users\\thejo\\Documents\\Code\\C++ (Q3)\\Chess\\lib\\gsound.cpp\"",
+  "file": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gsound.cpp"
+},
+{
+  "directory": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/build",
+  "command": "C:\\Qt\\Tools\\mingw810_64\\bin\\x86_64-w64-mingw32-g++.exe -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB @CMakeFiles/StarterProject.dir/includes_CXX.rsp -g -g -Wall -Wextra -Werror=return-type -Werror=uninitialized -Wunused-parameter -Wmissing-field-initializers -Wno-old-style-cast -Wno-sign-compare -Wno-sign-conversion -DSGL_GRAPHICAL_CONSOLE_NO_TOOLBAR=1 -Dmain=qMain -DqMain=studentMain -std=gnu++11 -o CMakeFiles\\StarterProject.dir\\lib\\gspacer.cpp.obj -c \"C:\\Users\\thejo\\Documents\\Code\\C++ (Q3)\\Chess\\lib\\gspacer.cpp\"",
+  "file": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gspacer.cpp"
+},
+{
+  "directory": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/build",
+  "command": "C:\\Qt\\Tools\\mingw810_64\\bin\\x86_64-w64-mingw32-g++.exe -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB @CMakeFiles/StarterProject.dir/includes_CXX.rsp -g -g -Wall -Wextra -Werror=return-type -Werror=uninitialized -Wunused-parameter -Wmissing-field-initializers -Wno-old-style-cast -Wno-sign-compare -Wno-sign-conversion -DSGL_GRAPHICAL_CONSOLE_NO_TOOLBAR=1 -Dmain=qMain -DqMain=studentMain -std=gnu++11 -o CMakeFiles\\StarterProject.dir\\lib\\gtable.cpp.obj -c \"C:\\Users\\thejo\\Documents\\Code\\C++ (Q3)\\Chess\\lib\\gtable.cpp\"",
+  "file": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gtable.cpp"
+},
+{
+  "directory": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/build",
+  "command": "C:\\Qt\\Tools\\mingw810_64\\bin\\x86_64-w64-mingw32-g++.exe -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB @CMakeFiles/StarterProject.dir/includes_CXX.rsp -g -g -Wall -Wextra -Werror=return-type -Werror=uninitialized -Wunused-parameter -Wmissing-field-initializers -Wno-old-style-cast -Wno-sign-compare -Wno-sign-conversion -DSGL_GRAPHICAL_CONSOLE_NO_TOOLBAR=1 -Dmain=qMain -DqMain=studentMain -std=gnu++11 -o CMakeFiles\\StarterProject.dir\\lib\\gtextarea.cpp.obj -c \"C:\\Users\\thejo\\Documents\\Code\\C++ (Q3)\\Chess\\lib\\gtextarea.cpp\"",
+  "file": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gtextarea.cpp"
+},
+{
+  "directory": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/build",
+  "command": "C:\\Qt\\Tools\\mingw810_64\\bin\\x86_64-w64-mingw32-g++.exe -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB @CMakeFiles/StarterProject.dir/includes_CXX.rsp -g -g -Wall -Wextra -Werror=return-type -Werror=uninitialized -Wunused-parameter -Wmissing-field-initializers -Wno-old-style-cast -Wno-sign-compare -Wno-sign-conversion -DSGL_GRAPHICAL_CONSOLE_NO_TOOLBAR=1 -Dmain=qMain -DqMain=studentMain -std=gnu++11 -o CMakeFiles\\StarterProject.dir\\lib\\gtextfield.cpp.obj -c \"C:\\Users\\thejo\\Documents\\Code\\C++ (Q3)\\Chess\\lib\\gtextfield.cpp\"",
+  "file": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gtextfield.cpp"
+},
+{
+  "directory": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/build",
+  "command": "C:\\Qt\\Tools\\mingw810_64\\bin\\x86_64-w64-mingw32-g++.exe -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB @CMakeFiles/StarterProject.dir/includes_CXX.rsp -g -g -Wall -Wextra -Werror=return-type -Werror=uninitialized -Wunused-parameter -Wmissing-field-initializers -Wno-old-style-cast -Wno-sign-compare -Wno-sign-conversion -DSGL_GRAPHICAL_CONSOLE_NO_TOOLBAR=1 -Dmain=qMain -DqMain=studentMain -std=gnu++11 -o CMakeFiles\\StarterProject.dir\\lib\\gthread.cpp.obj -c \"C:\\Users\\thejo\\Documents\\Code\\C++ (Q3)\\Chess\\lib\\gthread.cpp\"",
+  "file": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gthread.cpp"
+},
+{
+  "directory": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/build",
+  "command": "C:\\Qt\\Tools\\mingw810_64\\bin\\x86_64-w64-mingw32-g++.exe -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB @CMakeFiles/StarterProject.dir/includes_CXX.rsp -g -g -Wall -Wextra -Werror=return-type -Werror=uninitialized -Wunused-parameter -Wmissing-field-initializers -Wno-old-style-cast -Wno-sign-compare -Wno-sign-conversion -DSGL_GRAPHICAL_CONSOLE_NO_TOOLBAR=1 -Dmain=qMain -DqMain=studentMain -std=gnu++11 -o CMakeFiles\\StarterProject.dir\\lib\\gtimer.cpp.obj -c \"C:\\Users\\thejo\\Documents\\Code\\C++ (Q3)\\Chess\\lib\\gtimer.cpp\"",
+  "file": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gtimer.cpp"
+},
+{
+  "directory": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/build",
+  "command": "C:\\Qt\\Tools\\mingw810_64\\bin\\x86_64-w64-mingw32-g++.exe -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB @CMakeFiles/StarterProject.dir/includes_CXX.rsp -g -g -Wall -Wextra -Werror=return-type -Werror=uninitialized -Wunused-parameter -Wmissing-field-initializers -Wno-old-style-cast -Wno-sign-compare -Wno-sign-conversion -DSGL_GRAPHICAL_CONSOLE_NO_TOOLBAR=1 -Dmain=qMain -DqMain=studentMain -std=gnu++11 -o CMakeFiles\\StarterProject.dir\\lib\\gtypes.cpp.obj -c \"C:\\Users\\thejo\\Documents\\Code\\C++ (Q3)\\Chess\\lib\\gtypes.cpp\"",
+  "file": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gtypes.cpp"
+},
+{
+  "directory": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/build",
+  "command": "C:\\Qt\\Tools\\mingw810_64\\bin\\x86_64-w64-mingw32-g++.exe -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB @CMakeFiles/StarterProject.dir/includes_CXX.rsp -g -g -Wall -Wextra -Werror=return-type -Werror=uninitialized -Wunused-parameter -Wmissing-field-initializers -Wno-old-style-cast -Wno-sign-compare -Wno-sign-conversion -DSGL_GRAPHICAL_CONSOLE_NO_TOOLBAR=1 -Dmain=qMain -DqMain=studentMain -std=gnu++11 -o CMakeFiles\\StarterProject.dir\\lib\\gversion.cpp.obj -c \"C:\\Users\\thejo\\Documents\\Code\\C++ (Q3)\\Chess\\lib\\gversion.cpp\"",
+  "file": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gversion.cpp"
+},
+{
+  "directory": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/build",
+  "command": "C:\\Qt\\Tools\\mingw810_64\\bin\\x86_64-w64-mingw32-g++.exe -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB @CMakeFiles/StarterProject.dir/includes_CXX.rsp -g -g -Wall -Wextra -Werror=return-type -Werror=uninitialized -Wunused-parameter -Wmissing-field-initializers -Wno-old-style-cast -Wno-sign-compare -Wno-sign-conversion -DSGL_GRAPHICAL_CONSOLE_NO_TOOLBAR=1 -Dmain=qMain -DqMain=studentMain -std=gnu++11 -o CMakeFiles\\StarterProject.dir\\lib\\gwindow.cpp.obj -c \"C:\\Users\\thejo\\Documents\\Code\\C++ (Q3)\\Chess\\lib\\gwindow.cpp\"",
+  "file": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/gwindow.cpp"
+},
+{
+  "directory": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/build",
+  "command": "C:\\Qt\\Tools\\mingw810_64\\bin\\x86_64-w64-mingw32-g++.exe -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB @CMakeFiles/StarterProject.dir/includes_CXX.rsp -g -g -Wall -Wextra -Werror=return-type -Werror=uninitialized -Wunused-parameter -Wmissing-field-initializers -Wno-old-style-cast -Wno-sign-compare -Wno-sign-conversion -DSGL_GRAPHICAL_CONSOLE_NO_TOOLBAR=1 -Dmain=qMain -DqMain=studentMain -std=gnu++11 -o CMakeFiles\\StarterProject.dir\\lib\\librarymain.cpp.obj -c \"C:\\Users\\thejo\\Documents\\Code\\C++ (Q3)\\Chess\\lib\\librarymain.cpp\"",
+  "file": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/librarymain.cpp"
+},
+{
+  "directory": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/build",
+  "command": "C:\\Qt\\Tools\\mingw810_64\\bin\\x86_64-w64-mingw32-g++.exe -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB @CMakeFiles/StarterProject.dir/includes_CXX.rsp -g -g -Wall -Wextra -Werror=return-type -Werror=uninitialized -Wunused-parameter -Wmissing-field-initializers -Wno-old-style-cast -Wno-sign-compare -Wno-sign-conversion -DSGL_GRAPHICAL_CONSOLE_NO_TOOLBAR=1 -Dmain=qMain -DqMain=studentMain -std=gnu++11 -o CMakeFiles\\StarterProject.dir\\lib\\mainwrapper.cpp.obj -c \"C:\\Users\\thejo\\Documents\\Code\\C++ (Q3)\\Chess\\lib\\mainwrapper.cpp\"",
+  "file": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/mainwrapper.cpp"
+},
+{
+  "directory": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/build",
+  "command": "C:\\Qt\\Tools\\mingw810_64\\bin\\x86_64-w64-mingw32-g++.exe -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB @CMakeFiles/StarterProject.dir/includes_CXX.rsp -g -g -Wall -Wextra -Werror=return-type -Werror=uninitialized -Wunused-parameter -Wmissing-field-initializers -Wno-old-style-cast -Wno-sign-compare -Wno-sign-conversion -DSGL_GRAPHICAL_CONSOLE_NO_TOOLBAR=1 -Dmain=qMain -DqMain=studentMain -std=gnu++11 -o CMakeFiles\\StarterProject.dir\\lib\\privatediff.cpp.obj -c \"C:\\Users\\thejo\\Documents\\Code\\C++ (Q3)\\Chess\\lib\\privatediff.cpp\"",
+  "file": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/privatediff.cpp"
+},
+{
+  "directory": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/build",
+  "command": "C:\\Qt\\Tools\\mingw810_64\\bin\\x86_64-w64-mingw32-g++.exe -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB @CMakeFiles/StarterProject.dir/includes_CXX.rsp -g -g -Wall -Wextra -Werror=return-type -Werror=uninitialized -Wunused-parameter -Wmissing-field-initializers -Wno-old-style-cast -Wno-sign-compare -Wno-sign-conversion -DSGL_GRAPHICAL_CONSOLE_NO_TOOLBAR=1 -Dmain=qMain -DqMain=studentMain -std=gnu++11 -o CMakeFiles\\StarterProject.dir\\lib\\privatefilelib.cpp.obj -c \"C:\\Users\\thejo\\Documents\\Code\\C++ (Q3)\\Chess\\lib\\privatefilelib.cpp\"",
+  "file": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/privatefilelib.cpp"
+},
+{
+  "directory": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/build",
+  "command": "C:\\Qt\\Tools\\mingw810_64\\bin\\x86_64-w64-mingw32-g++.exe -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB @CMakeFiles/StarterProject.dir/includes_CXX.rsp -g -g -Wall -Wextra -Werror=return-type -Werror=uninitialized -Wunused-parameter -Wmissing-field-initializers -Wno-old-style-cast -Wno-sign-compare -Wno-sign-conversion -DSGL_GRAPHICAL_CONSOLE_NO_TOOLBAR=1 -Dmain=qMain -DqMain=studentMain -std=gnu++11 -o CMakeFiles\\StarterProject.dir\\lib\\privateregexpr.cpp.obj -c \"C:\\Users\\thejo\\Documents\\Code\\C++ (Q3)\\Chess\\lib\\privateregexpr.cpp\"",
+  "file": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/privateregexpr.cpp"
+},
+{
+  "directory": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/build",
+  "command": "C:\\Qt\\Tools\\mingw810_64\\bin\\x86_64-w64-mingw32-g++.exe -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB @CMakeFiles/StarterProject.dir/includes_CXX.rsp -g -g -Wall -Wextra -Werror=return-type -Werror=uninitialized -Wunused-parameter -Wmissing-field-initializers -Wno-old-style-cast -Wno-sign-compare -Wno-sign-conversion -DSGL_GRAPHICAL_CONSOLE_NO_TOOLBAR=1 -Dmain=qMain -DqMain=studentMain -std=gnu++11 -o CMakeFiles\\StarterProject.dir\\lib\\privatestrlib.cpp.obj -c \"C:\\Users\\thejo\\Documents\\Code\\C++ (Q3)\\Chess\\lib\\privatestrlib.cpp\"",
+  "file": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/privatestrlib.cpp"
+},
+{
+  "directory": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/build",
+  "command": "C:\\Qt\\Tools\\mingw810_64\\bin\\x86_64-w64-mingw32-g++.exe -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB @CMakeFiles/StarterProject.dir/includes_CXX.rsp -g -g -Wall -Wextra -Werror=return-type -Werror=uninitialized -Wunused-parameter -Wmissing-field-initializers -Wno-old-style-cast -Wno-sign-compare -Wno-sign-conversion -DSGL_GRAPHICAL_CONSOLE_NO_TOOLBAR=1 -Dmain=qMain -DqMain=studentMain -std=gnu++11 -o CMakeFiles\\StarterProject.dir\\lib\\qtgui.cpp.obj -c \"C:\\Users\\thejo\\Documents\\Code\\C++ (Q3)\\Chess\\lib\\qtgui.cpp\"",
+  "file": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/qtgui.cpp"
+},
+{
+  "directory": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/build",
+  "command": "C:\\Qt\\Tools\\mingw810_64\\bin\\x86_64-w64-mingw32-g++.exe -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB @CMakeFiles/StarterProject.dir/includes_CXX.rsp -g -g -Wall -Wextra -Werror=return-type -Werror=uninitialized -Wunused-parameter -Wmissing-field-initializers -Wno-old-style-cast -Wno-sign-compare -Wno-sign-conversion -DSGL_GRAPHICAL_CONSOLE_NO_TOOLBAR=1 -Dmain=qMain -DqMain=studentMain -std=gnu++11 -o CMakeFiles\\StarterProject.dir\\lib\\require.cpp.obj -c \"C:\\Users\\thejo\\Documents\\Code\\C++ (Q3)\\Chess\\lib\\require.cpp\"",
+  "file": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/lib/require.cpp"
+},
+{
+  "directory": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/build",
+  "command": "C:\\Qt\\Tools\\mingw810_64\\bin\\x86_64-w64-mingw32-g++.exe -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB @CMakeFiles/StarterProject.dir/includes_CXX.rsp -g -g -Wall -Wextra -Werror=return-type -Werror=uninitialized -Wunused-parameter -Wmissing-field-initializers -Wno-old-style-cast -Wno-sign-compare -Wno-sign-conversion -DSGL_GRAPHICAL_CONSOLE_NO_TOOLBAR=1 -Dmain=qMain -DqMain=studentMain -std=gnu++11 -o CMakeFiles\\StarterProject.dir\\src\\BoardManager.cpp.obj -c \"C:\\Users\\thejo\\Documents\\Code\\C++ (Q3)\\Chess\\src\\BoardManager.cpp\"",
+  "file": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/src/BoardManager.cpp"
+},
+{
+  "directory": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/build",
+  "command": "C:\\Qt\\Tools\\mingw810_64\\bin\\x86_64-w64-mingw32-g++.exe -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB @CMakeFiles/StarterProject.dir/includes_CXX.rsp -g -g -Wall -Wextra -Werror=return-type -Werror=uninitialized -Wunused-parameter -Wmissing-field-initializers -Wno-old-style-cast -Wno-sign-compare -Wno-sign-conversion -DSGL_GRAPHICAL_CONSOLE_NO_TOOLBAR=1 -Dmain=qMain -DqMain=studentMain -std=gnu++11 -o CMakeFiles\\StarterProject.dir\\src\\ChessAI.cpp.obj -c \"C:\\Users\\thejo\\Documents\\Code\\C++ (Q3)\\Chess\\src\\ChessAI.cpp\"",
+  "file": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/src/ChessAI.cpp"
+},
+{
+  "directory": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/build",
+  "command": "C:\\Qt\\Tools\\mingw810_64\\bin\\x86_64-w64-mingw32-g++.exe -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB @CMakeFiles/StarterProject.dir/includes_CXX.rsp -g -g -Wall -Wextra -Werror=return-type -Werror=uninitialized -Wunused-parameter -Wmissing-field-initializers -Wno-old-style-cast -Wno-sign-compare -Wno-sign-conversion -DSGL_GRAPHICAL_CONSOLE_NO_TOOLBAR=1 -Dmain=qMain -DqMain=studentMain -std=gnu++11 -o CMakeFiles\\StarterProject.dir\\src\\ChessGUI.cpp.obj -c \"C:\\Users\\thejo\\Documents\\Code\\C++ (Q3)\\Chess\\src\\ChessGUI.cpp\"",
+  "file": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/src/ChessGUI.cpp"
+},
+{
+  "directory": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/build",
+  "command": "C:\\Qt\\Tools\\mingw810_64\\bin\\x86_64-w64-mingw32-g++.exe -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB @CMakeFiles/StarterProject.dir/includes_CXX.rsp -g -g -Wall -Wextra -Werror=return-type -Werror=uninitialized -Wunused-parameter -Wmissing-field-initializers -Wno-old-style-cast -Wno-sign-compare -Wno-sign-conversion -DSGL_GRAPHICAL_CONSOLE_NO_TOOLBAR=1 -Dmain=qMain -DqMain=studentMain -std=gnu++11 -o CMakeFiles\\StarterProject.dir\\src\\Tile.cpp.obj -c \"C:\\Users\\thejo\\Documents\\Code\\C++ (Q3)\\Chess\\src\\Tile.cpp\"",
+  "file": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/src/Tile.cpp"
+},
+{
+  "directory": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/build",
+  "command": "C:\\Qt\\Tools\\mingw810_64\\bin\\x86_64-w64-mingw32-g++.exe -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB @CMakeFiles/StarterProject.dir/includes_CXX.rsp -g -g -Wall -Wextra -Werror=return-type -Werror=uninitialized -Wunused-parameter -Wmissing-field-initializers -Wno-old-style-cast -Wno-sign-compare -Wno-sign-conversion -DSGL_GRAPHICAL_CONSOLE_NO_TOOLBAR=1 -Dmain=qMain -DqMain=studentMain -std=gnu++11 -o CMakeFiles\\StarterProject.dir\\src\\pieces\\Bishop.cpp.obj -c \"C:\\Users\\thejo\\Documents\\Code\\C++ (Q3)\\Chess\\src\\pieces\\Bishop.cpp\"",
+  "file": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/src/pieces/Bishop.cpp"
+},
+{
+  "directory": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/build",
+  "command": "C:\\Qt\\Tools\\mingw810_64\\bin\\x86_64-w64-mingw32-g++.exe -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB @CMakeFiles/StarterProject.dir/includes_CXX.rsp -g -g -Wall -Wextra -Werror=return-type -Werror=uninitialized -Wunused-parameter -Wmissing-field-initializers -Wno-old-style-cast -Wno-sign-compare -Wno-sign-conversion -DSGL_GRAPHICAL_CONSOLE_NO_TOOLBAR=1 -Dmain=qMain -DqMain=studentMain -std=gnu++11 -o CMakeFiles\\StarterProject.dir\\src\\pieces\\ChessPiece.cpp.obj -c \"C:\\Users\\thejo\\Documents\\Code\\C++ (Q3)\\Chess\\src\\pieces\\ChessPiece.cpp\"",
+  "file": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/src/pieces/ChessPiece.cpp"
+},
+{
+  "directory": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/build",
+  "command": "C:\\Qt\\Tools\\mingw810_64\\bin\\x86_64-w64-mingw32-g++.exe -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB @CMakeFiles/StarterProject.dir/includes_CXX.rsp -g -g -Wall -Wextra -Werror=return-type -Werror=uninitialized -Wunused-parameter -Wmissing-field-initializers -Wno-old-style-cast -Wno-sign-compare -Wno-sign-conversion -DSGL_GRAPHICAL_CONSOLE_NO_TOOLBAR=1 -Dmain=qMain -DqMain=studentMain -std=gnu++11 -o CMakeFiles\\StarterProject.dir\\src\\pieces\\King.cpp.obj -c \"C:\\Users\\thejo\\Documents\\Code\\C++ (Q3)\\Chess\\src\\pieces\\King.cpp\"",
+  "file": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/src/pieces/King.cpp"
+},
+{
+  "directory": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/build",
+  "command": "C:\\Qt\\Tools\\mingw810_64\\bin\\x86_64-w64-mingw32-g++.exe -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB @CMakeFiles/StarterProject.dir/includes_CXX.rsp -g -g -Wall -Wextra -Werror=return-type -Werror=uninitialized -Wunused-parameter -Wmissing-field-initializers -Wno-old-style-cast -Wno-sign-compare -Wno-sign-conversion -DSGL_GRAPHICAL_CONSOLE_NO_TOOLBAR=1 -Dmain=qMain -DqMain=studentMain -std=gnu++11 -o CMakeFiles\\StarterProject.dir\\src\\pieces\\Knight.cpp.obj -c \"C:\\Users\\thejo\\Documents\\Code\\C++ (Q3)\\Chess\\src\\pieces\\Knight.cpp\"",
+  "file": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/src/pieces/Knight.cpp"
+},
+{
+  "directory": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/build",
+  "command": "C:\\Qt\\Tools\\mingw810_64\\bin\\x86_64-w64-mingw32-g++.exe -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB @CMakeFiles/StarterProject.dir/includes_CXX.rsp -g -g -Wall -Wextra -Werror=return-type -Werror=uninitialized -Wunused-parameter -Wmissing-field-initializers -Wno-old-style-cast -Wno-sign-compare -Wno-sign-conversion -DSGL_GRAPHICAL_CONSOLE_NO_TOOLBAR=1 -Dmain=qMain -DqMain=studentMain -std=gnu++11 -o CMakeFiles\\StarterProject.dir\\src\\pieces\\Pawn.cpp.obj -c \"C:\\Users\\thejo\\Documents\\Code\\C++ (Q3)\\Chess\\src\\pieces\\Pawn.cpp\"",
+  "file": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/src/pieces/Pawn.cpp"
+},
+{
+  "directory": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/build",
+  "command": "C:\\Qt\\Tools\\mingw810_64\\bin\\x86_64-w64-mingw32-g++.exe -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB @CMakeFiles/StarterProject.dir/includes_CXX.rsp -g -g -Wall -Wextra -Werror=return-type -Werror=uninitialized -Wunused-parameter -Wmissing-field-initializers -Wno-old-style-cast -Wno-sign-compare -Wno-sign-conversion -DSGL_GRAPHICAL_CONSOLE_NO_TOOLBAR=1 -Dmain=qMain -DqMain=studentMain -std=gnu++11 -o CMakeFiles\\StarterProject.dir\\src\\pieces\\Queen.cpp.obj -c \"C:\\Users\\thejo\\Documents\\Code\\C++ (Q3)\\Chess\\src\\pieces\\Queen.cpp\"",
+  "file": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/src/pieces/Queen.cpp"
+},
+{
+  "directory": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/build",
+  "command": "C:\\Qt\\Tools\\mingw810_64\\bin\\x86_64-w64-mingw32-g++.exe -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB @CMakeFiles/StarterProject.dir/includes_CXX.rsp -g -g -Wall -Wextra -Werror=return-type -Werror=uninitialized -Wunused-parameter -Wmissing-field-initializers -Wno-old-style-cast -Wno-sign-compare -Wno-sign-conversion -DSGL_GRAPHICAL_CONSOLE_NO_TOOLBAR=1 -Dmain=qMain -DqMain=studentMain -std=gnu++11 -o CMakeFiles\\StarterProject.dir\\src\\pieces\\Rook.cpp.obj -c \"C:\\Users\\thejo\\Documents\\Code\\C++ (Q3)\\Chess\\src\\pieces\\Rook.cpp\"",
+  "file": "C:/Users/thejo/Documents/Code/C++ (Q3)/Chess/src/pieces/Rook.cpp"
+}
+]

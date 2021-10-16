@@ -1,4 +1,3 @@
-#include "ChessAI.h"
 #include <string>
 #include <unordered_set>
 #include "gwindow.h"
@@ -6,6 +5,8 @@
 #include "gevent.h"
 #include "glabel.h"
 #include "gfont.h"
+#include "ChessAI.h"
+#include "BoardManager.h"
 using namespace sgl;
 using namespace std;
 
@@ -14,7 +15,7 @@ static const int LINE_WIDTH = 4;
 static const int TILE_SIZE = WINDOW_SIZE / 8;
 
 GWindow* window;
-ChessBoard* board;
+BoardManager* board;
 ChessAI* ai;
 GLabel* lblWinner;
 GButton* btnRestart;
@@ -150,7 +151,7 @@ int main() {
     window->setTitle("Chess");
     //other initialization
     generateMenu();
-    board = new ChessBoard();
+    board = new BoardManager();
     ai = new ChessAI(board);
     window->setClickListener(handleClick);
     window->setTimerListener(500, checkGame);
