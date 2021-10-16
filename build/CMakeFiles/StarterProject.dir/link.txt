@@ -1,3 +1,0 @@
-C:\Qt\Tools\CMake_64\bin\cmake.exe -E rm -f CMakeFiles\StarterProject.dir/objects.a
-C:\Qt\Tools\mingw810_64\bin\ar.exe cr CMakeFiles\StarterProject.dir/objects.a @CMakeFiles\StarterProject.dir\objects1.rsp
-C:\Qt\Tools\mingw810_64\bin\x86_64-w64-mingw32-g++.exe -g -Wl,--whole-archive CMakeFiles\StarterProject.dir/objects.a -Wl,--no-whole-archive -o StarterProject.exe -Wl,--out-implib,libStarterProject.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\StarterProject.dir\linklibs.rsp
