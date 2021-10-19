@@ -7,11 +7,6 @@
 #include "Pawn.h"
 
 BoardManager::BoardManager() {
-    emptyBoard();
-    setStartingBoard();
-}
-
-void BoardManager::emptyBoard() {
     for (int row = 0; row < 8; row++) {
         vector<ChessPiece*> newRow;
         for (int col = 0; col < 8; col++) {
@@ -19,56 +14,37 @@ void BoardManager::emptyBoard() {
         }
         board.push_back(newRow);
     }
+    resetGameState();
+    setStartingBoard();
+}
+
+void BoardManager::resetGameState() {
     whiteIsChecked = false;
     blackIsChecked = false;
     selected = false;
-    selectedRow = 0;
-    selectedCol = 0;
+    selectedTile = Tile();
     whiteTurn = true;
-    movableTiles = new unordered_set<Tile, HashTile>;
+    movableTiles.clear();
     boardValue = 0;
     winner = "";
 }
 
-void BoardManager::setStartingBoard() {
-    for (int col = 0; col < 8; col ++) {
-        board[1][col] = new Pawn(false);
-        board[6][col] = new Pawn(true);
-    }
-    setBackRow(0, false);
-    setBackRow(7, true);
-}
-
-ChessPiece* BoardManager::getPiece(int row, int col) const {
-    return board[row][col];
-}
-
-void BoardManager::setPiece(ChessPiece* piece, int row, int col) {
-    board[row][col] = piece;
-}
-
-int BoardManager::getBoardValue() const {
-    return boardValue;
-}
-
-void BoardManager::changeBoardValue(int value) {
-    boardValue += value;
-}
-
-vector<vector<ChessPiece*>>* BoardManager::copyBoard() const {
-    vector<vector<ChessPiece*>>* copy = new vector<vector<ChessPiece*>>;
-    for (int row = 0; row < 8; row++) {
-        vector<ChessPiece*> newRow;
+void BoardManager::restartGame(){
+    for (int row = 0; row < 8; row++){
         for (int col = 0; col < 8; col++) {
-            ChessPiece* piece = getPiece(row, col);
-            newRow.push_back(piece);
+            if (board[row][col] != nullptr) {
+                delete board[row][col];
+                board[row][col] = nullptr;
+            }
         }
-        copy->push_back(newRow);
     }
-    return copy;
+    resetGameState();
+    setStartingBoard();
 }
 
-void BoardManager::setBackRow(int row, bool isWhite) {
+void BoardManager::setBackRow(bool isWhite) {
+    int row;
+    isWhite ? row = 7 : row = 0;
     board[row][0] = new Rook(isWhite);
     board[row][1] = new Knight(isWhite);
     board[row][2] = new Bishop(isWhite);
@@ -79,30 +55,100 @@ void BoardManager::setBackRow(int row, bool isWhite) {
     board[row][7] = new Rook(isWhite);
 }
 
+void BoardManager::setStartingBoard() {
+    for (int col = 0; col < 8; col ++) {
+        board[1][col] = new Pawn(false);
+        board[6][col] = new Pawn(true);
+    }
+    setBackRow(false);
+    setBackRow(true);
+}
+
+ChessPiece* BoardManager::getPiece(int row, int col) const {
+    return board[row][col];
+}
+
+ChessPiece* BoardManager::getPiece(const Tile& tile) const {
+    return board[tile.row][tile.col];
+}
+
+void BoardManager::setPiece(ChessPiece* piece, int row, int col) {
+    board[row][col] = piece;
+}
+
+void BoardManager::setPiece(ChessPiece* piece, const Tile& tile) {
+    board[tile.row][tile.col] = piece;
+}
+
+int BoardManager::getBoardValue() const {
+    return boardValue;
+}
+
+void BoardManager::changeBoardValue(int value) {
+    boardValue += value;
+}
+
+bool BoardManager::pieceIsSelected() const {
+    return selected;
+}
+
+bool BoardManager::isCheckedWhite() const {
+    return whiteIsChecked;
+}
+
+bool BoardManager::isCheckedBlack() const {
+    return blackIsChecked;
+}
+
+bool BoardManager::isWhiteTurn() const {
+    return whiteTurn;
+}
+
+void BoardManager::changeTurns() {
+    whiteTurn = !whiteTurn;
+}
+
+void BoardManager::setWinner(string winner) {
+    this->winner = winner;
+}
+
+string BoardManager::getWinner() const {
+    return winner;
+}
+
+bool BoardManager::isSelectedPiece(int row, int col) const {
+    return (row == selectedTile.row) && (col == selectedTile.col);
+}
+
+bool BoardManager::isMovableTile(int row, int col) const {
+    return movableTiles.count(Tile(row, col));
+}
+
+unordered_set<Tile, HashTile> BoardManager::getMovableTiles() const {
+    return movableTiles;
+}
+
 Tile BoardManager::getKingLocation(bool kingIsWhite) const {
-    int kingRow = 0;
-    int kingCol = 0;
+    Tile kingTile;
     for (int row = 0; row < 8; row++) {
         for (int col = 0; col < 8; col++) {
             ChessPiece* piece = getPiece(row, col);
             if (piece != nullptr && piece->getName() == "King" &&
                     piece->isWhite() == kingIsWhite) {
-                kingRow = row;
-                kingCol = col;
+                kingTile = Tile(row, col);
             }
         }
     }
-    Tile kingTile(kingRow, kingCol);
     return kingTile;
 }
 
-bool BoardManager::isCapturable(bool isWhite, Tile location) const {
+bool BoardManager::isCapturable(bool isWhite, const Tile& tile) const {
     for (int row = 0; row < 8; row++) {
         for (int col = 0; col < 8; col++) {
             ChessPiece* piece = getPiece(row, col);
             if (piece != nullptr && piece->isWhite() != isWhite) {
                 unordered_set<Tile, HashTile> temp = piece->getMoves(board, row, col);
-                if (temp.count(location) == 1) {
+                if (temp.count(tile) == 1) {
                     return true;
                 }
             }
@@ -118,105 +164,78 @@ void BoardManager::checkKings() {
     blackIsChecked = isCapturable(false, blackKingTile);
 }
 
-bool BoardManager::simulateMove(int row, int col) {
+bool BoardManager::simulateMove(const Tile& tile) {
     bool whiteWasChecked = whiteIsChecked;
     bool blackWasChecked = blackIsChecked;
-    ChessPiece* selectedPiece = getPiece(selectedRow, selectedCol);
-    ChessPiece* targetPiece = getPiece(row, col);
-    setPiece(selectedPiece, row, col);
-    setPiece(nullptr, selectedRow, selectedCol);
+    ChessPiece* selectedPiece = getPiece(selectedTile);
+    ChessPiece* targetPiece = getPiece(tile);
+    setPiece(selectedPiece, tile);
+    setPiece(nullptr, selectedTile);
     checkKings();
     bool safe = (whiteTurn && !whiteIsChecked) || (!whiteTurn && !blackIsChecked);
-    setPiece(targetPiece, row, col);
-    setPiece(selectedPiece, selectedRow, selectedCol);
+    setPiece(targetPiece, tile);
+    setPiece(selectedPiece, selectedTile);
     whiteIsChecked = whiteWasChecked;
     blackIsChecked = blackWasChecked;
     return safe;
 }
 
-//change to return set
-void BoardManager::selectPiece(int row, int col) {  
-    ChessPiece* piece = getPiece(row, col);
+void BoardManager::selectPiece(const Tile& tile) {  
+    ChessPiece* piece = getPiece(tile);
     if (piece != nullptr && (piece->isWhite() == whiteTurn)) {
-        selectedRow = row;
-        selectedCol = col;
+        selectedTile = tile;
         selected = true;
-        unordered_set<Tile, HashTile> tempTiles = piece->getMoves(board, row, col);
-        //delete movableTiles;
-        movableTiles = new unordered_set<Tile, HashTile>;
+        unordered_set<Tile, HashTile> tempTiles;
+        tempTiles = piece->getMoves(board, tile.row, tile.col);
+        movableTiles.clear();
         for (Tile tile : tempTiles) {
-            if (simulateMove(tile.getRow(), tile.getCol())) {
-                movableTiles->insert(tile);
+            if (simulateMove(tile)) {
+                movableTiles.insert(tile);
             }
         }
     }
 }
 
-//TEMPORARY ai time reducer (bugged)
-void BoardManager::selectPieceAI(int row, int col) {
-    ChessPiece* piece = getPiece(row, col);
-    selectedRow = row;
-    selectedCol = col;
-    selected = true;
-    unordered_set<Tile, HashTile> tempTiles = piece->getMoves(board, row, col);
-    movableTiles = new unordered_set<Tile, HashTile>;
-    for (Tile tile : tempTiles) {
-        movableTiles->insert(tile);
+void BoardManager::tryMove(const Tile& tile) {
+    ChessPiece* piece = getPiece(tile);
+    bool selectedLocation = tile == selectedTile;
+    bool alliedPiece = piece != nullptr && piece->isWhite() == whiteTurn;
+    bool validLocation = movableTiles.count(tile);
+    if (selectedLocation || (!validLocation && !alliedPiece)) {
+        selected = false;
+    } else if (alliedPiece) {
+        selectPiece(tile);
+    } else {
+        movePiece(tile);
     }
 }
 
-void BoardManager::movePiece(int row, int col) {
-    ChessPiece* pieceToMove = getPiece(selectedRow, selectedCol);
+void BoardManager::movePiece(const Tile& tile) {
+    ChessPiece* pieceToMove = getPiece(selectedTile);
+    //pawn status updates and promotes
     if (pieceToMove->getName() == "Pawn") {
         ((Pawn*)pieceToMove)->setMoved(true);
-        if (row == 0 || row == 7) {
+        if (tile.row == 0 || tile.row == 7) {
             boardValue -= pieceToMove->getValue();
             delete pieceToMove;
             pieceToMove = new Queen(pieceToMove->isWhite());
             boardValue += pieceToMove->getValue();
         }
     }
-    ChessPiece* pieceAtLocation = getPiece(row, col);
+    //handle movement and game status
+    ChessPiece* pieceAtLocation = getPiece(tile);
     if (pieceAtLocation != nullptr) {
         boardValue -= pieceAtLocation->getValue();
         delete pieceAtLocation;
     }
-    setPiece(pieceToMove, row, col);
-    setPiece(nullptr, selectedRow, selectedCol);
+    setPiece(pieceToMove, tile);
+    setPiece(nullptr, selectedTile);
     selected = false;
     whiteTurn = !whiteTurn;
     checkKings();
 }
 
-void BoardManager::tryMove(int row, int col) {
-    //checks
-    ChessPiece* piece = getPiece(row, col);
-    bool selectedLocation = row == selectedRow && col == selectedCol;
-    bool alliedPiece = piece != nullptr && piece->isWhite() == whiteTurn;
-    Tile thisTile(row, col);
-    bool validLocation = movableTiles->count(thisTile);
-    //filter behavior according to checks
-    if (selectedLocation || (!validLocation && !alliedPiece)) {
-        selected = false;
-    } else if (alliedPiece) {
-        selectPiece(row, col);
-    } else {
-        movePiece(row, col);
-    }
-}
-
-bool BoardManager::pieceIsSelected() const {
-    return selected;
-}
-
-bool BoardManager::isCheckedWhite() const {
-    return whiteIsChecked;
-}
-
-bool BoardManager::isCheckedBlack() const {
-    return blackIsChecked;
-}
-
+//TODO: doesn't actually filter invalid king-exposing moves
 bool BoardManager::whiteCanMove() const {
     //grab white pieces
     unordered_set<Tile, HashTile> selectablePieces;
@@ -231,38 +250,10 @@ bool BoardManager::whiteCanMove() const {
     //count possible moves
     int validMoves = 0;
     for (Tile tile : selectablePieces) {
-        ChessPiece* piece = getPiece(tile.getRow(), tile.getCol());
+        ChessPiece* piece = getPiece(tile.row, tile.col);
         unordered_set<Tile, HashTile> tempTiles;
-        tempTiles = piece->getMoves(board, tile.getRow(), tile.getCol());
+        tempTiles = piece->getMoves(board, tile.row, tile.col);
         validMoves += tempTiles.size();
     }
     return validMoves != 0;
-}
-
-bool BoardManager::isWhiteTurn() const {
-    return whiteTurn;
-}
-
-void BoardManager::changeTurns() {
-    whiteTurn = !whiteTurn;
-}
-
-bool BoardManager::isSelectedPiece(int row, int col) const {
-    return (row == selectedRow) && (col == selectedCol);
-}
-
-bool BoardManager::isMovableTile(int row, int col) const {
-    return movableTiles->count(Tile(row, col));
-}
-
-unordered_set<Tile, HashTile>* BoardManager::getMovableTiles() const {
-    return movableTiles;
-}
-
-void BoardManager::setWinner(string winner) {
-    this->winner = winner;
-}
-
-string BoardManager::getWinner() const {
-    return winner;
 }

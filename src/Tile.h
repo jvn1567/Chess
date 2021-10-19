@@ -6,15 +6,10 @@
 #include <iostream>
 using namespace std;
 
-class Tile {
-private:
+struct Tile {
     int row;
     int col;
-public: 
-    Tile(int row, int col);
-    int getRow() const;
-    int getCol() const;
-    
+    Tile(int row = 0, int col = 0); 
 };
 bool isOutOfBounds(int row, int col);
 bool operator ==(const Tile& tile1, const Tile& tile2);
@@ -22,10 +17,7 @@ bool operator <(const Tile& tile1, const Tile& tile2);
 ostream& operator <<(ostream& out, const Tile& tile);
 
 struct HashTile {
-    size_t operator()(const Tile& tile) const {
-        size_t temp = hash<int>()(tile.getRow() * 10 + tile.getCol());
-        return temp;
-    }
+    size_t operator()(const Tile& tile) const;
 };
 
 #endif

@@ -12,52 +12,45 @@ private:
     //game handlers
     bool whiteIsChecked;
     bool blackIsChecked;
-    bool selected;
-    int selectedRow;
-    int selectedCol;
     bool whiteTurn;
-    string winner;
-    unordered_set<Tile, HashTile>* movableTiles;
+    bool selected;
     int boardValue;
-    void setBackRow(int row, bool isWhite);
+    Tile selectedTile;
+    string winner;
+    unordered_set<Tile, HashTile> movableTiles;
+    void resetGameState();
+    void setBackRow(bool isWhite);
+    void setStartingBoard();
     Tile getKingLocation(bool kingIsWhite) const;
+    bool isCapturable(bool isWhite, const Tile& tile) const;
     void checkKings();
-    bool simulateMove(int row, int col);
-    vector<vector<ChessPiece*>>* copyBoard() const;
+    bool simulateMove(const Tile& tile);
 public:
     BoardManager();
-    void emptyBoard();
-    void setStartingBoard();
-    unordered_set<Tile, HashTile>* getMovableTiles() const;
+    void restartGame();
     ChessPiece* getPiece(int row, int col) const;
+    ChessPiece* getPiece(const Tile& tile) const;
     void setPiece(ChessPiece* piece, int row, int col);
+    void setPiece(ChessPiece* piece, const Tile& tile);
     int getBoardValue() const;
     void changeBoardValue(int value);
-
-
-    //maybe offload
-    void tryMove(int row, int col);
-    void selectPiece(int row, int col); //change to return set
-    void movePiece(int row, int col);
-
-    void selectPieceAI(int row, int col);
-
-
-    //to delete
-    bool isCapturable(bool isWhite, Tile location) const;
-
-
-    //offload to board manager
     bool pieceIsSelected() const;
     bool isCheckedWhite() const;
     bool isCheckedBlack() const;
-    bool whiteCanMove() const;
     bool isWhiteTurn() const;
     void changeTurns();
-    bool isSelectedPiece(int row, int col) const;
-    bool isMovableTile(int row, int col) const;
     void setWinner(string winner);
     string getWinner() const;
+    bool isSelectedPiece(int row, int col) const;
+    bool isMovableTile(int row, int col) const;
+    unordered_set<Tile, HashTile> getMovableTiles() const;
+
+    void selectPiece(const Tile& tile);
+    void tryMove(const Tile& tile);
+    void movePiece(const Tile& tile);
+
+    //TODO: fix
+    bool whiteCanMove() const;
 };
 
 #endif

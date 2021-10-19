@@ -29,16 +29,15 @@ bool ChessAI::selectMove(int row, int col, int depth, ValueTree* weights, bool i
     ChessPiece* piece = board->getPiece(row, col);
     if (piece != nullptr) {
         if (piece->isWhite() == isWhite) {
-            board->selectPiece(row, col);
-            unordered_set<Tile, HashTile>* moves = board->getMovableTiles();
-            for (Tile tile : *moves) {
+            board->selectPiece(Tile(row, col));
+            unordered_set<Tile, HashTile> moves = board->getMovableTiles();
+            for (Tile tile : moves) {
                 if (depth == 0) {
                     start.push_back(Tile(row, col));
                     end.push_back(tile);
                 }
                 weighBranch(row, col, tile, piece, depth, weights);
             }
-            delete moves;
         }
     }
     return selectMove(row, col + 1, depth, weights, isWhite);
@@ -46,7 +45,7 @@ bool ChessAI::selectMove(int row, int col, int depth, ValueTree* weights, bool i
 
 void ChessAI::weighBranch(int row, int col, Tile tile, ChessPiece* piece,
          int depth, ValueTree* weights) {
-    ChessPiece* other = board->getPiece(tile.getRow(), tile.getCol());
+    ChessPiece* other = board->getPiece(tile.row, tile.col);
     //special pawn handler
     ChessPiece* thisTemp = piece;
     bool makesFirstMove = false;
@@ -67,7 +66,7 @@ void ChessAI::weighBranch(int row, int col, Tile tile, ChessPiece* piece,
     if (other != nullptr) {
         board->changeBoardValue(-other->getValue());
     }
-    board->setPiece(piece, tile.getRow(), tile.getCol());
+    board->setPiece(piece, tile.row, tile.col);
     board->setPiece(nullptr, row, col);
     board->changeTurns();
     ValueTree* next = new ValueTree();
@@ -83,7 +82,7 @@ void ChessAI::weighBranch(int row, int col, Tile tile, ChessPiece* piece,
     if (other != nullptr) {
         board->changeBoardValue(other->getValue());
     }
-    board->setPiece(other, tile.getRow(), tile.getCol());
+    board->setPiece(other, tile.row, tile.col);
     board->setPiece(piece, row, col);
     board->changeTurns();
     if (makesFirstMove) {
@@ -158,8 +157,8 @@ void ChessAI::makeMove() {
     //pick random move if many equal valued moves and handle checkmate
     if (start.size() > 0) {
         int index = rand() % start.size();
-        board->selectPiece(start[index].getRow(), start[index].getCol());
-        board->movePiece(end[index].getRow(), end[index].getCol());
+        board->selectPiece(start[index]);
+        board->movePiece(end[index]);
     } else if (board->isCheckedBlack()) {
         board->setWinner("White");
     } else {

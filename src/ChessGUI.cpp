@@ -1,38 +1,51 @@
-#include <string>
-#include <unordered_set>
-#include "gwindow.h"
-#include "gbutton.h"
 #include "gevent.h"
-#include "glabel.h"
 #include "gfont.h"
-#include "ChessAI.h"
-#include "BoardManager.h"
-using namespace sgl;
-using namespace std;
+#include "ChessGUI.h"
 
-static const int WINDOW_SIZE = 800; //may break if not divisible by 8
-static const int LINE_WIDTH = 4;
-static const int TILE_SIZE = WINDOW_SIZE / 8;
+ChessGUI::ChessGUI() {
+    //gWindow options
+    window = new GWindow(WINDOW_SIZE + 200, WINDOW_SIZE); //offset for buttons
+    window->setLineWidth(LINE_WIDTH);
+    window->setLocation(300, 100);
+    window->setBackground("black");
+    window->setExitOnClose(true);
+    window->setAutoRepaint(false);
+    window->setTitle("Chess");
+    //other initialization
+    generateMenu();
+    board = new BoardManager();
+    ai = new ChessAI(board);
+    window->setClickListener([=](GEvent event){this->handleClick(event);});
+    window->setTimerListener(500, [this] {
+        checkGame();
+    });
+    redraw();
+}
 
-GWindow* window;
-BoardManager* board;
-ChessAI* ai;
-GLabel* lblWinner;
-GButton* btnRestart;
+void ChessGUI::generateMenu() {
+    lblWinner = new GLabel();
+    lblWinner->setColor("white");
+    GFont::changeFontSize(lblWinner, 16);
+    btnRestart = new GButton("New Game");
+    btnRestart->setClickListener([=](){this->startNewGame();});
+    GFont::changeFontSize(btnRestart, 16);
+    window->addToRegion(lblWinner, "EAST");
+    window->addToRegion(btnRestart, "EAST");
+}
 
-void fillTile(string color, int row, int col) {
+void ChessGUI::fillTile(string color, int row, int col) {
     window->setColor(color);
     int tempSize = TILE_SIZE - LINE_WIDTH;
     window->fillRect(col * TILE_SIZE, row * TILE_SIZE, tempSize, tempSize);
 }
 
-void drawTile(string color, int row, int col) {
+void ChessGUI::drawTile(string color, int row, int col) {
     window->setColor(color);
     int tempSize = TILE_SIZE - LINE_WIDTH;
     window->drawRect(col * TILE_SIZE, row * TILE_SIZE, tempSize, tempSize);
 }
 
-void drawBackgroundTile(int row, int col) {
+void ChessGUI::drawBackgroundTile(int row, int col) {
     if ((row % 2 == 0) ^ (col % 2 == 0)) {
         fillTile("dark gray", row, col);
     } else {
@@ -40,7 +53,7 @@ void drawBackgroundTile(int row, int col) {
     }
 }
 
-void drawTileHighlight(int row, int col) {
+void ChessGUI::drawTileHighlight(int row, int col) {
     if (board->pieceIsSelected()) {
         //highlight selected unit
         if (board->isSelectedPiece(row, col)) {
@@ -63,9 +76,10 @@ void drawTileHighlight(int row, int col) {
     }
 }
 
-void drawPiece(int row, int col) {
+void ChessGUI::drawPiece(int row, int col) {
     ChessPiece* piece = board->getPiece(row, col);
     if (piece != nullptr) {
+        //checked king marker
         bool playerKingChecked = board->isWhiteTurn() && board->isCheckedWhite();
         bool isPlayerKing = piece->getName() == "King" && piece->isWhite();
         bool aiKingChecked = !board->isWhiteTurn() && board->isCheckedBlack();
@@ -73,6 +87,7 @@ void drawPiece(int row, int col) {
         if ((playerKingChecked && isPlayerKing) || (aiKingChecked && isAiKing)){
             fillTile("red", row, col);
         }
+        //draw piece
         string filename = "";
         if (piece->isWhite()) {
             filename += "White";
@@ -85,7 +100,7 @@ void drawPiece(int row, int col) {
     }
 }
 
-void redraw() {
+void ChessGUI::redraw() {
     for (int row = 0; row < 8; row ++) {
         for (int col = 0; col < 8; col++) {
             drawBackgroundTile(row, col);
@@ -96,18 +111,12 @@ void redraw() {
     window->repaint();
 }
 
-void handleClick(GEvent mouseEvent) {
-    int col = mouseEvent.getX() / TILE_SIZE;
-    int row = mouseEvent.getY() / TILE_SIZE;
-    if (board->pieceIsSelected() && col < 8) {
-        board->tryMove(row, col);
-    } else if (col < 8) {
-        board->selectPiece(row, col);
-    }
-    redraw();
+void ChessGUI::startNewGame() {
+    board->restartGame();
+    lblWinner->setText("");
 }
 
-void checkGame() {
+void ChessGUI::checkGame() {
     if (board->getWinner() == "") {
         if (!board->isWhiteTurn()) {
             ai->makeMove();
@@ -123,38 +132,13 @@ void checkGame() {
     redraw();
 }
 
-void startNewGame() {
-    board->emptyBoard();
-    board->setStartingBoard();
-    lblWinner->setText("");
-}
-
-void generateMenu() {
-    lblWinner = new GLabel();
-    lblWinner->setColor("white");
-    GFont::changeFontSize(lblWinner, 16);
-    btnRestart = new GButton("New Game");
-    btnRestart->setClickListener(startNewGame);
-    GFont::changeFontSize(btnRestart, 16);
-    window->addToRegion(lblWinner, "EAST");
-    window->addToRegion(btnRestart, "EAST");
-}
-
-int main() {
-    //gWindow options
-    window = new GWindow(WINDOW_SIZE + 200, WINDOW_SIZE); //offset for buttons
-    window->setLineWidth(LINE_WIDTH);
-    window->setLocation(300, 100);
-    window->setBackground("black");
-    window->setExitOnClose(true);
-    window->setAutoRepaint(false);
-    window->setTitle("Chess");
-    //other initialization
-    generateMenu();
-    board = new BoardManager();
-    ai = new ChessAI(board);
-    window->setClickListener(handleClick);
-    window->setTimerListener(500, checkGame);
+void ChessGUI::handleClick(GEvent mouseEvent) {
+    int col = mouseEvent.getX() / TILE_SIZE;
+    int row = mouseEvent.getY() / TILE_SIZE;
+    if (board->pieceIsSelected() && col < 8) {
+        board->tryMove(Tile(row, col));
+    } else if (col < 8) {
+        board->selectPiece(Tile(row, col));
+    }
     redraw();
-    return 0;
 }
