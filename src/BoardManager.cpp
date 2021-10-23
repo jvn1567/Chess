@@ -212,7 +212,7 @@ void BoardManager::tryMove(const Tile& tile) {
 
 void BoardManager::movePiece(const Tile& tile) {
     ChessPiece* pieceToMove = getPiece(selectedTile);
-    //pawn status updates and promotes
+    // pawn status updates and promotes
     if (pieceToMove->getName() == "Pawn") {
         ((Pawn*)pieceToMove)->setMoved(true);
         if (tile.row == 0 || tile.row == 7) {
@@ -222,7 +222,7 @@ void BoardManager::movePiece(const Tile& tile) {
             boardValue += pieceToMove->getValue();
         }
     }
-    //handle movement and game status
+    // handle movement and game status
     ChessPiece* pieceAtLocation = getPiece(tile);
     if (pieceAtLocation != nullptr) {
         boardValue -= pieceAtLocation->getValue();
@@ -235,9 +235,9 @@ void BoardManager::movePiece(const Tile& tile) {
     checkKings();
 }
 
-//TODO: doesn't actually filter invalid king-exposing moves
+// TODO: doesn't actually filter invalid king-exposing moves
 bool BoardManager::whiteCanMove() const {
-    //grab white pieces
+    // grab white pieces
     unordered_set<Tile, HashTile> selectablePieces;
     for (int row = 0; row < 8; row++) {
         for (int col = 0; col < 8; col++) {
@@ -247,7 +247,7 @@ bool BoardManager::whiteCanMove() const {
             }
         }
     }
-    //count possible moves
+    // count possible moves
     int validMoves = 0;
     for (Tile tile : selectablePieces) {
         ChessPiece* piece = getPiece(tile.row, tile.col);

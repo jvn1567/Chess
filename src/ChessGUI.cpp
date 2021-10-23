@@ -3,7 +3,7 @@
 #include "ChessGUI.h"
 
 ChessGUI::ChessGUI() {
-    //gWindow options
+    // GWindow options
     window = new GWindow(WINDOW_SIZE + 200, WINDOW_SIZE); //offset for buttons
     window->setLineWidth(LINE_WIDTH);
     window->setLocation(300, 100);
@@ -11,7 +11,7 @@ ChessGUI::ChessGUI() {
     window->setExitOnClose(true);
     window->setAutoRepaint(false);
     window->setTitle("Chess");
-    //other initialization
+    // other initialization
     generateMenu();
     board = new BoardManager();
     ai = new ChessAI(board);
@@ -55,11 +55,11 @@ void ChessGUI::drawBackgroundTile(int row, int col) {
 
 void ChessGUI::drawTileHighlight(int row, int col) {
     if (board->pieceIsSelected()) {
-        //highlight selected unit
+        // highlight selected unit
         if (board->isSelectedPiece(row, col)) {
             drawTile("orange", row, col);
         }
-        //highlight moveable tiles
+        // highlight moveable tiles
         bool movable = board->isMovableTile(row, col);
         bool isOccupied = false;
         bool containsEnemy = false;
@@ -79,7 +79,7 @@ void ChessGUI::drawTileHighlight(int row, int col) {
 void ChessGUI::drawPiece(int row, int col) {
     ChessPiece* piece = board->getPiece(row, col);
     if (piece != nullptr) {
-        //checked king marker
+        // checked king marker
         bool playerKingChecked = board->isWhiteTurn() && board->isCheckedWhite();
         bool isPlayerKing = piece->getName() == "King" && piece->isWhite();
         bool aiKingChecked = !board->isWhiteTurn() && board->isCheckedBlack();
@@ -87,7 +87,7 @@ void ChessGUI::drawPiece(int row, int col) {
         if ((playerKingChecked && isPlayerKing) || (aiKingChecked && isAiKing)){
             fillTile("red", row, col);
         }
-        //draw piece
+        // draw piece
         string filename = "";
         if (piece->isWhite()) {
             filename += "White";

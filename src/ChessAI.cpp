@@ -2,6 +2,110 @@
 #include "Pawn.h"
 #include "Queen.h"
 
+ChessAI2::ChessAI2(BoardManager* board) {
+    this->board = board;
+    targetDepth = 3;
+}
+
+int ChessAI2::minimax(MinimaxNode*& node, int min, int max, int depth, bool isWhite) {
+    if (depth == targetDepth) {
+        return board->getBoardValue();
+    }
+    int limit = isWhite ? min : max; // start at min for maximizing white
+    for (int row = 0; row < 8; row++) {
+        for (int col = 0; col < 8; col++) {
+            ChessPiece* piece = board->getPiece(row, col);
+            if ((piece != nullptr) && (piece->isWhite() == isWhite)) {
+                board->selectPiece(Tile(row, col));
+                for (Tile tile : board->getMovableTiles()) {
+                    // TODO: move nodes and set start-end tiles
+                    int moveValue = simulateMove(node, min, max, depth, isWhite);
+                    if (isWhite && moveValue > max) {
+                        max = moveValue;
+                    } else if (!isWhite && moveValue < min) {
+                        min = moveValue;
+                    }
+                    if (max > min) {
+                        break;
+                    }
+                }
+            }
+        }
+    }
+    if (depth > 0) {
+        // delete child node memory
+    }
+    return limit;
+}
+
+int ChessAI2::simulateMove(MinimaxNode*& node, int min, int max, int depth, bool isWhite) {
+    ChessPiece* target = board->getPiece(node->start);
+    ChessPiece* piece = board->getPiece(node->end);
+    // stop recursion on game over
+    if (target->getName() == "King") {
+        return board->getBoardValue() - target->getValue();
+    }
+    // store original state for pawns
+    ChessPiece* thisTemp = piece;
+    bool makesFirstMove = false;
+    bool getsPromoted = false;
+    bool isPawn = piece->getName() == "Pawn";
+    bool promotableBlack = node->start.row == 6 && !piece->isWhite();
+    bool promotableWhite = node->start.row == 1 && piece->isWhite();
+    if (isPawn && (promotableBlack || promotableWhite)) {
+        getsPromoted = true;
+        board->changeBoardValue(-piece->getValue());
+        piece = new Queen(piece->isWhite());
+        board->changeBoardValue(piece->getValue());
+    } else if (isPawn && !((Pawn*)piece)->getHasMoved()) { //start tile
+        makesFirstMove = true;
+        ((Pawn*)piece)->setMoved(true);
+    }
+    // make move and recurse
+    if (target != nullptr) {
+        board->changeBoardValue(-target->getValue());
+    }
+    board->setPiece(piece, node->end);
+    board->setPiece(nullptr, node->start);
+    board->changeTurns();
+    int limit = minimax(node, min, max, depth + 1, !isWhite);
+    // undo move and pawn promotes
+    if (getsPromoted) {
+        board->changeBoardValue(-piece->getValue());
+        delete piece;
+        piece = thisTemp;
+        board->changeBoardValue(piece->getValue());
+    }
+    if (target != nullptr) {
+        board->changeBoardValue(target->getValue());
+    }
+    board->setPiece(target, node->end);
+    board->setPiece(piece, node->start);
+    board->changeTurns();
+    if (makesFirstMove) {
+        ((Pawn*)piece)->setMoved(false);
+    }
+    return limit;
+}
+
+void ChessAI2::makeMove() {
+    MinimaxNode* root = new MinimaxNode();
+    minimax(root, INT_MAX, INT_MIN, 0, false);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ChessAI::ChessAI(BoardManager* board) {
     vector<Tile> start;
     vector<Tile> end;
@@ -45,7 +149,7 @@ bool ChessAI::selectMove(int row, int col, int depth, ValueTree* weights, bool i
 
 void ChessAI::weighBranch(int row, int col, Tile tile, ChessPiece* piece,
          int depth, ValueTree* weights) {
-    ChessPiece* other = board->getPiece(tile.row, tile.col);
+    ChessPiece* other = board->getPiece(tile);
     //special pawn handler
     ChessPiece* thisTemp = piece;
     bool makesFirstMove = false;
@@ -66,7 +170,7 @@ void ChessAI::weighBranch(int row, int col, Tile tile, ChessPiece* piece,
     if (other != nullptr) {
         board->changeBoardValue(-other->getValue());
     }
-    board->setPiece(piece, tile.row, tile.col);
+    board->setPiece(piece, tile);
     board->setPiece(nullptr, row, col);
     board->changeTurns();
     ValueTree* next = new ValueTree();
@@ -82,7 +186,7 @@ void ChessAI::weighBranch(int row, int col, Tile tile, ChessPiece* piece,
     if (other != nullptr) {
         board->changeBoardValue(other->getValue());
     }
-    board->setPiece(other, tile.row, tile.col);
+    board->setPiece(other, tile);
     board->setPiece(piece, row, col);
     board->changeTurns();
     if (makesFirstMove) {
@@ -92,11 +196,9 @@ void ChessAI::weighBranch(int row, int col, Tile tile, ChessPiece* piece,
 
 int ChessAI::minimax(ValueTree* weights, bool minimize) {
     int size = weights->next.size();
-    //leaf
     if (size == 0) {
         return weights->value;
     }
-    //branches
     int limit = minimax(weights->next[0], !minimize);
     for (int i = 1; i < size; i++) {
         int current = minimax(weights->next[i], !minimize);

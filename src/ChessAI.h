@@ -4,6 +4,34 @@
 #include "BoardManager.h"
 using namespace std;
 
+struct MinimaxNode {
+    Tile start;
+    Tile end;
+    vector<MinimaxNode*> next;
+    MinimaxNode(Tile start = NULL, Tile end = NULL);
+};
+
+class ChessAI2 {
+private:
+    BoardManager* board;
+    int targetDepth;
+    int minimax(int min, int max, int depth, bool isWhite);
+    int simulateMove(int min, int max, int depth, const Tile& start, const Tile& end);
+public:
+    ChessAI2(BoardManager* board);
+    void makeMove();
+};
+
+
+
+
+
+
+
+
+
+
+//original
 struct ValueTree {
     int value;
     vector<ValueTree*> next;

@@ -5,11 +5,11 @@ Pawn::Pawn(bool isWhite) : ChessPiece(isWhite) {
     hasMoved = false;
 }
 
-//pawns promote, so off-board not checked
+// pawns promote, so off-board not checked
 unordered_set<Tile, HashTile> Pawn::getMoves(const vector<vector<ChessPiece*>>& board,
         int row, int col) const {
     unordered_set<Tile, HashTile> moves;
-    //for simulated queen promotes only
+    // TEMP for simulated queen promotes only TODO: remove and handle in manager
     if (row == 0 || row == 7) {
         getLine(board, row, col, moves, 1, 0); //N
         getLine(board, row, col, moves, 0, 1); //E
@@ -21,12 +21,12 @@ unordered_set<Tile, HashTile> Pawn::getMoves(const vector<vector<ChessPiece*>>& 
         getLine(board, row, col, moves, 1, -1); //NW
         return moves;
     }
-     //handle north/south direction
+     // handle north/south direction
     int shift = 1;
     if (isWhite()) {
         shift = -shift;
     }
-    //foward moves
+    // foward moves
     if (board[row + shift][col] == nullptr) {
         Tile movableTile(row + shift, col);
         moves.insert(movableTile);
@@ -35,7 +35,7 @@ unordered_set<Tile, HashTile> Pawn::getMoves(const vector<vector<ChessPiece*>>& 
             moves.insert(movableTile);
         }
     }
-    //diagonal captures
+    // diagonal captures
     if (!isOutOfBounds(row + shift, col - 1)) {
         ChessPiece* other = board[row + shift][col - 1];
         if (other != nullptr && isEnemy(other)) {
