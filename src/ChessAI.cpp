@@ -2,96 +2,156 @@
 #include "Pawn.h"
 #include "Queen.h"
 
-ChessAI2::ChessAI2(BoardManager* board) {
-    this->board = board;
-    targetDepth = 3;
+//BORROWED TIMING CODE
+#include <sys/time.h>
+typedef unsigned long long timestamp_t;
+static timestamp_t get_timestamp () {
+    struct timeval now;
+    gettimeofday (&now, NULL);
+    return  now.tv_usec + (timestamp_t)now.tv_sec * 1000000;
 }
 
-int ChessAI2::minimax(MinimaxNode*& node, int min, int max, int depth, bool isWhite) {
-    if (depth == targetDepth) {
-        return board->getBoardValue();
-    }
-    int limit = isWhite ? min : max; // start at min for maximizing white
-    for (int row = 0; row < 8; row++) {
-        for (int col = 0; col < 8; col++) {
-            ChessPiece* piece = board->getPiece(row, col);
-            if ((piece != nullptr) && (piece->isWhite() == isWhite)) {
-                board->selectPiece(Tile(row, col));
-                for (Tile tile : board->getMovableTiles()) {
-                    // TODO: move nodes and set start-end tiles
-                    int moveValue = simulateMove(node, min, max, depth, isWhite);
-                    if (isWhite && moveValue > max) {
-                        max = moveValue;
-                    } else if (!isWhite && moveValue < min) {
-                        min = moveValue;
-                    }
-                    if (max > min) {
-                        break;
-                    }
-                }
-            }
-        }
-    }
-    if (depth > 0) {
-        // delete child node memory
-    }
-    return limit;
-}
+// MinimaxNode::MinimaxNode(const Tile& start, const Tile& end, int value) {
+//     this->start = start;
+//     this->end = end;
+//     this->value = value;
+// }
 
-int ChessAI2::simulateMove(MinimaxNode*& node, int min, int max, int depth, bool isWhite) {
-    ChessPiece* target = board->getPiece(node->start);
-    ChessPiece* piece = board->getPiece(node->end);
-    // stop recursion on game over
-    if (target->getName() == "King") {
-        return board->getBoardValue() - target->getValue();
-    }
-    // store original state for pawns
-    ChessPiece* thisTemp = piece;
-    bool makesFirstMove = false;
-    bool getsPromoted = false;
-    bool isPawn = piece->getName() == "Pawn";
-    bool promotableBlack = node->start.row == 6 && !piece->isWhite();
-    bool promotableWhite = node->start.row == 1 && piece->isWhite();
-    if (isPawn && (promotableBlack || promotableWhite)) {
-        getsPromoted = true;
-        board->changeBoardValue(-piece->getValue());
-        piece = new Queen(piece->isWhite());
-        board->changeBoardValue(piece->getValue());
-    } else if (isPawn && !((Pawn*)piece)->getHasMoved()) { //start tile
-        makesFirstMove = true;
-        ((Pawn*)piece)->setMoved(true);
-    }
-    // make move and recurse
-    if (target != nullptr) {
-        board->changeBoardValue(-target->getValue());
-    }
-    board->setPiece(piece, node->end);
-    board->setPiece(nullptr, node->start);
-    board->changeTurns();
-    int limit = minimax(node, min, max, depth + 1, !isWhite);
-    // undo move and pawn promotes
-    if (getsPromoted) {
-        board->changeBoardValue(-piece->getValue());
-        delete piece;
-        piece = thisTemp;
-        board->changeBoardValue(piece->getValue());
-    }
-    if (target != nullptr) {
-        board->changeBoardValue(target->getValue());
-    }
-    board->setPiece(target, node->end);
-    board->setPiece(piece, node->start);
-    board->changeTurns();
-    if (makesFirstMove) {
-        ((Pawn*)piece)->setMoved(false);
-    }
-    return limit;
-}
+// ChessAI::ChessAI(BoardManager* board) {
+//     this->board = board;
+//     targetDepth = 3;
+// }
 
-void ChessAI2::makeMove() {
-    MinimaxNode* root = new MinimaxNode();
-    minimax(root, INT_MAX, INT_MIN, 0, false);
-}
+// int ChessAI::minimax(MinimaxNode*& node, int min, int max, int depth, bool isWhite) {
+//     if (depth == targetDepth) {
+//         node->value = board->getBoardValue();
+//         return board->getBoardValue();
+//     }
+//     int limit = isWhite ? max : min;
+//     for (int row = 0; row < 8; row++) {
+//         for (int col = 0; col < 8; col++) {
+//             ChessPiece* piece = board->getPiece(row, col);
+//             if ((piece != nullptr) && (piece->isWhite() == isWhite)) {
+//                 board->selectPiece(Tile(row, col));
+//                 unordered_set<Tile, HashTile> moves = board->getMovableTiles();
+//                 for (Tile end : moves) {
+//                     int size = node->next.size();
+//                     node->next.push_back(new MinimaxNode(Tile(row, col), end));
+//                     int moveValue = simulateMove(node->next[size], min, max, depth, isWhite);
+//                     if (isWhite && moveValue > limit) {
+//                         max = moveValue;
+//                         limit = moveValue;
+//                     } else if (!isWhite && moveValue < limit) {
+//                         min = moveValue;
+//                         limit = moveValue;
+//                     }
+//                     if (max >= min) {
+//                         break;
+//                     }
+//                 }
+//             }
+//         }
+//     }
+//     // free child nodes of current move but leaves top layer moves to select
+//     if (depth > 0) {
+//         for (int i = 0; i < node->next.size(); i++) {
+//             delete node->next[i];
+//         }
+//         node->next.clear();
+//     }
+//     node->value = limit;
+//     return limit;
+// }
+
+// int ChessAI::simulateMove(MinimaxNode*& node, int min, int max, int depth, bool isWhite) {
+//     ChessPiece* piece = board->getPiece(node->start);
+//     ChessPiece* target = board->getPiece(node->end);
+//     // stop recursion on game over
+//     if (target != nullptr && target->getName() == "King") {
+//         return board->getBoardValue() - target->getValue();
+//     }
+//     // store original state for pawns
+//     ChessPiece* thisTemp = piece;
+//     bool makesFirstMove = false;
+//     bool getsPromoted = false;
+//     bool isPawn = piece->getName() == "Pawn";
+//     bool promotableBlack = node->start.row == 6 && !piece->isWhite();
+//     bool promotableWhite = node->start.row == 1 && piece->isWhite();
+//     if (isPawn && (promotableBlack || promotableWhite)) {
+//         getsPromoted = true;
+//         board->changeBoardValue(-piece->getValue());
+//         piece = new Queen(piece->isWhite());
+//         board->changeBoardValue(piece->getValue());
+//     } else if (isPawn && !((Pawn*)piece)->getHasMoved()) { //start tile
+//         makesFirstMove = true;
+//         ((Pawn*)piece)->setMoved(true);
+//     }
+//     // make move and recurse
+//     if (target != nullptr) {
+//         board->changeBoardValue(-target->getValue());
+//     }
+//     board->setPiece(piece, node->end);
+//     board->setPiece(nullptr, node->start);
+//     board->changeTurns();
+//     int limit = minimax(node, min, max, depth + 1, !isWhite);
+//     // undo move and pawn promotes
+//     if (getsPromoted) {
+//         board->changeBoardValue(-piece->getValue());
+//         delete piece;
+//         piece = thisTemp;
+//         board->changeBoardValue(piece->getValue());
+//     }
+//     if (target != nullptr) {
+//         board->changeBoardValue(target->getValue());
+//     }
+//     board->setPiece(target, node->end);
+//     board->setPiece(piece, node->start);
+//     board->changeTurns();
+//     if (makesFirstMove) {
+//         ((Pawn*)piece)->setMoved(false);
+//     }
+//     return limit;
+// }
+
+// void ChessAI::makeMove() {
+//     timestamp_t t0 = get_timestamp();
+
+//     // send to minimax
+//     MinimaxNode* root = new MinimaxNode();
+//     minimax(root, INT_MAX, INT_MIN, 0, false);
+//     // filter best moves
+//     vector<MinimaxNode*> bestMoves;
+//     int bestValue = INT_MAX; // black AI wants to minimize
+//     for (MinimaxNode* move : root->next) {
+//         if (move->value < bestValue) {
+//             bestValue = move->value;
+//             bestMoves.clear();
+//             bestMoves.push_back(move);
+//         } else if (move->value == bestValue) {
+//             bestMoves.push_back(move);
+//         }
+//     }
+//     // handle game over or tied scores
+//     if (bestMoves.size() > 0) {
+//         cout << "MOVES: " << bestMoves.size() << " BEST VALUE: " << bestValue << endl;
+//         int index = rand() % bestMoves.size();
+//         board->selectPiece(bestMoves[index]->start);
+//         board->movePiece(bestMoves[index]->end);
+//     } else if (board->isCheckedBlack()) {
+//         board->setWinner("White");
+//     } else {
+//         board->setWinner("No one");
+//     }
+//     // free nodes
+//     for (int i = 0; i < root->next.size(); i++) {
+//         delete root->next[i];
+//     }
+//     delete root;
+
+//     timestamp_t t1 = get_timestamp();
+//     double secs = (t1 - t0) / 1000000.0L;
+//     cout << secs << endl;
+// }
 
 
 
@@ -229,15 +289,6 @@ void ChessAI::filterMoves() {
     start = minStart;
     end = minEnd;
     weight.clear();
-}
-
-//BORROWED TIMING CODE
-#include <sys/time.h>
-typedef unsigned long long timestamp_t;
-static timestamp_t get_timestamp () {
-    struct timeval now;
-    gettimeofday (&now, NULL);
-    return  now.tv_usec + (timestamp_t)now.tv_sec * 1000000;
 }
 
 void ChessAI::makeMove() {

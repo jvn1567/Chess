@@ -133,12 +133,14 @@ void ChessGUI::checkGame() {
 }
 
 void ChessGUI::handleClick(GEvent mouseEvent) {
-    int col = mouseEvent.getX() / TILE_SIZE;
-    int row = mouseEvent.getY() / TILE_SIZE;
-    if (board->pieceIsSelected() && col < 8) {
-        board->tryMove(Tile(row, col));
-    } else if (col < 8) {
-        board->selectPiece(Tile(row, col));
+    if (board->isWhiteTurn()) {
+        int col = mouseEvent.getX() / TILE_SIZE;
+        int row = mouseEvent.getY() / TILE_SIZE;
+        if (board->pieceIsSelected() && col < 8) {
+            board->tryMove(Tile(row, col));
+        } else if (col < 8) {
+            board->selectPiece(Tile(row, col));
+        }
+        redraw();
     }
-    redraw();
 }
