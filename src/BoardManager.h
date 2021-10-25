@@ -2,6 +2,7 @@
 #define _BoardManager_h
 
 #include <vector>
+#include <queue>
 #include "ChessPiece.h"
 #include "Tile.h"
 using namespace std;
@@ -18,6 +19,7 @@ private:
     Tile selectedTile;
     string winner;
     unordered_set<Tile, HashTile> movableTiles;
+    queue<ChessPiece*> captured;
     void resetGameState();
     void setBackRow(bool isWhite);
     void setStartingBoard();
@@ -44,6 +46,7 @@ public:
     bool isSelectedPiece(int row, int col) const;
     bool isMovableTile(int row, int col) const;
     unordered_set<Tile, HashTile> getMovableTiles() const;
+    queue<ChessPiece*> getCaptured() const;
 
     void selectPiece(const Tile& tile);
     void tryMove(const Tile& tile);

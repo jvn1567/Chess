@@ -4,7 +4,7 @@
 
 ChessGUI::ChessGUI() {
     // GWindow options
-    window = new GWindow(WINDOW_SIZE + 200, WINDOW_SIZE); //offset for buttons
+    window = new GWindow(WINDOW_SIZE + PANEL_SIZE + 10, WINDOW_SIZE); // padding for edge
     window->setLineWidth(LINE_WIDTH);
     window->setLocation(300, 100);
     window->setBackground("black");
@@ -23,14 +23,18 @@ ChessGUI::ChessGUI() {
 }
 
 void ChessGUI::generateMenu() {
+    capturedPieces = new GCanvas(PANEL_SIZE, PANEL_SIZE);
+    capturedPieces->setBackground("white");
+    capturedPieces->setAutoRepaint(false);
     lblWinner = new GLabel();
     lblWinner->setColor("white");
     GFont::changeFontSize(lblWinner, 16);
     btnRestart = new GButton("New Game");
     btnRestart->setClickListener([=](){this->startNewGame();});
     GFont::changeFontSize(btnRestart, 16);
-    window->addToRegion(lblWinner, "EAST");
-    window->addToRegion(btnRestart, "EAST");
+    window->addToRegion(capturedPieces, "east");
+    window->addToRegion(lblWinner, "east");
+    window->addToRegion(btnRestart, "east");
 }
 
 void ChessGUI::fillTile(string color, int row, int col) {
@@ -76,6 +80,21 @@ void ChessGUI::drawTileHighlight(int row, int col) {
     }
 }
 
+string ChessGUI::getFilename(ChessPiece* piece, bool isSmall) const {
+    string filename = "";
+    if (piece->isWhite()) {
+        filename += "White";
+    } else {
+        filename += "Black";
+    }
+    filename += piece->getName();
+    if (isSmall) {
+        filename += "S";
+    }
+    filename += ".png";
+    return filename;
+}
+
 void ChessGUI::drawPiece(int row, int col) {
     ChessPiece* piece = board->getPiece(row, col);
     if (piece != nullptr) {
@@ -87,20 +106,28 @@ void ChessGUI::drawPiece(int row, int col) {
         if ((playerKingChecked && isPlayerKing) || (aiKingChecked && isAiKing)){
             fillTile("red", row, col);
         }
-        // draw piece
-        string filename = "";
-        if (piece->isWhite()) {
-            filename += "White";
-        } else {
-            filename += "Black";
-        }
-        filename += piece->getName();
-        filename += ".png";
-        window->drawImage(filename, col * TILE_SIZE, row * TILE_SIZE);
+        window->drawImage(getFilename(piece), col * TILE_SIZE, row * TILE_SIZE);
     }
 }
 
+void ChessGUI::drawCaptured() {
+    capturedPieces->clear();
+    queue<ChessPiece*> captured = board->getCaptured();
+    int size = captured.size();
+    int position = 0;
+    for (int i = 0; i < size; i++) {
+        ChessPiece* piece = captured.front();
+        captured.push(piece);
+        captured.pop();
+        capturedPieces->drawImage(getFilename(piece, true), position % PANEL_SIZE,
+                (position / PANEL_SIZE) * CAPTURED_SIZE);
+        position += CAPTURED_SIZE;
+    }
+    capturedPieces->repaint();
+}
+
 void ChessGUI::redraw() {
+    window->clearCanvas();
     for (int row = 0; row < 8; row ++) {
         for (int col = 0; col < 8; col++) {
             drawBackgroundTile(row, col);
@@ -108,6 +135,7 @@ void ChessGUI::redraw() {
             drawPiece(row, col);
         }
     }
+    drawCaptured();
     window->repaint();
 }
 

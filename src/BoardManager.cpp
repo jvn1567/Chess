@@ -38,6 +38,10 @@ void BoardManager::restartGame(){
             }
         }
     }
+    while (!captured.empty()) {
+        delete captured.front();
+        captured.pop();
+    }
     resetGameState();
     setStartingBoard();
 }
@@ -126,6 +130,10 @@ bool BoardManager::isMovableTile(int row, int col) const {
 
 unordered_set<Tile, HashTile> BoardManager::getMovableTiles() const {
     return movableTiles;
+}
+
+queue<ChessPiece*> BoardManager::getCaptured() const {
+    return captured;
 }
 
 Tile BoardManager::getKingLocation(bool kingIsWhite) const {
@@ -226,7 +234,7 @@ void BoardManager::movePiece(const Tile& tile) {
     ChessPiece* pieceAtLocation = getPiece(tile);
     if (pieceAtLocation != nullptr) {
         boardValue -= pieceAtLocation->getValue();
-        delete pieceAtLocation;
+        captured.push(pieceAtLocation);
     }
     setPiece(pieceToMove, tile);
     setPiece(nullptr, selectedTile);
