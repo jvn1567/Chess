@@ -19,7 +19,7 @@ private:
     Tile selectedTile;
     string winner;
     unordered_set<Tile, HashTile> movableTiles;
-    queue<ChessPiece*> captured;
+    priority_queue<ChessPiece*, vector<ChessPiece*>, PieceCompare> captured;
     void resetGameState();
     void setBackRow(bool isWhite);
     void setStartingBoard();
@@ -46,7 +46,7 @@ public:
     bool isSelectedPiece(int row, int col) const;
     bool isMovableTile(int row, int col) const;
     unordered_set<Tile, HashTile> getMovableTiles() const;
-    queue<ChessPiece*> getCaptured() const;
+    priority_queue<ChessPiece*, vector<ChessPiece*>, PieceCompare> getCaptured() const;
 
     void selectPiece(const Tile& tile);
     void tryMove(const Tile& tile);

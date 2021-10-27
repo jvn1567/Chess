@@ -2,7 +2,6 @@
 #define _ChessGUI_h
 
 #include <string>
-#include <unordered_set>
 #include "gwindow.h"
 #include "gcanvas.h"
 #include "gbutton.h"
@@ -15,7 +14,7 @@ using namespace std;
 class ChessGUI {
 private:
     static const int WINDOW_SIZE = 800; // may break if not divisible by 8
-    static const int PANEL_SIZE = 200; // preferred divisible by small image size
+    static const int PANEL_SIZE = 200; // side panel size, divisible by small image size
     static const int LINE_WIDTH = 4; // thickness of tile highlighters
     static const int TILE_SIZE = WINDOW_SIZE / 8; // equal to large image size
     static const int CAPTURED_SIZE = 25;
@@ -25,6 +24,7 @@ private:
     ChessAI* ai;
     GLabel* lblWinner;
     GButton* btnRestart;
+    int capturedRows;
     void generateMenu();
     void fillTile(string color, int row, int col);
     void drawTile(string color, int row, int col);

@@ -3,6 +3,7 @@
 
 #include <unordered_set>
 #include <vector>
+#include <queue>
 #include "Tile.h"
 using namespace std;
 
@@ -21,5 +22,11 @@ public:
             unordered_set<Tile, HashTile>& moves, int rowShift, int colShift) const;
     virtual ~ChessPiece();
 };
+
+struct PieceCompare {
+    bool operator()(const ChessPiece* left, const ChessPiece* right);
+};
+
+typedef priority_queue<ChessPiece*, vector<ChessPiece*>, PieceCompare> priority_queue_piece;
 
 #endif

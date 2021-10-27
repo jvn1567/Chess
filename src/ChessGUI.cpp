@@ -1,3 +1,4 @@
+#include <unordered_set>
 #include "gevent.h"
 #include "gfont.h"
 #include "ChessGUI.h"
@@ -23,16 +24,25 @@ ChessGUI::ChessGUI() {
 }
 
 void ChessGUI::generateMenu() {
-    capturedPieces = new GCanvas(PANEL_SIZE, PANEL_SIZE);
+    // captured pieces box
+    int piecesPerRow = PANEL_SIZE / CAPTURED_SIZE;
+    capturedRows = 0;
+    int pieces = 0;
+    while (pieces < 15) { // maxiumum all pieces but king captured for 15 total
+        capturedRows++;
+        pieces += piecesPerRow;
+    }
+    capturedPieces = new GCanvas(PANEL_SIZE, CAPTURED_SIZE * capturedRows * 2);
     capturedPieces->setBackground("white");
     capturedPieces->setAutoRepaint(false);
+    window->addToRegion(capturedPieces, "east");
+    // reset button and winner label
     lblWinner = new GLabel();
     lblWinner->setColor("white");
     GFont::changeFontSize(lblWinner, 16);
     btnRestart = new GButton("New Game");
     btnRestart->setClickListener([=](){this->startNewGame();});
     GFont::changeFontSize(btnRestart, 16);
-    window->addToRegion(capturedPieces, "east");
     window->addToRegion(lblWinner, "east");
     window->addToRegion(btnRestart, "east");
 }
@@ -112,16 +122,25 @@ void ChessGUI::drawPiece(int row, int col) {
 
 void ChessGUI::drawCaptured() {
     capturedPieces->clear();
-    queue<ChessPiece*> captured = board->getCaptured();
+    priority_queue_piece captured = board->getCaptured();
     int size = captured.size();
-    int position = 0;
+    int whitePosition = 0;
+    int blackPosition = 0;
     for (int i = 0; i < size; i++) {
-        ChessPiece* piece = captured.front();
-        captured.push(piece);
+        ChessPiece* piece = captured.top();
         captured.pop();
-        capturedPieces->drawImage(getFilename(piece, true), position % PANEL_SIZE,
-                (position / PANEL_SIZE) * CAPTURED_SIZE);
-        position += CAPTURED_SIZE;
+        string filename = getFilename(piece, true);
+        if (piece->isWhite()) {
+            int xPos = whitePosition % PANEL_SIZE;
+            int yPos = ((whitePosition / PANEL_SIZE) * CAPTURED_SIZE);
+            capturedPieces->drawImage(filename, xPos, yPos);
+            whitePosition += CAPTURED_SIZE;
+        } else {
+            int xPos = blackPosition % PANEL_SIZE;
+            int yPos = (((blackPosition / PANEL_SIZE) + capturedRows) * CAPTURED_SIZE);
+            capturedPieces->drawImage(filename, xPos, yPos);
+            blackPosition += CAPTURED_SIZE;
+        }
     }
     capturedPieces->repaint();
 }

@@ -39,7 +39,7 @@ void BoardManager::restartGame(){
         }
     }
     while (!captured.empty()) {
-        delete captured.front();
+        delete captured.top();
         captured.pop();
     }
     resetGameState();
@@ -132,7 +132,7 @@ unordered_set<Tile, HashTile> BoardManager::getMovableTiles() const {
     return movableTiles;
 }
 
-queue<ChessPiece*> BoardManager::getCaptured() const {
+priority_queue<ChessPiece*, vector<ChessPiece*>, PieceCompare> BoardManager::getCaptured() const {
     return captured;
 }
 

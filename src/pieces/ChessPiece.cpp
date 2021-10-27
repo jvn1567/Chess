@@ -1,3 +1,4 @@
+#include <cmath>
 #include "ChessPiece.h"
 
 ChessPiece::ChessPiece(bool white) {
@@ -40,3 +41,12 @@ void ChessPiece::getLine(const vector<vector<ChessPiece*>>& board, int row, int 
 }
 
 ChessPiece::~ChessPiece() {}
+
+// largest value first, first alphabetical name if tied
+bool PieceCompare::operator()(const ChessPiece* left, const ChessPiece* right) {
+    if (abs(left->getValue()) == abs(right->getValue())) {
+        return left->getName() > right->getName();
+    } else {
+        return abs(left->getValue()) < abs(right->getValue());
+    }
+}
