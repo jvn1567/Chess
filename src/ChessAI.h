@@ -18,6 +18,7 @@ private:
     int targetDepth;
     int minimax(MinimaxNode*& node, int alpha, int beta, int depth, bool isWhite);
     int simulateMove(MinimaxNode*& node, int alpha, int beta, int depth, bool isWhite);
+    void clearChildren(MinimaxNode*& node, int depth);
 public:
     ChessAI(BoardManager* board);
     void makeMove();

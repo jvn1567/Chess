@@ -132,7 +132,7 @@ unordered_set<Tile, HashTile> BoardManager::getMovableTiles() const {
     return movableTiles;
 }
 
-priority_queue<ChessPiece*, vector<ChessPiece*>, PieceCompare> BoardManager::getCaptured() const {
+priority_queue_piece BoardManager::getCaptured() const {
     return captured;
 }
 

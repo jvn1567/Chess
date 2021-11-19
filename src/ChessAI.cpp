@@ -23,6 +23,15 @@ ChessAI::ChessAI(BoardManager* board) {
     targetDepth = 3;
 }
 
+void ChessAI::clearChildren(MinimaxNode*& node, int depth) {
+    if (depth > 0) {
+        for (int i = 0; i < node->next.size(); i++) {
+            delete node->next[i];
+        }
+        node->next.clear();
+    }
+}
+
 int ChessAI::minimax(MinimaxNode*& node, int alpha, int beta, int depth, bool isWhite) {
     if (depth == targetDepth) {
         node->value = board->getBoardValue();
@@ -37,7 +46,7 @@ int ChessAI::minimax(MinimaxNode*& node, int alpha, int beta, int depth, bool is
                 for (Tile end : board->getMovableTiles()) {
                     int size = node->next.size();
                     node->next.push_back(new MinimaxNode(Tile(row, col), end));
-                    int moveValue = simulateMove(node->next[size], beta, alpha, depth, isWhite);
+                    int moveValue = simulateMove(node->next[size], alpha, beta, depth, isWhite);
                     if (isWhite) {
                         limit = max(limit, moveValue);
                         alpha = max(alpha, moveValue);
@@ -46,6 +55,7 @@ int ChessAI::minimax(MinimaxNode*& node, int alpha, int beta, int depth, bool is
                         beta = min(beta, moveValue);
                     }
                     if (alpha >= beta) {
+                        clearChildren(node, depth);
                         node->value = limit;
                         return limit;
                     }
@@ -53,13 +63,7 @@ int ChessAI::minimax(MinimaxNode*& node, int alpha, int beta, int depth, bool is
             }
         }
     }
-    // TODO: factor into function and call in break case and here
-    if (depth > 0) {
-        for (int i = 0; i < node->next.size(); i++) {
-            delete node->next[i];
-        }
-        node->next.clear();
-    }
+    clearChildren(node, depth);
     node->value = limit;
     return limit;
 }
@@ -94,7 +98,7 @@ int ChessAI::simulateMove(MinimaxNode*& node, int alpha, int beta, int depth, bo
     board->setPiece(piece, node->end);
     board->setPiece(nullptr, node->start);
     board->changeTurns();
-    int limit = minimax(node, beta, alpha, depth + 1, !isWhite);
+    int limit = minimax(node, alpha, beta, depth + 1, !isWhite);
     // undo move and pawn promotes
     if (getsPromoted) {
         board->changeBoardValue(-piece->getValue());
@@ -134,8 +138,7 @@ void ChessAI::makeMove() {
     }
     // handle game over or tied scores
     if (bestMoves.size() > 0) {
-        cout << "MOVES: " << bestMoves.size() << " BEST VALUE: " << bestValue << endl;
-        int index = rand() % bestMoves.size();
+        int index = 0;
         board->selectPiece(bestMoves[index]->start);
         board->movePiece(bestMoves[index]->end);
     } else if (board->isCheckedBlack()) {
