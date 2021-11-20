@@ -188,7 +188,7 @@ bool BoardManager::simulateMove(const Tile& tile) {
     return safe;
 }
 
-void BoardManager::selectPiece(const Tile& tile) {  
+void BoardManager::selectPiece(const Tile& tile, bool filterMoves) {  
     ChessPiece* piece = getPiece(tile);
     if (piece != nullptr && (piece->isWhite() == whiteTurn)) {
         selectedTile = tile;
@@ -197,7 +197,7 @@ void BoardManager::selectPiece(const Tile& tile) {
         tempTiles = piece->getMoves(board, tile.row, tile.col);
         movableTiles.clear();
         for (Tile tile : tempTiles) {
-            if (simulateMove(tile)) {
+            if (!filterMoves || simulateMove(tile)) {
                 movableTiles.insert(tile);
             }
         }
@@ -243,25 +243,24 @@ void BoardManager::movePiece(const Tile& tile) {
     checkKings();
 }
 
-// TODO: doesn't actually filter invalid king-exposing moves
-bool BoardManager::whiteCanMove() const {
-    // grab white pieces
-    unordered_set<Tile, HashTile> selectablePieces;
+bool BoardManager::whiteCanMove() {
+    selected = true;
+    unordered_set<Tile, HashTile> whiteMovable;
     for (int row = 0; row < 8; row++) {
         for (int col = 0; col < 8; col++) {
+            selectedTile = Tile(row, col);
             ChessPiece* piece = getPiece(row, col);
             if (piece != nullptr && piece->isWhite()) {
-                selectablePieces.insert(Tile(row, col));
+                unordered_set<Tile, HashTile> tempTiles;
+                tempTiles = piece->getMoves(board, row, col);
+                for (Tile tile : tempTiles) {
+                    if (simulateMove(tile)) {
+                        whiteMovable.insert(tile);
+                    }
+                }
             }
         }
     }
-    // count possible moves
-    int validMoves = 0;
-    for (Tile tile : selectablePieces) {
-        ChessPiece* piece = getPiece(tile.row, tile.col);
-        unordered_set<Tile, HashTile> tempTiles;
-        tempTiles = piece->getMoves(board, tile.row, tile.col);
-        validMoves += tempTiles.size();
-    }
-    return validMoves != 0;
+    selected = false;
+    return whiteMovable.size() > 0;
 }

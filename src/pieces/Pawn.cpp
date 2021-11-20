@@ -9,7 +9,7 @@ Pawn::Pawn(bool isWhite) : ChessPiece(isWhite) {
 unordered_set<Tile, HashTile> Pawn::getMoves(const vector<vector<ChessPiece*>>& board,
         int row, int col) const {
     unordered_set<Tile, HashTile> moves;
-    // TEMP for simulated queen promotes only TODO: remove and handle in manager
+    // simplified handler for simulated queen promotes
     if (row == 0 || row == 7) {
         getLine(board, row, col, moves, 1, 0); //N
         getLine(board, row, col, moves, 0, 1); //E

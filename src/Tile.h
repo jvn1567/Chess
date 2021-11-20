@@ -1,8 +1,6 @@
 #ifndef _Tile_h
 #define _Tile_h
 
-#include <unordered_set>
-#include <functional>
 #include <iostream>
 using namespace std;
 

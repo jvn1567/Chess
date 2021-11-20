@@ -167,11 +167,11 @@ void ChessGUI::checkGame() {
     if (board->getWinner() == "") {
         if (!board->isWhiteTurn()) {
             ai->makeMove();
-        }
-        if (board->isCheckedWhite() && !board->whiteCanMove()) {
-            board->setWinner("Black");
-        } else if (!board->isCheckedWhite() && !board->whiteCanMove()) {
-            board->setWinner("No one");
+            if (board->isCheckedWhite() && !board->whiteCanMove()) {
+                board->setWinner("Black");
+            } else if (!board->isCheckedWhite() && !board->whiteCanMove()) {
+                board->setWinner("No one");
+            }
         }
     } else {
         lblWinner->setText(board->getWinner() + " wins!");

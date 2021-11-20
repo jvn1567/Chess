@@ -47,13 +47,10 @@ public:
     bool isMovableTile(int row, int col) const;
     unordered_set<Tile, HashTile> getMovableTiles() const;
     priority_queue_piece getCaptured() const;
-
-    void selectPiece(const Tile& tile);
+    void selectPiece(const Tile& tile, bool filterMoves = true);
     void tryMove(const Tile& tile);
     void movePiece(const Tile& tile);
-
-    //TODO: fix
-    bool whiteCanMove() const;
+    bool whiteCanMove();
 };
 
 #endif

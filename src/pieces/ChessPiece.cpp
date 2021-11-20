@@ -5,14 +5,6 @@ ChessPiece::ChessPiece(bool white) {
     this->white = white;
 }
 
-string ChessPiece::getName() const {
-    return "ChessPiece";
-}
-
-int ChessPiece::getValue() const {
-    return 0;
-}
-
 bool ChessPiece::isWhite() const {
     return white;
 }

@@ -10,9 +10,9 @@ private:
 public:
     Pawn(bool isWhite);
     unordered_set<Tile, HashTile> getMoves(const vector<vector<ChessPiece*>>& board,
-            int row, int col) const override;
-    string getName() const override;
-    int getValue() const override;
+            int row, int col) const;
+    string getName() const;
+    int getValue() const;
     void setMoved(bool hasMoved);
     bool getHasMoved() const;
 };
