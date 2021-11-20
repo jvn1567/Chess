@@ -1,19 +1,23 @@
 # Chess
 This program runs a chess game against an AI.
 
-![ezgif com-gif-maker (3)](https://user-images.githubusercontent.com/56368354/126096531-011c6e6a-cc76-4689-bed3-32f5c53df23c.gif)
+![ezgif com-gif-maker (9)](https://user-images.githubusercontent.com/56368354/142670646-611e3c6d-c7dc-4adc-bca2-c4248feab302.gif)
 
 # Player Help Features
-The player clicks on the piece they wish to move, will generate colored guides.<br/>
-  -The selected piece will be displayed with an orange tile border.<br/>
-  -Movable tiles will be displayed with a yellow tile border.<br/>
-  -Movable tiles containing enemy pieces will be displayed with a red tile border.<br/>
-  -If your king is currently being checked, the tile under it will be completely red.
+Simple colored indicators and elements appear to help display moves and game state to the player.
+  - The selected piece will be displayed with an orange tile border.
+  - Movable tiles will be displayed with a yellow tile border.
+  - Movable tiles containing enemy pieces will be displayed with a red tile border.
+  - If the player's king is currently being checked, the tile under it will be completely red.
+  - Captured pieces for both sides are displayed separated and in order of piece value.
   
 # AI
-The AI will control black pieces, and choose its moves by using a minimax algorithm. All moves up to a specified depth are explored and the board state values are stored in a tree. The minimum value of a branch will be passed up when optimizing for black side's turn, and the maximum for white's turn. The AI will then add all moves with the best final path to a vector to choose randomly from.
+The AI will control black pieces, and choose its moves by using a minimax algorithm. Moves up to a specified depth (default 3) are explored, and board states are scored on the total value of all pieces currently present. Alpha-beta pruning is implemented to reduce the number of moves that must be calculated by keeping track of the best possible board scores for both players.
 
-For example, take a depth of 2 and the move values {{5, 5, 5}, {2, 5, 2}, {3, 7, 3}}. This corresponds to simulating one black turn and one white turn. On the bottom branches, the program will optimize to maximize the board values, which would be assuming that the player makes the best possible move for themselves. These maximums are passed up the tree to obtain {5, 5, 7}. Now the program optimizes for black side, and will select the mimimum. Therefore, the first and second moves in the tree are most optimal and the AI will select from one of the two to make.
+# Future Work
+Some noticeable issues occur when the AI's possible moves all result in the same score, causing the AI to occasionally just move back and forth until the player's pieces approach closer. This is due to the current algorithm selecting the first out of all tied moves, since pruned branches may end up tied in score with the actual optimal move. This can be mitigated by implementing a positional map, with values for each board location. Values from this map would be added to the board score to force pieces to favor moving towards certain positions on the board and help break tied scores.
+
+The current algorithm also struggles to finish off the player, as it has no sense of how to checkmate the player's king. This was partially mitigated by inflating the value of the king piece, and could possibly be improved further by having the AI favor moves that result in capturing enemy pieces. However, this may have a side effect of making the AI recklessly sacrifice its pieces.
 
 # Libraries
 The GUI is built using Simple Graphics Library (SGL) by Marty Stepp, which can be found [here](https://github.com/stepp/sgl).
