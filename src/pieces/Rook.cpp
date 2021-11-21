@@ -1,3 +1,14 @@
+/**
+ * @file Rook.cpp
+ * @author John Nguyen (https://github.com/jvn1567)
+ * @brief This file implements the Rook class.
+ * @version 0.1
+ * @date 2021-11-21
+ * 
+ * @copyright Copyright (c) 2021
+ * 
+ */
+
 #include "Rook.h"
 
 Rook::Rook(bool isWhite) : ChessPiece(isWhite) {}

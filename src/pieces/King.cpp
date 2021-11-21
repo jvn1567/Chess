@@ -1,3 +1,14 @@
+/**
+ * @file King.cpp
+ * @author John Nguyen (https://github.com/jvn1567)
+ * @brief This file implements the King class.
+ * @version 0.1
+ * @date 2021-11-21
+ * 
+ * @copyright Copyright (c) 2021
+ * 
+ */
+
 #include "King.h"
 
 King::King(bool isWhite) : ChessPiece(isWhite) {}

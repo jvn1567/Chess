@@ -1,3 +1,14 @@
+/**
+ * @file Knight.cpp
+ * @author John Nguyen (https://github.com/jvn1567)
+ * @brief This file implements the Knight class.
+ * @version 0.1
+ * @date 2021-11-21
+ * 
+ * @copyright Copyright (c) 2021
+ * 
+ */
+
 #include "Knight.h"
 
 Knight::Knight(bool isWhite) : ChessPiece(isWhite) {}

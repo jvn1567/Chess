@@ -1,3 +1,14 @@
+/**
+ * @file ChessPiece.cpp
+ * @author John Nguyen (https://github.com/jvn1567)
+ * @brief This file implements the ChessPiece class.
+ * @version 0.1
+ * @date 2021-11-21
+ * 
+ * @copyright Copyright (c) 2021
+ * 
+ */
+
 #include <cmath>
 #include "ChessPiece.h"
 
@@ -31,8 +42,6 @@ void ChessPiece::getLine(const vector<vector<ChessPiece*>>& board, int row, int 
         }
     }
 }
-
-ChessPiece::~ChessPiece() {}
 
 // largest value first, first alphabetical name if tied
 bool PieceCompare::operator()(const ChessPiece* left, const ChessPiece* right) {

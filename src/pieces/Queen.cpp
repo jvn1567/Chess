@@ -1,3 +1,14 @@
+/**
+ * @file Queen.cpp
+ * @author John Nguyen (https://github.com/jvn1567)
+ * @brief This file implements the Queen class.
+ * @version 0.1
+ * @date 2021-11-21
+ * 
+ * @copyright Copyright (c) 2021
+ * 
+ */
+
 #include "Queen.h"
 
 Queen::Queen(bool isWhite) : ChessPiece(isWhite) {}

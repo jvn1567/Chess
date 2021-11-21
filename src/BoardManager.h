@@ -10,7 +10,6 @@ using namespace std;
 class BoardManager {
 private:
     vector<vector<ChessPiece*>> board;
-    //game handlers
     bool whiteIsChecked;
     bool blackIsChecked;
     bool whiteTurn;
