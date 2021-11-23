@@ -1,3 +1,14 @@
+/**
+ * @file ChessGUI.cpp
+ * @author John Nguyen (https://github.com/jvn1567)
+ * @brief This file implements the methods of the ChessGUI class.
+ * @version 0.1
+ * @date 2021-11-22
+ * 
+ * @copyright Copyright (c) 2021
+ * 
+ */
+
 #include <unordered_set>
 #include "gevent.h"
 #include "gfont.h"

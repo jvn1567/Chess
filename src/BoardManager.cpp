@@ -1,3 +1,14 @@
+/**
+ * @file BoardManager.cpp
+ * @author John Nguyen (https://github.com/jvn1567)
+ * @brief This file implements the methods of BoardManager.h.
+ * @version 0.1
+ * @date 2021-11-22
+ * 
+ * @copyright Copyright (c) 2021
+ * 
+ */
+
 #include "BoardManager.h"
 #include "King.h"
 #include "Queen.h"

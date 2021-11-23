@@ -42,6 +42,7 @@ protected:
      * Constructor for a ChessPiece object.
      */
     ChessPiece(bool white);
+    
 public:
     /**
      * @brief Returns a set of tiles this piece can move to.
@@ -75,6 +76,12 @@ public:
      * @return false if black
      */
     bool isWhite() const;
+
+    /**
+     * @brief Destructor for ChessPiece object.
+     * 
+     */
+    virtual ~ChessPiece();
 };
 
 /**

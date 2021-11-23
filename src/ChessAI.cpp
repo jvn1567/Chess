@@ -1,3 +1,14 @@
+/**
+ * @file ChessAI.cpp
+ * @author John Nguyen (https://github.com/jvn1567)
+ * @brief This file implements the methods in ChessAI.h.
+ * @version 0.1
+ * @date 2021-11-22
+ * 
+ * @copyright Copyright (c) 2021
+ * 
+ */
+
 #include "ChessAI.h"
 #include "Pawn.h"
 #include "Queen.h"
@@ -11,7 +22,6 @@ MinimaxNode::MinimaxNode(const Tile& start, const Tile& end, int value) {
 
 ChessAI::ChessAI(BoardManager* board) {
     this->board = board;
-    targetDepth = 4;
 }
 
 void ChessAI::clearChildren(MinimaxNode*& node, int depth) {
@@ -24,7 +34,7 @@ void ChessAI::clearChildren(MinimaxNode*& node, int depth) {
 }
 
 int ChessAI::minimax(MinimaxNode*& node, int alpha, int beta, int depth, bool isWhite) {
-    if (depth == targetDepth) {
+    if (depth == TARGET_DEPTH) {
         node->value = board->getBoardValue();
         return board->getBoardValue();
     }

@@ -43,6 +43,8 @@ void ChessPiece::getLine(const vector<vector<ChessPiece*>>& board, int row, int 
     }
 }
 
+ChessPiece::~ChessPiece() {}
+
 // largest value first, first alphabetical name if tied
 bool PieceCompare::operator()(const ChessPiece* left, const ChessPiece* right) {
     if (abs(left->getValue()) == abs(right->getValue())) {
